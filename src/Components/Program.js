@@ -1,24 +1,19 @@
 import React from 'react'
 import headerImg from "../assets/images/program.png"
-import Table from "../Components/Table"
-import rasporedSlika from "../assets/images/rasporedStrana.png"
+import Table from "./Table"
+
 const Program = () => {
   return (
     <>
-        <section className='flex flex-col min-h-[100vh]'>
-            <header className='mx-auto pt-20'>
-                <h1 className='text-white text-8xl font-bold absolute z-20'>PRogram:</h1>
-                <div className='pt-20'>
-                    <img className="rotate-180 w-[440px]" src={headerImg} alt="" />
+        <section className='flex flex-col w-full h-full gap-8'>
+            <header className='pt-16 mx-auto'>
+                <h1 className='absolute z-20 text-6xl font-bold text-white lg:text-8xl'>PRogram:</h1>
+                <div className='pt-12 lg:pt-20'>
+                    <img className="rotate-180 w-[270px] lg:w-[440px]" src={headerImg} alt="" />
                 </div>
             </header>
-            <Table />
-            <div className='absolute pt-72'>
-                <img className='h-full' src={rasporedSlika} alt="" />
-            </div>
-            <div className='absolute pt-72 right-0'>
-                <img className='h-full img-hor' src={rasporedSlika} alt="" />
-            </div>
+            <Table datum="25.4 Četvrtak" partyTime="21:00h - 02:00h" partyLocation="PARTY U LOVE BARA"/>
+            <Table datum="26.4 Petak"/>
         </section>
     </>
   )
