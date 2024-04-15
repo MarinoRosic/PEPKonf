@@ -40,9 +40,9 @@ const HeroSection = () => {
             {/* <div className='absolute w-full h-full -z-20'>
                 <img src={testSvg} className='mx-[400px] rotate-90 h-[950px]' alt="" />
             </div> */}
-            <motion.p variants={item} className='font-semibold text-4xl md:text-5xl text-[#db9bd5] text-center text-opacity-70'>PR</motion.p>
+            <motion.p variants={item} className='font-semibold text-4xl md:text-5xl text-[#db9bd5] text-center text-opacity-70 pt-20 lg:pt-0'>PR</motion.p>
             <div className='max-sm:hidden'></div>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center'>NOVINARSTVO</motion.p>
+            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center pt-10 lg:pt-0'>NOVINARSTVO</motion.p>
             <div className='max-sm:hidden'></div>
             <motion.img 
             className="" src={pepLogo}
@@ -56,9 +56,9 @@ const HeroSection = () => {
             }} 
             ></motion.img>
             <div className='max-sm:hidden'></div>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl text-[#db9bd5] text-opacity-60 text-center'>EVENT MENADŽMENT</motion.p>
+            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl text-[#db9bd5] text-opacity-60 text-center pb-10 lg:pb-0'>EVENT MENADŽMENT</motion.p>
             <div className='max-sm:hidden'></div>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center text-opacity-20'>JAVNI NASTUP</motion.p>
+            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center text-opacity-20 pb-20 lg:pb-0'>JAVNI NASTUP</motion.p>
         </motion.section>
     </>
   )

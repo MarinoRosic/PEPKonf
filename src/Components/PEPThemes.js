@@ -32,7 +32,7 @@ const PEPThemes = () => {
             }}
             >Event menadžment</motion.p>
             <motion.p 
-            className='text-6xl span font-bold lg:pl-20 align-text-top pl-8 lg:pb-52'
+            className='text-6xl span font-semibold lg:pl-20 align-text-top pl-8 lg:pb-52'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -41,7 +41,7 @@ const PEPThemes = () => {
             }}
             >Novinarstvo</motion.p>
             <motion.p 
-            className='text-5xl text-white font-light pl-20 text-center lg:pb-52'
+            className='text-5xl text-white font-light pl-16 text-center lg:pb-52'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
