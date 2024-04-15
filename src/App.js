@@ -6,6 +6,7 @@ import HeroSection from './Components/HeroSection';
 import LecturersSection from './Components/LecturersSection';
 import Program from './Components/Program';
 import WWWSection from './Components/WWWSection';
+import PEPThemes from './Components/PEPThemes';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <HeroSection />
       <AboutPEPSection />
       <WWWSection />
+      <PEPThemes />
       <LecturersSection />
       <Program />
       <AboutUsSection />

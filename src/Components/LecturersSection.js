@@ -7,7 +7,7 @@ import testPredavaca3 from "../assets/images/predavac3.png"
 const LecturersSection = () => {
   return (
     <>
-        <section className='flex flex-row flex-wrap justify-between h-full gap-x-32 font-main lg:px-10'>
+        <section className='flex flex-row flex-wrap justify-between h-full gap-x-32 font-main lg:px-10 pt-20'>
             <Lecturer img={testPredavaca} lecturer="LZux"/>
             <Lecturer img={testPredavaca2} lecturer="Predavač 2"/>
             <Lecturer img={testPredavaca3} lecturer="Predavač 3"/>

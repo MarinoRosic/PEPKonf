@@ -17,7 +17,7 @@ const ContactUs = () => {
                     <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={90}/></a>
                 </div>
                 <div className='text-white'>
-                    <p className='text-3xl lg:text-6xl'>pep.konferencija@gmail.com</p>
+                    <p className='text-2xl lg:text-6xl'>pep.konferencija@gmail.com</p>
                 </div>
             </div>
         </section>
