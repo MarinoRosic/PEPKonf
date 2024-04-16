@@ -5,12 +5,12 @@ module.exports = {
   ],
   theme: {
     fontFamily:{
-      'main' : ['Roboto','sans-serif']
+      'lalezar' : ['lalezar','serif']
     },
     extend: {
       backgroundImage:{
-        'about-BG': "url('./assets/images/aboutPEP.png')",
-        'about-Mobitel': "url('./assets/images/mobitel.png')"
+        'about-BG': "url('./assets/images/aboutPEP2.png')",
+        'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')"
       }
     }
   },

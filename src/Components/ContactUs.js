@@ -1,17 +1,30 @@
 import { React, useRef} from 'react'
 import { FaInstagram, FaFacebook} from 'react-icons/fa'
 import { motion, useInView } from "framer-motion"
+import emailjs from "@emailjs/browser"
 
 const ContactUs = () => {
     const ref = useRef(null);
     const isInView = useInView(ref);
+    const sendEmail = (e) => {
+      e.preventDefault();
+      emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_PUBLIC_KEY).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
+      e.target.reset();
+    }
   return (
     <>
         <motion.section 
         className='h-[100vh] flex flex-col'
         >
             <motion.header 
-            className='pt-20 mx-auto lg:pt-32'
+            className='pt-14 mx-auto lg:pt-24'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -22,7 +35,7 @@ const ContactUs = () => {
                 <h1 className='font-extrabold text-white text-7xl'>Kontakt</h1>
             </motion.header>
             <motion.div 
-            className='flex flex-col items-center pt-20 mx-auto gap-y-20'
+            className='flex flex-col items-center pt-20 mx-auto gap-y-14'
             >
                 <motion.div 
                 className='text-white'
@@ -38,14 +51,30 @@ const ContactUs = () => {
                 <motion.div 
                 className='text-white'
                 ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(-100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
-              }}
+                style={{
+                    transform: isInView ? "none" : "translateX(-100%)",
+                    opacity: isInView ? 1 : 0,
+                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                }}
                 >
                     <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={90}/></a>
                 </motion.div>
+                <form action="" onSubmit={sendEmail}>
+                  <motion.div 
+                  className='flex flex-col  lg:gap-x-4 gap-y-4 items-center'
+                  ref={ref}
+                  style={{
+                      transform: isInView ? "none" : "translateX(-100%)",
+                      opacity: isInView ? 1 : 0,
+                      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                  }}
+                  >
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="name" id="name" placeholder=' Ime'/>
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="surname" id="surname" placeholder=' Prezime' />
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="email" name="email" id="email" placeholder=' E-mail'/>
+                      <button className='tracking-widest h-12 rounded-full w-[200px] bg-[#772F6F] px-[42px] text-white  font-semibold outline-none transition-all duration-300 content-center' type="submit">Dolazim!</button>
+                  </motion.div>
+                </form>
                 <motion.div 
                 ref={ref}
                 style={{
