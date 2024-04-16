@@ -7,6 +7,7 @@ import LecturersSection from './Components/LecturersSection';
 import Program from './Components/Program';
 import WWWSection from './Components/WWWSection';
 import PEPThemes from './Components/PEPThemes';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <AboutUsSection />
       <Organizers />
       <ContactUs />
+      <ScrollToTop />
       </div>
     </>
   );

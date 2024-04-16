@@ -14,7 +14,7 @@ const AboutPEPSection = () => {
                 style={{
                     transform: isInView ? "none" : "translateX(-100%)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1)"
                 }}
                 >
                     <h1 className='overflow-hidden text-3xl font-extrabold leading-normal text-white md:text-7xl text-balance'>
@@ -27,7 +27,7 @@ const AboutPEPSection = () => {
                 style={{
                     transform: isInView ? "none" : "translateX(100%)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 1.3s"
+                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1)"
                 }}>
                     <p className='text-3xl font-semibold text-white'>
                      <span className='span'>PR </span> | novinarstvo | iskustvo | <span className='span'>PR</span>iče
@@ -38,7 +38,7 @@ const AboutPEPSection = () => {
                 style={{
                     transform: isInView ? "none" : "translateX(-100%)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 2s"
+                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
                     <p className='text-3xl font-extrabold text-white'><span className='span'>TRAVANJ</span> 25.-26. 2024 </p>
                 </motion.div>
@@ -48,7 +48,7 @@ const AboutPEPSection = () => {
                 style={{
                     transform: isInView ? "none" : "translateX(-100%)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 2.8s"
+                    transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
                 }}>
                     <p className='text-3xl font-extrabold text-white'>• Sveučilišni kampus</p>
                 </motion.div>
