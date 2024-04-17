@@ -35,7 +35,7 @@ const ContactUs = () => {
                 <h1 className='font-extrabold text-white text-7xl'>Kontakt</h1>
             </motion.header>
             <motion.div 
-            className='flex flex-col items-center pt-20 mx-auto gap-y-14'
+            className='flex flex-col items-center pt-20 mx-auto gap-y-10'
             >
                 <motion.div 
                 className='text-white'
@@ -46,7 +46,7 @@ const ContactUs = () => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
               }}
                 >
-                    <a className='ikona' href="https://www.facebook.com/pep.konf"><FaFacebook size={90}/></a>
+                    <a className='ikona' href="https://www.facebook.com/pep.konf"><FaFacebook size={70}/></a>
                 </motion.div>
                 <motion.div 
                 className='text-white'
@@ -57,7 +57,7 @@ const ContactUs = () => {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
                 }}
                 >
-                    <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={90}/></a>
+                    <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={70}/></a>
                 </motion.div>
                 <form action="" onSubmit={sendEmail}>
                   <motion.div 
