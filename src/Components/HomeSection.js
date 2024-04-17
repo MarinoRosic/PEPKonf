@@ -7,7 +7,7 @@ const HomeSection = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='bg-stolice-BG h-[100vh] overflow-hidden bg-center md:bg-cover flex flex-col items-center'>
+        <section className='bg-stolice-BG h-[100vh] overflow-hidden bg-center md:bg-cover flex flex-col items-center gap-y-6'>
             <motion.div 
             className='mx-auto h-[33%] content-center'
             initial={{ opacity: 0, scale: 0.6 }}
