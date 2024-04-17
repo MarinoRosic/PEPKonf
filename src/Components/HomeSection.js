@@ -7,7 +7,7 @@ const HomeSection = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='bg-stolice-BG h-[100vh] overflow-hidden bg-center md:bg-cover flex flex-col items-center gap-y-5'>
+        <section className='bg-stolice-BG h-[100vh] overflow-hidden bg-center md:bg-cover flex flex-col items-center'>
             <motion.div 
             className='mx-auto h-[33%] content-center'
             initial={{ opacity: 0, scale: 0.6 }}
@@ -15,7 +15,7 @@ const HomeSection = () => {
             viewport={{once: true}}
             transition={{
               duration: 0.2,
-              ease: [0, 0.71, 0.2, 1.01],
+              ease: [0, 0.80, 0.2, 1.01],
               scale: {
                 type: "spring",
                 damping: 5,
@@ -28,23 +28,25 @@ const HomeSection = () => {
             </motion.div>
             <motion.div 
             className='h-[33%] content-center'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(-100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.85, 1) 0.4s"
-            }}
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            transition={{
+            ease: "linear",
+            duration: 1,
+            x: { duration: 1, type: "tween" }
+            }} 
             >
                 <h1 className='sporka text-5xl md:text-7xl  lg:text-9xl mx-auto text-center'>Iskustvo i znanje <br /> iz PRve ruke.</h1>    
             </motion.div>
             <motion.div 
             className='h-[33%] content-center'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateY(100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.85, 1) 0.7s"
-            }}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{
+            ease: "linear",
+            duration: 1,
+            x: { duration: 0.9, type: "tween" }
+            }} 
             >
                 <p className='text-2xl font-thin text-white italic text-center'>25. - 26. travnja 2024. <br /> Sveučilišni kampus u Dubrovniku</p>
             </motion.div>
