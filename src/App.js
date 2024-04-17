@@ -8,12 +8,14 @@ import Program from './Components/Program';
 import WWWSection from './Components/WWWSection';
 import PEPThemes from './Components/PEPThemes';
 import ScrollToTop from './Components/ScrollToTop';
+import Presentation from './Components/Presentation';
 
 function App() {
   return (
     <>
     <div className='w-full h-full'>
       <HeroSection />
+      <Presentation />
       <AboutPEPSection />
       <WWWSection />
       <PEPThemes />

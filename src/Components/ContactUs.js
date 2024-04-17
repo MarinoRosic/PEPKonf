@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser"
 
 const ContactUs = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
     const sendEmail = (e) => {
       e.preventDefault();
       emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_PUBLIC_KEY).then(
@@ -21,7 +21,7 @@ const ContactUs = () => {
   return (
     <>
         <motion.section 
-        className='h-[100vh] flex flex-col'
+        className='h-[100vh] flex flex-col overflow-hidden pb-28'
         >
             <motion.header 
             className='pt-14 mx-auto lg:pt-24'
@@ -40,7 +40,7 @@ const ContactUs = () => {
                 <motion.div 
                 className='text-white'
                 ref={ref}
-            style={{
+                style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"

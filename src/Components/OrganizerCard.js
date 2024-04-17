@@ -7,7 +7,7 @@ const OrganizerCard = (props) => {
   const isInView = useInView(ref);
   return (
     <>
-    <div className='flex flex-col px-8 lg:px-10 pt-8 pb-8 border-b-2 border-[#772F6F] lg:flex-row w-full'>
+    <div className='flex flex-col px-8 lg:px-10 pt-8 pb-8 border-b-2 border-[#772F6F] lg:flex-row w-full overflow-hidden'>
         <div className='lg:w-[50%]'>
             <motion.div 
             className='h-[350px] w-[350px] rounded-full bg-black border-[#772F6F] border-[13px] mx-auto'
