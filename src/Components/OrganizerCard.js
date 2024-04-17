@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion"
 
 const OrganizerCard = (props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, {once: true});
   return (
     <>
     <div className='flex flex-col px-8 lg:px-10 pt-8 pb-8 border-b-2 border-[#772F6F] lg:flex-row w-full overflow-hidden'>

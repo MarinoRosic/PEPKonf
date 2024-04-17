@@ -5,7 +5,7 @@ const WWWCard = (props) => {
     const pitanje = props.question
     const odgovor = props.answer
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
   return (
     <>
         <motion.div 

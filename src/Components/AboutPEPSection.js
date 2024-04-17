@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 const AboutPEPSection = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
   return (
     <>
         <section className='bg-about-Mobitel bg-cover bg-center bg-no-repeat lg:bg-about-BG flex flex-col h-[100vh] font-main w-full overflow-hidden'>
@@ -17,7 +17,7 @@ const AboutPEPSection = () => {
                     transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1)"
                 }}
                 >
-                    <h1 className='overflow-hidden text-3xl font-extrabold leading-normal text-white md:text-7xl text-balance'>
+                    <h1 className='overflow-hidden text-4xl font-extrabold leading-normal text-white md:text-7xl text-balance'>
                         Prva  konferencija u <br /> <u className='span'><span className='span'>Dubrovniku</span></u> koja okuplja medijske i komunikacijske profesionalce.
                     </h1>
                 </motion.div>

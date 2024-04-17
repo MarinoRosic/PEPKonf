@@ -40,25 +40,29 @@ const HeroSection = () => {
             {/* <div className='absolute w-full h-full -z-20'>
                 <img src={testSvg} className='mx-[400px] rotate-90 h-[950px]' alt="" />
             </div> */}
-            <motion.p variants={item} className='font-semibold text-3xl md:text-5xl roza text-opacity-40'>PR</motion.p>
+            {/* <motion.p variants={item} className='font-semibold text-3xl md:text-5xl roza text-opacity-40'>PR</motion.p>
             <motion.p variants={item} className='font-semibold text-3xl md:text-5xl span text-opacity-90'>NOVINARSTVO</motion.p>
             <motion.p variants={item} className='font-semibold text-2xl md:text-4xl roza text-opacity-10'>KARIJERNI PUT</motion.p>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span'>POLITIKA I PR</motion.p>
+            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span'>POLITIKA I PR</motion.p> */}
+            <div className='max-sm:hidden'></div>
+            <div className='max-sm:hidden'></div> 
+            <div className='max-sm:hidden'></div>
+            <div className='max-sm:hidden'></div>
             <motion.img 
             className="z-50" src={pepLogo}
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 2.2,
+              delay: 0.1,
               ease: "easeIn",
-              duration: 2.2,
+              duration: 1.5,
               type: "spring"
             }} 
             ></motion.img>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl roza text-opacity-25'>DRUŠTVENE MREŽE</motion.p>
+            {/* <motion.p variants={item} className='font-semibold text-3xl md:text-4xl roza text-opacity-25'>DRUŠTVENE MREŽE</motion.p>
             <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-opacity-60 text-center'>EVENT MENADŽMENT</motion.p>
             <motion.p variants={item} className='font-semibold text-3xl md:text-4xl roza text-opacity-5'>NETWORKING</motion.p>
-            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center text-opacity-10'>JAVNI NASTUP</motion.p>
+            <motion.p variants={item} className='font-semibold text-3xl md:text-4xl span text-center text-opacity-10'>JAVNI NASTUP</motion.p> */}
         </motion.section>
     </>
   )

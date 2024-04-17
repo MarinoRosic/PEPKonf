@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion'
 
 const Table = (props) => {
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
   return (
     <>
         <section className='flex flex-col w-full lg:h-[100vh]'>

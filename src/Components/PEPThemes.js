@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 const PEPThemes = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
   return (
     <>
         <section className='grid h-[680px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden'>

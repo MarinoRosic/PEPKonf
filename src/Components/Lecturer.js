@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
 const Lecturer = (props) => {
     const image = props.img
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
   return (
     <motion.div 
     className='flex-1 pb-20'
