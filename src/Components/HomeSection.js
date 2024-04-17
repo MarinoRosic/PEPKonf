@@ -7,14 +7,21 @@ const HomeSection = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='bg-stolice-BG h-[100dvh] overflow-hidden bg-center md:bg-cover flex flex-col items-center gap-y-10'>
+        <section className='bg-stolice-BG h-[100vh] overflow-hidden bg-center md:bg-cover flex flex-col items-center gap-y-5'>
             <motion.div 
             className='mx-auto h-[33%] content-center'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
+            initial={{ opacity: 0, scale: 0.6 }}
+            whileInView={{opacity:1, scale: 1}}
+            viewport={{once: true}}
+            transition={{
+              duration: 0.2,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001
+              }
             }}
             >
                 <img className='h-[200px] w-[200px]' src={pepLogo} alt="" />
