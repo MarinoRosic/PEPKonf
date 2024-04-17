@@ -18,7 +18,7 @@ const WWWCard = (props) => {
         }}
         >
             <motion.h1 
-            className='text-[#772F6F] text-5xl pb-4 font-extrabold'
+            className='text-[#772F6F] text-3xl lg:text-5xl pb-4 font-extrabold'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -28,7 +28,7 @@ const WWWCard = (props) => {
             >
                 {pitanje}
             </motion.h1>
-            <p className='text-[#F0E2FF] text-2xl lg:text-3xl font-extrabold pb-20 overflow-hidden'>
+            <p className='text-[#F0E2FF] text-xl md:text-2xl lg:text-3xl font-extrabold pb-20 overflow-hidden'>
                 {odgovor}
             </p>
         </motion.div>

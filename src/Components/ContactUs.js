@@ -54,7 +54,7 @@ const ContactUs = () => {
                 style={{
                     transform: isInView ? "none" : "translateX(-100%)",
                     opacity: isInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}
                 >
                     <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={70}/></a>
@@ -69,9 +69,9 @@ const ContactUs = () => {
                       transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
                   }}
                   >
-                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="name" id="name" placeholder=' Ime'/>
-                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="surname" id="surname" placeholder=' Prezime' />
-                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="email" name="email" id="email" placeholder=' E-mail'/>
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="name" id="name" placeholder=' Ime' required />
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="text" name="surname" id="surname" placeholder=' Prezime' required />
+                      <input className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center' type="email" name="email" id="email" placeholder=' E-mail' required/>
                       <button className='tracking-widest h-12 rounded-full w-[200px] bg-[#772F6F] px-[42px] text-white  font-semibold outline-none transition-all duration-300 content-center' type="submit">Dolazim!</button>
                   </motion.div>
                 </form>
@@ -84,7 +84,7 @@ const ContactUs = () => {
                   }}
                 className='text-white'
                 >
-                    <p className='text-2xl lg:text-6xl'>pep.konferencija@gmail.com</p>
+                    <p className='text-2xl lg:text-5xl'>pep.konferencija@gmail.com</p>
                 </motion.div>
             </motion.div>
         </motion.section>

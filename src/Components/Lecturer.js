@@ -20,7 +20,7 @@ const Lecturer = (props) => {
             <img className='object-cover w-full h-full rounded-full' src={image} alt="" />
         </div>
         <div>
-            <p className='pt-5 text-xl font-bold text-center text-white tracking-widest'>{props.lecturer}</p>
+            <p className='pt-5 text-lg font-medium text-center text-white tracking-widest'>{props.lecturer}</p>
         </div>
         <div className='flex'>
             <div className='flex flex-row pt-3 mx-auto'>

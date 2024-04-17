@@ -10,7 +10,8 @@ module.exports = {
     extend: {
       backgroundImage:{
         'about-BG': "url('./assets/images/aboutPEP2.png')",
-        'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')"
+        'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')",
+        'stolice-BG' : "url('./assets/images/stoliceBG.png')"
       }
     }
   },

@@ -9,7 +9,7 @@ const Table = (props) => {
     <>
         <section className='flex flex-col w-full lg:h-[100vh]'>
             <motion.h1 
-            className='text-[#772F6F] text-4xl lg:text-6xl mx-auto pt-20 lg:pt-32 font-extrabold'
+            className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-20 lg:pt-32 font-extrabold'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -18,7 +18,7 @@ const Table = (props) => {
             }}
             >{props.datum}</motion.h1>
             <motion.div 
-            className='flex flex-col items-start px-12 pt-7 lg:mx-52 lg:pt-24'
+            className='flex flex-col items-start px-12 pt-20 lg:mx-52 lg:pt-24'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateY(100%)",
@@ -26,11 +26,11 @@ const Table = (props) => {
                 transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             >
-                <p className='pb-3 text-2xl text-white lg:text-4xl'><b>16:30</b> - okupljanje / ćakula </p>
-                <p className='pb-3 text-2xl text-white lg:text-4xl'><b>17:00</b> - početak PEP </p>
-                <p className='pb-3 text-2xl text-white lg:text-4xl'><b>17:10- PANEL </b> - novinari i poduzetnici</p>
-                <p className='pb-3 text-2xl text-white lg:text-4xl'><b>18:10 - PREDAVANJE </b>- Ante Kovačić - Strast ili biznis?</p>
-                <p className='pb-3 text-2xl text-white lg:text-4xl'><b>19:00 - KVIZ/KRAJ </b></p>     
+                <p className='pb-3 text-xl text-white lg:text-3xl'><b>16:30</b> - okupljanje / ćakula </p>
+                <p className='pb-3 text-xl text-white lg:text-3xl'><b>17:00</b> - početak PEP </p>
+                <p className='pb-3 text-xl text-white lg:text-3xl'><b>17:10- PANEL </b> - novinari i poduzetnici</p>
+                <p className='pb-3 text-xl text-white lg:text-3xl'><b>18:10 - PREDAVANJE </b>- Ante Kovačić - Strast ili biznis?</p>
+                <p className='pb-3 text-xl text-white lg:text-3xl'><b>19:00 - KVIZ/KRAJ </b></p>     
             </motion.div>
             <motion.div 
             className='z-10 pt-12 mx-auto font-extrabold md:pt-32 lg:pt-40'

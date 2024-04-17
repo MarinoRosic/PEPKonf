@@ -9,12 +9,15 @@ import WWWSection from './Components/WWWSection';
 import PEPThemes from './Components/PEPThemes';
 import ScrollToTop from './Components/ScrollToTop';
 import Presentation from './Components/Presentation';
+import HomeSection from './Components/HomeSection';
+import SeeYou from './Components/SeeYou';
 
 function App() {
   return (
     <>
     <div className='w-full h-full'>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HomeSection />
       <Presentation />
       <AboutPEPSection />
       <WWWSection />
@@ -24,6 +27,7 @@ function App() {
       <AboutUsSection />
       <Organizers />
       <ContactUs />
+      <SeeYou />
       <ScrollToTop />
       </div>
     </>

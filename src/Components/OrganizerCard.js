@@ -33,7 +33,7 @@ const OrganizerCard = (props) => {
             >{props.name}
             </motion.h2>
             <motion.p 
-            className='text-2xl font-medium text-white font-main'
+            className='text-xl font-medium text-white font-main'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",

@@ -10,6 +10,7 @@ const Presentation = () => {
             className='h-full flex items-center my-auto'
             initial={{ opacity: 0, scale: 0.6 }}
             whileInView={{opacity:1, scale: 0.9}}
+            viewport={{once: true}}
             transition={{
               duration: 0.3,
               ease: [0, 0.71, 0.2, 1.01],
@@ -21,7 +22,7 @@ const Presentation = () => {
               }
             }}
             >
-                <img className='mx-auto' src={presImageMob} alt="" />
+                <img className='mx-auto md:h-[850px] py-10' src={presImageMob} alt="" />
             </motion.div>
         </section>
     </>

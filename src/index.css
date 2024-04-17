@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-lalezar
+    @apply font-lalezar;
   }
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 .ikona:hover * {
-  color: #772F6F;
+  color: #772f6f;
 }
 
 .a {
@@ -29,10 +29,14 @@ body {
   transform: scaleX(-1);
 }
 
-.span{
-  color: #772F6F;
+.span {
+  color: #772f6f;
 }
 
-.roza{
+.roza {
   color: #db9bd5;
+}
+
+.sporka{
+  color: #F0E2FF;
 }
