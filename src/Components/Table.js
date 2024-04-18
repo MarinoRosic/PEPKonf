@@ -33,7 +33,7 @@ const Table = (props) => {
                 <p className='pb-3 text-xl text-white lg:text-3xl'><b>19:00 - KVIZ/KRAJ </b></p>     
             </motion.div>
             <motion.div 
-            className='z-10 pt-12 mx-auto font-extrabold md:pt-32 lg:pt-40'
+            className='z-10 pt-12 mx-auto font-extrabold md:pt-32 lg:pt-36'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",

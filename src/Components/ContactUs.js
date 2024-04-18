@@ -32,7 +32,7 @@ const ContactUs = () => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
               }}
             >
-                <h1 className='font-extrabold text-white text-7xl'>Kontakt</h1>
+                <h1 className='font-extrabold text-white text-5xl lg:text-8xl'>Kontakt</h1>
             </motion.header>
             <motion.div 
             className='flex flex-col items-center pt-20 mx-auto gap-y-10'

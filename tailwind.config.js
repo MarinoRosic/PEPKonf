@@ -11,7 +11,8 @@ module.exports = {
       backgroundImage:{
         'about-BG': "url('./assets/images/aboutPEP2.png')",
         'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')",
-        'stolice-BG' : "url('./assets/images/stoliceBG.png')"
+        'stolice-BG' : "url('./assets/images/stoliceBG.png')",
+        'stolice-BG-Mob' : "url('./assets/images/stoliceBG-Mobitel.png')"
       }
     }
   },

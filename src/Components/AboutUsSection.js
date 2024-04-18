@@ -8,7 +8,7 @@ const AboutUsSection = () => {
     <>
         <section className='flex flex-col h-full lg:h-[100vh] pt-32 lg:pt-8 overflow-hidden'>
             <header className='pt-32 mx-auto'>
-                <h1 className='font-extrabold text-white text-7xl lg:text-8xl'>O nama</h1>
+                <h1 className='font-extrabold text-white text-6xl lg:text-8xl'>O nama</h1>
             </header>
             <div className='flex flex-col flex-1 lg:flex-row'>
                 <div className='mx-auto my-auto sm:pt-10 lg:w-[40%]'>

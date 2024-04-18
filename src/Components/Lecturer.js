@@ -8,7 +8,7 @@ const Lecturer = (props) => {
     const isInView = useInView(ref, {once: true});
   return (
     <motion.div 
-    className='flex-1 pb-20'
+    className='flex-1'
     ref={ref}
     style={{
         transform: isInView ? "none" : "translateX(-100%)",
@@ -16,7 +16,7 @@ const Lecturer = (props) => {
         transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
     }}
     >
-        <div className='h-[300px] w-[300px] rounded-full bg-black border-[#772F6F] border-[13px] mx-auto'>
+        <div className='h-[250px] w-[250px] rounded-full bg-black border-[#772F6F] border-[13px] mx-auto'>
             <img className='object-cover w-full h-full rounded-full' src={image} alt="" />
         </div>
         <div>
