@@ -23,11 +23,11 @@ const AboutUsSection = () => {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
                 }}
                 >
-                    <p className='px-10 pt-10 text-xl text-white text-balance font-main'>Početkom 2022. ekipa studenata s Odjela za komunikologiju na Sveučilištu u Dubrovniku, odlučila je zagrebati ispod površine PR-a. Tako su skoknuli do Zagreba s projektom “Posjet u PR agencije - PR iz prve ruke”. Ali, to nije bilo dovoljno. 
+                    <p className='px-10 pt-10 text-lg text-white text-balance font-main'>Početkom 2022. ekipa studenata s Odjela za komunikologiju na Sveučilištu u Dubrovniku, odlučila je zagrebati ispod površine PR-a. Tako su skoknuli do Zagreba s projektom “Posjet u PR agencije - PR iz prve ruke”. Ali, to nije bilo dovoljno. 
                         Na jednoj kavi,  jedna od članica je dobila ideju - <u>donijeti iskustvo</u>  u Dubrovnik. 
                         </p> 
                         <br /><br />
-                    <p className='px-10 text-xl text-white text-balance font-main'>
+                    <p className='px-10 text-lg text-white text-balance font-main'>
                         I eto ih danas, s PEP Konferencijom, gdje ludilo i hrabrost rastu iz godine u godinu. Ideja koja je prerasla iz šalice kave sada osvaja Dubrovnik!
                     </p>    
                 </motion.div>

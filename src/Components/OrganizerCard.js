@@ -23,7 +23,7 @@ const OrganizerCard = (props) => {
         </div>
         <div className='pt-10 lg:w-[50%]'>
             <motion.h2 
-            className='pb-10 text-3xl font-extrabold text-white span'
+            className='pb-10 text-3xl text-white span'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
@@ -33,7 +33,7 @@ const OrganizerCard = (props) => {
             >{props.name}
             </motion.h2>
             <motion.p 
-            className='text-xl font-medium text-white font-main'
+            className='text-lg text-white'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
