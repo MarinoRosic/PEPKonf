@@ -9,7 +9,7 @@ const WWWCard = (props) => {
   return (
     <>
         <motion.div 
-        className='content-center px-7'
+        className='content-center'
         ref={ref}
         style={{
             transform: isInView ? "none" : "translateX(100%)",

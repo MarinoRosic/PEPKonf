@@ -6,11 +6,11 @@ const PEPThemes = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='grid h-[680px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden'>
+        <section className='grid h-[500px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden'>
             <div className='max-sm:hidden'></div>
             <motion.div 
             className='overflow-hidden'>
-                <h1 className='text-white text-6xl lg:text-7xl font-bold text-center  content-center lg:pt-24'>PEP teme:</h1>
+                <h1 className='text-white text-5xl lg:text-7xl font-bold text-center content-center lg:pt-24'>PEP teme:</h1>
             </motion.div>
             <div className='max-sm:hidden'></div>
             <motion.p 
@@ -19,7 +19,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
             }}
             >Odnosi s javnošću</motion.p>
             <motion.p 
@@ -28,7 +28,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
             }}
             >Event menadžment</motion.p>
             <motion.p 
@@ -37,7 +37,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
             }}
             >Novinarstvo</motion.p>
             <motion.p 
@@ -46,7 +46,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.7s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
             }}
             >Društvene mreže</motion.p>
             <motion.p 
@@ -55,7 +55,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             >Poduzetništvo</motion.p>
             <motion.p 
@@ -64,7 +64,7 @@ const PEPThemes = () => {
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
             }}
             >Politika i PR</motion.p>
         </section>
