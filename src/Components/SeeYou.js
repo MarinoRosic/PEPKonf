@@ -8,8 +8,8 @@ const SeeYou = () => {
   return (
     <>
         <section className='flex flex-col items-center justify-center overflow-hidden '>
-            <div className='relative w-full content-center '>
-                <img className='w-full' src={stolice} alt="" />   
+            <div className='relative w-full h-full content-center '>
+                <img className='w-full xl:h-[800px]' src={stolice} alt="" />   
             </div>
             <motion.div 
             className='absolute flex items-center overflow-hidden'

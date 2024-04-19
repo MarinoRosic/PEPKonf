@@ -35,7 +35,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <motion.div
           onClick={scrollToTop}
-          className="fixed bg-[#772F6F] w-[55px] h-[55px] rounded bottom-3 right-3 lg:bottom-5 lg:right-5"
+          className="fixed bg-[#772F6F] w-[55px] h-[55px] rounded right-2 bottom-11 lg:right-4"
 
           initial={{ x: "-100%" }}
             animate={{ x: 0 }}

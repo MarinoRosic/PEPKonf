@@ -21,10 +21,10 @@ const ContactUs = () => {
   return (
     <>
         <motion.section 
-        className='h-[100vh] flex flex-col overflow-hidden pb-28'
+        className='h-[100vh] flex flex-col overflow-hidden lg:pb-32'
         >
             <motion.header 
-            className='pt-14 mx-auto lg:pt-24'
+            className='pt-14 mx-auto lg:pt-16'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -84,7 +84,7 @@ const ContactUs = () => {
                   }}
                 className='text-white'
                 >
-                    <p className='text-2xl lg:text-5xl'>pep.konferencija@gmail.com</p>
+                    <p className='text-2xl lg:text-5xl pt-10 md:pt-0'>pep.konferencija@gmail.com</p>
                 </motion.div>
             </motion.div>
         </motion.section>
