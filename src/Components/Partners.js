@@ -22,7 +22,7 @@ const Partners = () => {
                 <div className='flex flex-row flex-grow h-full '>
                     <p className='text-sm span font-thin w-[33%] justify-center text-left content-center'><a href="">Privacy Policy</a></p>
                     <p className='w-[33%] text-sm span text-center justify-center content-center'>Copyright © 2024 PEP Konf</p>
-                    <p className='span font-thin text-sm w-[33%] justify-center text-right content-center'>Made by <a href=""><span className='text-[#F0E2FF]'>AFDU</span></a></p>
+                    <p className='span font-thin text-sm w-[33%] justify-center text-right content-center'>Made by <a href="https://afdu.dev"><span className='text-[#F0E2FF]'>AFDU</span></a></p>
                 </div>
             </div>
         </section>
