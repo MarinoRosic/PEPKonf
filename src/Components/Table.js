@@ -1,24 +1,24 @@
 import {React, useRef} from 'react'
-import rasporedSlika from "../assets/images/rasporedStrana.png"
+// import rasporedSlika from "../assets/images/rasporedStrana.png"
 import { motion, useInView } from 'framer-motion'
 
-const Table = (props) => {
+const Table = ({datum, day, partyTime, partyLocation}) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true});
   return (
     <>
         <section className='flex flex-col w-full lg:h-[100vh]'>
             <motion.h1 
-            className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-20 lg:pt-32 font-extrabold'
+            className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-16 lg:pt-28 font-extrabold'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
-            >{props.datum}</motion.h1>
+            >{datum}</motion.h1>
             <motion.div 
-            className='flex flex-col items-start px-12 pt-20 lg:mx-52 lg:pt-24'
+            className='flex flex-col items-start px-12 pt-12 lg:mx-52 lg:pt-12'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateY(100%)",
@@ -26,14 +26,13 @@ const Table = (props) => {
                 transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             >
-                <p className='pb-3 text-xl text-white lg:text-3xl'><b>16:30</b> - okupljanje / ćakula </p>
-                <p className='pb-3 text-xl text-white lg:text-3xl'><b>17:00</b> - početak PEP </p>
-                <p className='pb-3 text-xl text-white lg:text-3xl'><b>17:10- PANEL </b> - novinari i poduzetnici</p>
-                <p className='pb-3 text-xl text-white lg:text-3xl'><b>18:10 - PREDAVANJE </b>- Ante Kovačić - Strast ili biznis?</p>
-                <p className='pb-3 text-xl text-white lg:text-3xl'><b>19:00 - KVIZ/KRAJ </b></p>     
+                {day.map((items, index) => {
+                    const {time, tema} = items
+                    return <p className='z-50 pb-3 text-white text-md lg:text-3xl' key={index}>{time} - <span className='text-md lg:text-2xl roza'>{tema}</span></p>
+                })}
             </motion.div>
             <motion.div 
-            className='z-10 pt-12 mx-auto font-extrabold md:pt-32 lg:pt-36'
+            className='z-10 pt-12 pb-5 border-b-[#db9bd5] border-b-4 mx-auto font-extrabold md:pt-32 lg:pt-36'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -41,15 +40,15 @@ const Table = (props) => {
                 transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             >
-                <h1 className='text-2xl text-center text-white lg:text-5xl'>{props.partyTime}</h1>
-                <h1 className='text-2xl font-bold text-white lg:text-5xl'>{props.partyLocation}</h1>
+                <h1 className='font-bold text-[#db9bd5] text-md lg:text-5xl'>{partyLocation}</h1>
+                <h1 className='text-center text-[#db9bd5] text-md lg:text-5xl'>{partyTime}</h1>
             </motion.div>
-            <div className='absolute pt-64 lg:pt-16'>
+            {/* <div className='absolute pt-80 lg:pt-20'>
                 <img className='lg:h-full lg:w-full h-[350px] w-[350px]' src={rasporedSlika} alt="" />
             </div>
-            <div className='absolute right-0 pt-64 lg:pt-16'>
+            <div className='absolute right-0 pt-80 lg:pt-20'>
                 <img className='lg:h-full lg:w-full h-[350px] w-[350px] img-hor' src={rasporedSlika} alt="" />
-            </div>
+            </div> */}
         </section>
     </>
   )

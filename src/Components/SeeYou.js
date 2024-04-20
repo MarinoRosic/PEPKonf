@@ -8,8 +8,8 @@ const SeeYou = () => {
   return (
     <>
         <section className='flex flex-col items-center justify-center overflow-hidden '>
-            <div className='relative w-full h-full content-center '>
-                <img className='w-full xl:h-[800px]' src={stolice} alt="" />   
+            <div className='relative content-center w-full h-full '>
+                <img className='w-full md:h-[700px]' src={stolice} alt="" />   
             </div>
             <motion.div 
             className='absolute flex items-center overflow-hidden'
@@ -20,7 +20,7 @@ const SeeYou = () => {
                 transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
             }}
             >
-                <h1 className='text-white text-5xl'>Vidimo se!</h1>
+                <h1 className='text-5xl text-white'>Vidimo se!</h1>
             </motion.div>
         </section>
     </>

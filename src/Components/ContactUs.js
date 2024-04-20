@@ -21,10 +21,10 @@ const ContactUs = () => {
   return (
     <>
         <motion.section 
-        className='h-[100vh] flex flex-col overflow-hidden lg:pb-32'
+        className='flex flex-col h-[100vh] lg:h-full overflow-hidden lg:pb-32'
         >
             <motion.header 
-            className='pt-14 mx-auto lg:pt-16'
+            className='mx-auto pt-14 lg:pt-16'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -32,10 +32,10 @@ const ContactUs = () => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
               }}
             >
-                <h1 className='font-extrabold text-white text-5xl lg:text-8xl'>Kontakt</h1>
+                <h1 className='text-5xl font-extrabold text-white lg:text-7xl'>Kontakt</h1>
             </motion.header>
             <motion.div 
-            className='flex flex-col items-center pt-20 mx-auto gap-y-10'
+            className='flex flex-col items-center pt-10 mx-auto gap-y-10'
             >
                 <motion.div 
                 className='text-white'
@@ -59,9 +59,18 @@ const ContactUs = () => {
                 >
                     <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={70}/></a>
                 </motion.div>
+                <motion.h1 
+                className='pt-8 text-3xl text-center text-white'
+                ref={ref}
+                  style={{
+                      transform: isInView ? "none" : "translateX(-100%)",
+                      opacity: isInView ? 1 : 0,
+                      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
+                  }}
+                >Prijava:</motion.h1>
                 <form action="" onSubmit={sendEmail}>
                   <motion.div 
-                  className='flex flex-col  lg:gap-x-4 gap-y-4 items-center'
+                  className='flex flex-col items-center lg:gap-x-4 gap-y-4'
                   ref={ref}
                   style={{
                       transform: isInView ? "none" : "translateX(-100%)",
@@ -84,7 +93,7 @@ const ContactUs = () => {
                   }}
                 className='text-white'
                 >
-                    <p className='text-2xl lg:text-5xl pt-10 md:pt-0'>pep.konferencija@gmail.com</p>
+                    <p className='pt-10 text-2xl lg:text-3xl md:pt-0'>pep.konferencija@gmail.com</p>
                 </motion.div>
             </motion.div>
         </motion.section>

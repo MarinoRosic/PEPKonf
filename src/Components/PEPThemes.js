@@ -6,15 +6,30 @@ const PEPThemes = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='grid h-[500px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden'>
+        <section className='grid h-[500px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden pb-10 pt-10 border-t-[#db9bd5] border-t-2'>
             <div className='max-sm:hidden'></div>
             <motion.div 
             className='overflow-hidden'>
-                <h1 className='text-white text-5xl lg:text-7xl font-bold text-center content-center lg:pt-24'>PEP teme:</h1>
+                <motion.h1 
+                className='content-center text-5xl font-bold text-center text-white md:text-6xl xl:text-7xl lg:pt-24'
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{opacity:1, scale: 0.9}}
+                viewport={{once: true}}
+                transition={{
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+                scale: {
+                    type: "spring",
+                    damping: 5,
+                    stiffness: 100,
+                    restDelta: 0.001
+                }
+                }}
+                >PEP teme:</motion.h1>
             </motion.div>
             <div className='max-sm:hidden'></div>
             <motion.p 
-            className='text-3xl span font-semibold pl-5 lg:pl-36 lg:text-left text-center text-opacity-15'
+            className='pl-5 text-3xl font-semibold text-center max-sm:pt-8 xl:text-6xl span lg:pl-36 lg:text-left text-opacity-15'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -23,7 +38,7 @@ const PEPThemes = () => {
             }}
             >Odnosi s javnošću</motion.p>
             <motion.p 
-            className='text-3xl roza font-bold align-text-top lg:text-center text-center lg:content-center lg:pb-10 text-opacity-45'
+            className='text-3xl font-bold text-center align-text-top xl:text-6xl roza lg:text-center lg:content-center lg:pb-10 text-opacity-45'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
@@ -32,7 +47,7 @@ const PEPThemes = () => {
             }}
             >Event menadžment</motion.p>
             <motion.p 
-            className='text-3xl span font-semibold lg:pr-16 align-text-top pl-8 lg:pb-52 text-center'
+            className='pl-8 text-3xl font-semibold text-center align-text-top xl:text-6xl span lg:pr-16 lg:pb-52'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -41,7 +56,7 @@ const PEPThemes = () => {
             }}
             >Novinarstvo</motion.p>
             <motion.p 
-            className='text-3xl text-white font-extralight pl-16 text-left lg:pb-52'
+            className='pl-16 text-3xl text-center text-white max-sm:text-left xl:text-6xl font-extralight lg:pb-52'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
@@ -50,7 +65,7 @@ const PEPThemes = () => {
             }}
             >Društvene mreže</motion.p>
             <motion.p 
-            className='text-3xl lg:text-5xl span font-normal pl-16 text-center lg:content-center lg:pb-32 text-opacity-55'
+            className='pl-16 text-3xl font-normal text-center xl:text-6xl span lg:content-center lg:pb-32 text-opacity-55'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
@@ -59,7 +74,7 @@ const PEPThemes = () => {
             }}
             >Poduzetništvo</motion.p>
             <motion.p 
-            className='text-3xl roza font-bold text-center lg:content-center'
+            className='pr-20 text-3xl font-bold text-center xl:text-5xl roza lg:content-center'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",

@@ -29,7 +29,7 @@ const AboutUsCard = (props) => {
             opacity: isInView ? 1 : 0,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
         }}
-        >Studenti Sveučilišta u Dubrovniku, Odjel za komunikologiju Odnosi s javnostima</motion.p>
+        >Studenti Sveučilišta u Dubrovniku, Odjel za komunikologiju, studij Odnosi s javnostima</motion.p>
     </div>
     </>
   )
