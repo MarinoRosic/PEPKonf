@@ -21,7 +21,7 @@ const ContactUs = () => {
   return (
     <>
         <motion.section 
-        className='flex flex-col h-[980px] lg:h-full overflow-hidden pb-28 lg:pb-32'
+        className='flex flex-col h-[980px] lg:h-full overflow-hidden pb-20 lg:pb-32'
         >
             <motion.header 
             className='mx-auto pt-14 lg:pt-16'
@@ -37,28 +37,31 @@ const ContactUs = () => {
             <motion.div 
             className='flex flex-col items-center pt-10 mx-auto gap-y-10'
             >
+              <div className='flex flex-row gap-x-6'>
                 <motion.div 
-                className='text-white'
-                ref={ref}
-                style={{
-                transform: isInView ? "none" : "translateX(-100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
-              }}
-                >
-                    <a className='ikona' href="https://www.facebook.com/pep.konf"><FaFacebook size={70}/></a>
-                </motion.div>
-                <motion.div 
-                className='text-white'
-                ref={ref}
-                style={{
-                    transform: isInView ? "none" : "translateX(-100%)",
-                    opacity: isInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                  className='text-white'
+                  ref={ref}
+                  style={{
+                  transform: isInView ? "none" : "translateX(-100%)",
+                  opacity: isInView ? 1 : 0,
+                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
                 }}
-                >
-                    <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={70}/></a>
-                </motion.div>
+                  >
+                      <a className='ikona' href="https://www.facebook.com/pep.konf"><FaFacebook size={60}/></a>
+                  </motion.div>
+                  <motion.div 
+                  className='text-white'
+                  ref={ref}
+                  style={{
+                      transform: isInView ? "none" : "translateX(-100%)",
+                      opacity: isInView ? 1 : 0,
+                      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                  }}
+                  >
+                      <a className='ikona' href="https://www.instagram.com/pep.konf/"><FaInstagram size={60}/></a>
+                  </motion.div>
+              </div>
+                
                 <motion.h1 
                 className='pt-8 text-3xl text-center text-white'
                 ref={ref}
