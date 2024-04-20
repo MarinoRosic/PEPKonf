@@ -12,10 +12,10 @@ const Partners = () => {
                     <img className='h-[180px] w-[180px] xl:h-[250px] xl:w-[250px]' src={loveBarLogo} alt="" />
                 </div>
                 <div className='content-center mx-auto'>
-                    <img className='h-[120px] xl:h-[150px] w-full xl:w-[300px]' src={sveucilisteDu} alt="" />
+                    <img className='h-[120px] xl:h-[150px] w-[270px] xl:w-[300px]' src={sveucilisteDu} alt="" />
                 </div>
                 <div className='content-center mx-auto'>
-                    <img className='h-[220px] xl:h-[300px] w-full xl:w-[380px]' src={lightMedija} alt="" />
+                    <img className='h-[220px] xl:h-[300px] w-[300px] xl:w-[380px]' src={lightMedija} alt="" />
                 </div>
             </div>
             <div className='absolute bottom-0 h-[50px] border-t-[#261539] border-t-2 w-full bg-[#261539] px-2'>
