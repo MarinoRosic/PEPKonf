@@ -44,7 +44,7 @@ const LecturersSection = (props) => {
               <Lecturer img={Paula} lecturer="Paula Klaić Saulačić" title="Dopisnica Nove TV za DNŽ" 
               web="https://novatv.dnevnik.hr/informativni/novinar/paula-klaic-saulacic-dubrovnik" 
               linkedIN="https://www.linkedin.com/in/paula-klaic-saulacic-1bb14065/" borderColor='purple'/>
-              <Lecturer img={Jadran} lecturer="Jadran Kapor" title="Bivši glavni urednik Slobodne Dalmacije" 
+              <Lecturer img={Jadran} lecturer="Jadran Kapor" title="Glavni urednik Dubrovačkog vijesnika" 
               web="https://hanzamedia.hr/bio/jadran-kapor/" linkedIN="https://www.linkedin.com/in/jadran-kapor-731654b/" 
               borderColor='purple'/>
               <Lecturer img={Donna} lecturer="Donna Diana Prćić" borderColor='purple' title="RTL-ova reporterka" 
@@ -86,7 +86,7 @@ const LecturersSection = (props) => {
               borderColor='purple'/>
               <Lecturer img={Iva} lecturer="Iva Sentić" title='Menadžerica digitalnog marketinga / vlasnica agencije "Relaxed Dubrovnik"'  borderColor='purple'
               linkedIN="https://www.linkedin.com/in/iva-sentic/?originalSubdomain=hr" web="https://www.instagram.com/relaxeddubrovnik/"/>
-              <Lecturer img={Ante} lecturer="Ante Kovačić" title='Jedan od osnivača i pokretača "DubPub kviz"' 
+              <Lecturer img={Ante} lecturer="Ante Kovačić" title='Osnivač i pokretač "DubPub kviz"' 
               borderColor='purple' linkedIN="https://www.linkedin.com/in/ante-kovacic-91172a260/" web="https://www.instagram.com/dubpubkviz/"/>
             </div>
           </div>
@@ -107,7 +107,7 @@ const LecturersSection = (props) => {
               }
             }}
             >
-                Voditelji PEP konferencije:
+                Moderatori PEP konferencije:
             </motion.h1>
             <div className='flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-x-24 gap-y-10 lg:gap-y-20'>
               <Lecturer img={Anamarija} lecturer="Anamarija Lučić" title="Moderatorica konferencije, preddiplomski studij Mediji i kultura društva"

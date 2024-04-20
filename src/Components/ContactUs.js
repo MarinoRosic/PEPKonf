@@ -21,7 +21,7 @@ const ContactUs = () => {
   return (
     <>
         <motion.section 
-        className='flex flex-col h-[980px] lg:h-full overflow-hidden pb-20 lg:pb-32'
+        className='flex flex-col h-[780px] lg:h-full overflow-hidden pb-20 lg:pb-32'
         >
             <motion.header 
             className='mx-auto pt-14 lg:pt-16'
