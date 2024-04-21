@@ -9,9 +9,9 @@ module.exports = {
     },
     extend: {
       backgroundImage:{
-        'about-BG': "url('./assets/images/aboutPEP2.png')",
+        'about-BG': "url('./assets/images/aboutPEP2.jpg')",
         'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')",
-        'stolice-BG' : "url('./assets/images/stoliceBG.png')",
+        'stolice-BG' : "url('./assets/images/stoliceBG.jpg')",
         'stolice-BG-Mob' : "url('./assets/images/stoliceBG-Mobitel.png')"
       }
     }

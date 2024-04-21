@@ -1,5 +1,5 @@
 import {React, useRef} from 'react'
-import stolice from "../assets/images/stoliceBG.png"
+import stolice from "../assets/images/stoliceBG.jpg"
 import { motion, useInView } from 'framer-motion'
 
 const SeeYou = () => {
