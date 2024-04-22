@@ -10,7 +10,7 @@ const OrganizerCard = (props) => {
     <div className='flex flex-col px-8 lg:px-10 pt-8 pb-8 border-b-2 border-b-[#db9bd5] lg:flex-row w-full overflow-hidden'>
         <div className='lg:w-[50%]'>
             <motion.div 
-            className='h-[350px] w-[350px] rounded-full bg-black border-[#772F6F] border-[13px] mx-auto'
+            className='h-[350px] w-[350px] rounded-full border-[#772F6F] border-[13px] mx-auto'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",

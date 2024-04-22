@@ -12,7 +12,7 @@ import Glorija from "../assets/images/Gloria-Mage-Gospic.jpg"
 import Ines from "../assets/images/Ines.jpg"
 import Elena from "../assets/images/Elena.jpeg"
 import Iva from "../assets/images/IvaSentic.jpeg"
-import Ante from "../assets/images/Ante Kovačić.jpg"
+import Ante from "../assets/images/AnteKovacic.jpg"
 //Voditelji
 import Anamarija from "../assets/images/Anamarija.jpeg"
 import { motion } from 'framer-motion'
@@ -76,7 +76,7 @@ const LecturersSection = (props) => {
               <Lecturer img={Kristijan} lecturer="dr. sc. Kristijan Sedak" title="Profesor na Hrvatskom katoličkom sveučilištu u Zagrebu / Govornička akademija Demosten" 
               linkedIN="https://www.linkedin.com/in/kristijan-sedak/" web="https://umjetnost-komunikacije.hr/nas-tim/kristijan-sedak/"
               borderColor='purple'/>
-              <Lecturer img={Glorija} lecturer="Gloria Mage Gospić" title='Vlasnica PR agencije "Komunikativna agencija"'  
+              <Lecturer img={Glorija} lecturer="Gloria Mage Gospić" title='CEO Komunikativne agencije; komunikacijska savjetnica'  
               linkedIN="https://www.linkedin.com/in/gloria-mage-gospi%C4%87-0ab71442/?originalSubdomain=hr"
               borderColor='purple'/>
               <Lecturer img={Ines} lecturer="Ines Nanić" title='Vlasnica agencije za vjenčanja "Dubrovnik Event"' 
