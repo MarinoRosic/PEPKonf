@@ -13,6 +13,7 @@ import Presentation from '../Components/Presentation';
 import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
+import transition from '../Transition'
 
 const Home = () => {
   return (
@@ -34,4 +35,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default transition(Home);

@@ -41,8 +41,8 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             // x: { duration: 1, type: "tween" }
             // }} 
             >
-                <h1 className='font-bold text-[#db9bd5] text-md lg:text-5xl'>{partyLocation}</h1>
-                <h1 className='text-center text-[#db9bd5] text-md lg:text-5xl'>{partyTime}</h1>
+                <h1 className='font-bold text-[#db9bd5] text-xl lg:text-5xl'>{partyLocation}</h1>
+                <h1 className='text-center text-[#db9bd5] text-xl lg:text-5xl'>{partyTime}</h1>
             </motion.div>
             {/* <div className='absolute pt-80 lg:pt-20'>
                 <img className='lg:h-full lg:w-full h-[350px] w-[350px]' src={rasporedSlika} alt="" />

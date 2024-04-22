@@ -21,8 +21,8 @@ const Partners = () => {
             </div>
             <div className='absolute bottom-0 h-[50px] border-t-[#261539] border-t-2 w-full bg-[#261539] px-2'>
                 <div className='flex flex-row content-center flex-grow h-full'>
-                    <p className='text-sm span font-thin w-[33%] justify-center text-left content-center'><Link onClick={() => { 
-                                setTimeout(() => {window.scroll(0,0);}, 100)  }} to='/privacypolicy'>Privacy Policy</Link></p>
+                    <p className='text-sm span font-thin w-[33%] justify-center text-left content-center'>
+                        <Link onClick={() => { setTimeout(() => {window.scroll(0,0);}, 500)  }} to='/privacypolicy'>Privacy Policy</Link></p>
                     <p className='w-[33%] text-sm span text-center justify-center content-center'>Copyright © 2024 PEP Konf</p>
                     <p className='span font-thin text-sm w-[33%] justify-center text-right content-center'>Made by <a href="https://www.afdu.dev"><span className='text-[#F0E2FF]'>AFDU</span></a></p>
                 </div>
