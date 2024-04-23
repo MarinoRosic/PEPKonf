@@ -11,7 +11,7 @@ const AboutUsCard = (props) => {
     className='pt-12'
     >
         <motion.div 
-        className='h-[350px] w-[350px] rounded-full border-[#772F6F] border-[13px]  mx-auto'
+        className='h-[300px] w-[300px] rounded-full border-[#772F6F] border-[13px]  mx-auto'
         ref={ref}
         style={{
             transform: isInView ? "none" : "translateX(100%)",
