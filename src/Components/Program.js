@@ -7,7 +7,7 @@ const Program = () => {
   const day1 = [
     { time: '16:30', tema: 'Okupljanje / kava' },
     { time: '17:00', tema: 'Otvaranje PEP Konferencije' },
-    { time: '17:10', tema: 'PANEL na temu novinarstva'},
+    { time: '17:10', tema: 'PANEL - Svjetla, kamera, akcija: Novinarstvo u praksi'},
     { time: '18:10', tema: 'Ante Kovačić - "Od PRodavača do zabavljača"'},
     { time: '19:00', tema: 'KVIZ / KRAJ'}
   ] 
@@ -19,7 +19,7 @@ const Program = () => {
     { time: '12:15', tema: 'PAUZA - kava i kroasani - 20 minuta'},
     { time: '12:35', tema: 'Iva Sentić - Društvene mreže kao moćni alat' }, 
     { time: '13:15', tema: 'Ines Nanić - Pet razloga zašto event management ni(je) za tebe' },
-    { time: '14:00', tema: 'RADIONICA - dr. sc. Kristijan Sedak - "Cjepivo protiv teme"' }, 
+    { time: '14:00', tema: 'RADIONICA - dr. sc. Kristijan Sedak - "CJEPIVO PROTIV TREME"' }, 
     { time: '15:00', tema: 'KRAJ' }]
     return (
     <>

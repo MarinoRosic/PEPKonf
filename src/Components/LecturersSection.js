@@ -4,7 +4,7 @@ import Lecturer from './Lecturer'
 import Jadran from "../assets/images/JadranKapor.jpeg"
 import Paula from "../assets/images/Paula Klaić Saulačić.jpg"
 import Bruno from "../assets/images/Bruno.jpeg"
-import Donna from "../assets/images/Donna.jpeg"
+import Donna from "../assets/images/DonnaDiana.jpg"
 import Mislav from "../assets/images/Mislav.jpg"
 //Predavaci
 import Kristijan from "../assets/images/KristijanSedak.jpg"
@@ -41,15 +41,15 @@ const LecturersSection = (props) => {
                 Panelisti:
             </motion.h1>
             <div className='flex flex-row flex-wrap pt-20 pb-12 border-b-2  border-b-[#db9bd5] gap-y-10 lg:gap-y-20'>
-              <Lecturer img={Paula} lecturer="Paula Klaić Saulačić" title="Dopisnica Nove TV za DNŽ" 
+              <Lecturer img={Paula} lecturer="Paula Klaić Saulačić" title="Reporterka Dnevnika Nove TV" 
               web="https://novatv.dnevnik.hr/informativni/novinar/paula-klaic-saulacic-dubrovnik" 
               linkedIN="https://www.linkedin.com/in/paula-klaic-saulacic-1bb14065/" borderColor='purple'/>
-              <Lecturer img={Jadran} lecturer="Jadran Kapor" title="Glavni urednik Dubrovačkog vijesnika" 
+              <Lecturer img={Jadran} lecturer="Jadran Kapor" title="Glavni urednik Dubrovačkog vjesnika i direktor regionalnih izdanja Slobodne Dalmacije" 
               web="https://hanzamedia.hr/bio/jadran-kapor/" linkedIN="https://www.linkedin.com/in/jadran-kapor-731654b/" 
               borderColor='purple'/>
               <Lecturer img={Donna} lecturer="Donna Diana Prćić" borderColor='purple' title="RTL-ova reporterka" 
               linkedIN="https://www.linkedin.com/in/donna-diana-pr%C4%87i%C4%87-436a8b104/?originalSubdomain=hr" />
-              <Lecturer img={Mislav} lecturer="Mislav Ćimić (moderator)" borderColor='pink' title="Urednik HRT - Radio Dubrovnik"
+              <Lecturer img={Mislav} lecturer="Mislav Ćimić (moderator)" borderColor='pink' title="Novinar HRT Radio Dubrovnik"
               linkedIN="https://www.linkedin.com/in/mislav-%C4%87imi%C4%87-5676a0226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"/>
             </div>
           </div>
@@ -81,7 +81,7 @@ const LecturersSection = (props) => {
               borderColor='purple'/>
               <Lecturer img={Ines} lecturer="Ines Nanić" title='Vlasnica agencije za vjenčanja "Dubrovnik Event"' 
               borderColor='purple' linkedIN="https://www.linkedin.com/in/weddingsindubrovnik/?originalSubdomain=hr" web="https://dubrovnikevent.com/"/>
-              <Lecturer img={Elena} lecturer="Elena Vračarić" title='Vlasnica studija "Slatko kao cukar"' 
+              <Lecturer img={Elena} lecturer="Elena Vračarić" title='Osnivačica brenda "Slatko kao cukar"' 
               linkedIN="https://www.linkedin.com/in/elena-vra%C4%8Dari%C4%87-45aa001a0/?originalSubdomain=hr" web="https://www.instagram.com/slatkokaocukar.hr/"
               borderColor='purple'/>
               <Lecturer img={Iva} lecturer="Iva Sentić" title='Menadžerica digitalnog marketinga / vlasnica agencije "Relaxed Dubrovnik"'  borderColor='purple'
