@@ -96,7 +96,7 @@ const ContactUs = () => {
                   }}
                 className='text-white'
                 >
-                    <p className='pt-10 text-2xl lg:text-3xl md:pt-0'>pep.konferencija@gmail.com</p>
+                    <p className='pt-10 text-lg lg:text-3xl md:pt-0'>pep.konferencija@gmail.com</p>
                 </motion.div>
             </motion.div>
         </motion.section>

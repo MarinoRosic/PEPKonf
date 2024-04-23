@@ -7,10 +7,19 @@
   src: url(CyGrotesk-KeyBold.otf);
 }
 
+@font-face {
+  font-family: 'Cy-Grotesk-Normal';
+  src: url(CyGrotesk-KeyRegular.otf);
+}
+
 body {
   background-color: #261539;
   overflow: auto;
   font-family: "Cy-Grotesk";
+}
+
+.normal-font{
+  font-family: "Cy-Grotesk-Normal";
 }
 
 .ikona:hover * {
