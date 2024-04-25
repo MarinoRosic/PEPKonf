@@ -45,8 +45,8 @@ const Program = () => {
                     <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" />
                 </div>
             </motion.header>
-            <Table datum="25.4 Četvrtak" day={day1} partyTime="OD 21:00h" partyLocation="ZABAVA U LOVE BARA"/>
-            <Table datum="26.4 Petak" day={day2}/>
+            <Table datum="25.4. Četvrtak" day={day1} partyTime="OD 21:00h" partyLocation="ZABAVA U LOVE BARA"/>
+            <Table datum="26.4. Petak" day={day2}/>
         </section>
     </>
   )
