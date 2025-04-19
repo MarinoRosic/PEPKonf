@@ -1,5 +1,4 @@
 import {React} from 'react'
-// import rasporedSlika from "../assets/images/rasporedStrana.png"
 import { motion } from 'framer-motion'
 
 const Table = ({datum, day, partyTime, partyLocation}) => {
@@ -33,13 +32,6 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             </motion.div>
             {/* <motion.div 
             className='z-10 pt-12 pb-5 border-b-[#db9bd5] border-b-4 mx-auto font-extrabold md:pt-32 lg:pt-36'
-            // initial={{ x: "-100%" }}
-            // animate={{ x: 0 }}
-            // transition={{
-            // ease: "linear",
-            // duration: 1,
-            // x: { duration: 1, type: "tween" }
-            // }} 
             >
                 <h1 className='font-bold text-[#db9bd5] text-md lg:text-5xl'>{partyLocation}</h1>
                 <h1 className='text-center text-[#db9bd5] text-md lg:text-5xl'>{partyTime}</h1>

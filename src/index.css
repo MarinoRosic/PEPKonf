@@ -7,10 +7,19 @@
   src: url(CyGrotesk-KeyBold.otf);
 }
 
+@font-face {
+  font-family: 'Cy-Grotesk-Normal';
+  src: url(CyGrotesk-KeyRegular.otf);
+}
+
 body {
   background-color: #261539;
   overflow: auto;
   font-family: "Cy-Grotesk";
+}
+
+.normal-font{
+  font-family: "Cy-Grotesk-Normal";
 }
 
 .ikona:hover * {
@@ -38,4 +47,24 @@ body {
 
 .sporka{
   color: #F0E2FF;
+}
+
+.slide-in{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #772f6f;
+  transform-origin: bottom;
+}
+
+.slide-out{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #772f6f;
+  transform-origin: top;
 }

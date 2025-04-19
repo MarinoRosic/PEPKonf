@@ -28,7 +28,7 @@ const WWWCard = (props) => {
             >
                 {pitanje}
             </motion.h1>
-            <p className='text-[#F0E2FF] text-xl md:text-2xl lg:text-3xl font-extrabold pb-20 overflow-hidden'>
+            <p className='text-[#F0E2FF] text-lg md:text-2xl lg:text-3xl font-extrabold overflow-hidden'>
                 {odgovor}
             </p>
         </motion.div>

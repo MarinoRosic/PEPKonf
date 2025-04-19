@@ -6,7 +6,7 @@ const AboutUsSection = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='flex flex-col h-full lg:h-[100vh]  lg:pt-8 overflow-hidden'>
+        <section className='flex flex-col h-full lg:h-[980px] lg:pt-8 overflow-hidden'>
             <header className='pt-10 mx-auto'>
                 <motion.h1 
                 className='text-6xl font-extrabold text-white lg:text-8xl'

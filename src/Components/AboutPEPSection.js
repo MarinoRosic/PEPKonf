@@ -17,7 +17,7 @@ const AboutPEPSection = () => {
                     transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1)"
                 }}
                 >
-                    <h1 className='overflow-hidden text-3xl font-extrabold leading-normal text-white md:text-7xl text-balance'>
+                    <h1 className='overflow-hidden text-3xl font-extrabold leading-snug text-white md:text-7xl text-balance'>
                         Prva studentska konferencija u <br /> <u className='roza'><span className='roza'>Dubrovniku</span></u> koja okuplja medijske i komunikacijske profesionalce.
                     </h1>
                 </motion.div>
