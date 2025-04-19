@@ -15,7 +15,7 @@ const OrganizerCard = (props) => {
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
             }}
             >
                     <img className='object-cover w-full h-full rounded-full' src={props.img} alt="" />
@@ -28,7 +28,7 @@ const OrganizerCard = (props) => {
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
             }}
             >{props.name}
             </motion.h2>
@@ -38,7 +38,7 @@ const OrganizerCard = (props) => {
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
             }}
             >
                 {props.text}

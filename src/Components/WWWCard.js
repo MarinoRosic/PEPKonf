@@ -14,7 +14,7 @@ const WWWCard = (props) => {
         style={{
             transform: isInView ? "none" : "translateX(100%)",
             opacity: isInView ? 1 : 0,
-            transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
         }}
         >
             <motion.h1 
@@ -23,7 +23,7 @@ const WWWCard = (props) => {
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 1s"
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.7s"
             }}
             >
                 {pitanje}

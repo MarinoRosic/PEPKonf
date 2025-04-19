@@ -16,7 +16,7 @@ const AboutUsCard = (props) => {
         style={{
             transform: isInView ? "none" : "translateX(100%)",
             opacity: isInView ? 1 : 0,
-            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
+            transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
         }}
         >
             <img className='object-cover w-full h-full rounded-full' src={aboutUsImg} alt="" />
@@ -29,7 +29,7 @@ const AboutUsCard = (props) => {
             opacity: isInView ? 1 : 0,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
         }}
-        >Studenti Sveučilišta u Dubrovniku, Odjel za komunikologiju, studij Odnosi s javnostima</motion.p>
+        >Studenti Sveučilišta u Dubrovniku, Fakultet medija i odnosa s javnošću</motion.p>
     </div>
     </>
   )

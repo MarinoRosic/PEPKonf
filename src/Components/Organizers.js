@@ -1,8 +1,10 @@
 import React from 'react'
 import OrganizerCard from "./OrganizerCard"
-import LZux from "../assets/images/LeonardaTikvica.jpg"
+import LZux from "../assets/images/LeonardaOrganizator.jpg"
+import Marija from "../assets/images/MarijaMamic.jpeg"
 import Andrea from "../assets/images/Andrea.jpg"
 import Matko from "../assets/images/Matko.jpg"
+import Anamarija from "../assets/images/AnamarijaLucic.jpeg"
 import { motion } from 'framer-motion'
 
 const Organizers = () => {
@@ -29,9 +31,9 @@ const Organizers = () => {
                     Organizatori:
                 </motion.h1>
             </header>
-            <OrganizerCard name="Leonarda Tikvica" img={LZux} text="Osnivačica i voditeljica projektnih aktivnosti i programa"/>
-            <OrganizerCard name="Andrea Batinić" img={Andrea} text="Koordinatorica ponuda, nabave, cateringa i programa"/>
-            <OrganizerCard name="Matko Haičman" img={Matko} text="Suradnik i savjetnik projektnih aktivnosti"/>
+            <OrganizerCard name="Leonarda Tikvica" img={LZux} text="Osnivačica i voditeljica projektnih aktivnosti i programa (alumna)"/>
+            <OrganizerCard name="Anamarija Lučić" img={Anamarija} text="Organizatorica i koordinatorica ponuda, nabave, cateringa i programa"/>
+            <OrganizerCard name="Marija Mamić" img={Marija} text="Organizatorica i voditeljica društvenih mreža"/>
         </section>
     </>
   )

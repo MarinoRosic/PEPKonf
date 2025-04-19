@@ -63,7 +63,7 @@ const PEPThemes = () => {
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
             }}
-            >Društvene mreže</motion.p>
+            >Karijerni put</motion.p>
             <motion.p 
             className='pl-16 text-3xl font-normal text-center xl:text-6xl span lg:content-center lg:pb-32 text-opacity-55'
             ref={ref}
@@ -81,7 +81,17 @@ const PEPThemes = () => {
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
             }}
-            >Politika i PR</motion.p>
+            >Self branding</motion.p>
+            <p></p>
+            <motion.p 
+            className='text-3xl font-semibold text-center align-text-top xl:text-6xl span lg:pr-16 lg:pb-52'
+            ref={ref}
+            style={{
+                transform: isInView ? "none" : "translateX(-100%)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
+            }}
+            >Javni nastup</motion.p>
         </section>
     </>
   )

@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 const Table = ({datum, day, partyTime, partyLocation}) => {
   return (
     <>
-        <section className='flex flex-col w-full lg:h-[100vh]'>
+        <section className='flex flex-col w-full mb-20'>
             <motion.h1 
-            className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-16 lg:pt-28 font-extrabold'
+            className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-16 lg:pt-20 lg:pb-5 font-extrabold'
             // initial={{ x: "-100%" }}
             // animate={{ x: 0 }}
             // transition={{
@@ -17,7 +17,7 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             // }} 
             >{datum}</motion.h1>
             <motion.div 
-            className='flex flex-col items-start px-12 pt-12 lg:mx-52 lg:pt-12'
+            className='flex flex-col content-center px-8 pt-12 mx-auto lg:pt-12'
             // initial={{ x: "-100%" }}
             // animate={{ x: 0 }}
             // transition={{
@@ -27,11 +27,11 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             // }} 
             >
                 {day.map((items, index) => {
-                    const {time, tema} = items
-                    return <p className='z-50 pb-3 text-white text-md lg:text-3xl' key={index}>{time} - <span className='text-md lg:text-2xl roza'>{tema}</span></p>
+                    const {time, tema, prikazi, predavaci} = items
+                    return <p className='z-50 pb-3 text-white text-md lg:text-3xl' key={index}>{time} - <span className='text-md lg:text-2xl roza'>{tema}</span>{prikazi && predavaci.map((item, key) => <li key={key} className='pl-6 my-2 text-sm'>{item}</li>)}</p>
                 })}
             </motion.div>
-            <motion.div 
+            {/* <motion.div 
             className='z-10 pt-12 pb-5 border-b-[#db9bd5] border-b-4 mx-auto font-extrabold md:pt-32 lg:pt-36'
             // initial={{ x: "-100%" }}
             // animate={{ x: 0 }}
@@ -43,7 +43,7 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             >
                 <h1 className='font-bold text-[#db9bd5] text-md lg:text-5xl'>{partyLocation}</h1>
                 <h1 className='text-center text-[#db9bd5] text-md lg:text-5xl'>{partyTime}</h1>
-            </motion.div>
+            </motion.div> */}
             {/* <div className='absolute pt-80 lg:pt-20'>
                 <img className='lg:h-full lg:w-full h-[350px] w-[350px]' src={rasporedSlika} alt="" />
             </div>

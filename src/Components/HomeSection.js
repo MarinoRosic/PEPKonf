@@ -32,11 +32,11 @@ const HomeSection = () => {
             animate={{ x: 0 }}
             transition={{
             ease: "linear",
-            duration: 1,
-            x: { duration: 1, type: "tween" }
+            duration: 0.5,
+            x: { duration: 0.5, type: "tween" }
             }} 
             >
-                <h1 className='sporka text-4xl font-extrabold md:text-7xl lg:text-8xl mx-auto text-center'>Iskustvo i znanje <br /> iz PRve ruke.</h1>    
+                <h1 className='mx-auto text-4xl font-extrabold text-center sporka md:text-7xl lg:text-8xl'>Budi i ti dio <br /> PRedobre PRiče.</h1>    
             </motion.div>
             <motion.div 
             className='h-[33%] content-center'
@@ -44,11 +44,11 @@ const HomeSection = () => {
             animate={{ y: 0 }}
             transition={{
             ease: "linear",
-            duration: 1,
-            x: { duration: 0.9, type: "tween" }
+            duration: 0.7,
+            x: { duration: 0.7, type: "tween" }
             }} 
             >
-                <p className='text-lg font-thin text-white italic text-center'>25. - 26. travnja 2024. <br /> Sveučilišni kampus u Dubrovniku</p>
+                <p className='text-xl italic font-thin text-center text-white'>24. - 25. travnja 2025. <br /> Sveučilišni kampus u Dubrovniku</p>
             </motion.div>
         </section>
     </>

@@ -16,7 +16,7 @@ const Lecturer = ({img, borderColor, lecturer, title, linkedIN, web}) => {
     style={{
         transform: isInView ? "none" : "translateX(-100%)",
         opacity: isInView ? 1 : 0,
-        transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.4s"
+        transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
     }}
     >
         <div className={`h-[250px] w-[250px] lg:h-[320px] lg:w-[320px] rounded-full bg-black ${colorVariants[borderColor]} border-[13px] mx-auto`}>
