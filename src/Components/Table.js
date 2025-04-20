@@ -27,7 +27,7 @@ const Table = ({datum, day, partyTime, partyLocation}) => {
             >
                 {day.map((items, index) => {
                     const {time, tema, prikazi, predavaci} = items
-                    return <p className='z-50 pb-3 text-white text-md lg:text-3xl' key={index}>{time} - <span className='text-md lg:text-2xl roza'>{tema}</span>{prikazi && predavaci.map((item, key) => <ul className='mx-10 my-3 text-sm text-white list-disc lg:text-lg'><li key={key}>{item}</li></ul> )}</p>
+                    return <div className='z-50 pb-3 text-white text-md lg:text-3xl' key={index}><span> {time} - </span><span className='text-md lg:text-2xl roza'>{tema}</span>{prikazi && predavaci.map((item, key) => <ul key={key} className='mx-10 my-3 text-sm text-white list-disc lg:text-lg'><li key={key}>{item}</li></ul> )}</div>
                 })}
             </motion.div>
             {/* <motion.div 

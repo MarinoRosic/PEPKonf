@@ -21,7 +21,7 @@ const Program = () => {
     predavaci: ['Nevena Rendeli - Women’s Weekend, Prime komunikacije', 'Moderatorica: Anamarija Lučić, studentica']},
     { time: '11:50 - 12:20', tema: 'PAUZA - kava' },
     { time: '12:20', tema: 'PANEL - mediji', prikazi: true, 
-    predavaci: ['Damira Gregoret, novinarka, urednica i voditeljica informativnog programa RTL-a', 'Antonija Blaće, voditeljica i kreativna producentica', 'Moderatorica: Andrea Čović Vidović, Europska komisija u Hrvatskoj']},
+    predavaci: ['Damira Gregoret, novinarka, urednica i voditeljica informativnog programa RTL-a', 'Antonija Blaće, voditeljica i kreativna producentica', 'Moderatorica: Andrea Čović Vidović, Voditeljica medija Europske komisije u Hrvatskoj']},
     { time: '13:20', tema: '“Kampanje koje se pamte”', prikazi: true, predavaci: ['Gordan Turković, CTA komunikacije']}, 
     { time: '14:05', tema: 'Self-branding i PR - „Tko sam ja i tko si ti da lakše budemo MI“', prikazi: true, predavaci: ['Ermina Duraj, pročelnica Upravnog odjela za poslove Župana, Primorsko-goranska županija'] },
     { time: '14:50', tema: 'KRAJ - Catering & see you on another PEP!' }]

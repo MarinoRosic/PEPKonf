@@ -6,7 +6,7 @@ const PEPThemes = () => {
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='grid h-[500px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden pb-10 pt-10 border-t-[#db9bd5] border-t-2'>
+        <section className='grid h-[600px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden py-10 border-t-[#db9bd5] border-t-2'>
             <div className='max-sm:hidden'></div>
             <motion.div 
             className='overflow-hidden'>
@@ -16,7 +16,7 @@ const PEPThemes = () => {
             </motion.div>
             <div className='max-sm:hidden'></div>
             <motion.p 
-            className='pl-5 text-3xl font-semibold text-center max-sm:pt-8 xl:text-6xl span lg:pl-36 lg:text-left text-opacity-15'
+            className='pl-5 text-3xl font-semibold text-center max-sm:pt-8 xl:text-6xl span lg:ml-24 lg:text-left text-opacity-15'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(-100%)",
@@ -43,7 +43,7 @@ const PEPThemes = () => {
             }}
             >Novinarstvo</motion.p>
             <motion.p 
-            className='pl-16 text-3xl text-center text-white max-sm:text-left xl:text-6xl font-extralight lg:pb-52'
+            className='ml-16 text-3xl text-center text-white max-sm:text-left xl:text-6xl font-extralight lg:mb-44'
             ref={ref}
             style={{
                 transform: isInView ? "none" : "translateX(100%)",
@@ -69,7 +69,7 @@ const PEPThemes = () => {
                 transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
             }}
             >Self branding</motion.p>
-            <p></p>
+            <div className='max-sm:hidden'></div>
             <motion.p 
             className='text-3xl font-semibold text-center align-text-top xl:text-6xl span lg:pr-16 lg:pb-52'
             ref={ref}
@@ -79,6 +79,7 @@ const PEPThemes = () => {
                 transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
             }}
             >Javni nastup</motion.p>
+            <div className='max-sm:hidden'></div>
         </section>
     </>
   )
