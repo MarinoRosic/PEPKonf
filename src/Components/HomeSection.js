@@ -1,10 +1,8 @@
-import {React, useRef} from 'react'
+import {React } from 'react'
 import pepLogo from "../assets/images/PEPLogo3.png"
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const HomeSection = () => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, {once: true});
   return (
     <>
         <section className='bg-stolice-BG-Mob lg:bg-stolice-BG h-[100vh] overflow-hidden bg-cover flex flex-col items-center gap-y-10'>

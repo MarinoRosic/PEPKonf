@@ -10,22 +10,9 @@ const PEPThemes = () => {
             <div className='max-sm:hidden'></div>
             <motion.div 
             className='overflow-hidden'>
-                <motion.h1 
-                className='content-center text-5xl font-bold text-center text-white md:text-6xl xl:text-7xl lg:pt-24'
-                initial={{ opacity: 0, scale: 0.6 }}
-                whileInView={{opacity:1, scale: 0.9}}
-                viewport={{once: true}}
-                transition={{
-                duration: 0.3,
-                ease: [0, 0.71, 0.2, 1.01],
-                scale: {
-                    type: "spring",
-                    damping: 5,
-                    stiffness: 100,
-                    restDelta: 0.001
-                }
-                }}
-                >PEP teme:</motion.h1>
+                <h1 
+                className='content-center text-5xl font-bold text-center text-white md:text-6xl xl:text-7xl lg:mt-8'
+                >PEP teme:</h1>
             </motion.div>
             <div className='max-sm:hidden'></div>
             <motion.p 

@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-import aboutUsImg from "../assets/images/aboutUs.png"
 import { motion, useInView } from "framer-motion"
 
 const OrganizerCard = (props) => {

@@ -47,7 +47,7 @@ const LecturersSection = (props) => {
               linkedIN="https://www.linkedin.com/in/nevena-rendeli-vejzovic-58276467/" borderColor='purple'/>
               <Lecturer img={IvanaMedo} lecturer="Ivana Medo Bogdanović" title="Ravnateljica Dubrovačkih ljetnih igara" 
               web="https://www.dubrovnik-festival.hr/en" borderColor='purple'/>
-              <Lecturer img={Martina} lecturer="Martina Pavleković" borderColor='purple' title="Vlasnica agencije za organizaciju vjenčanja YES-I-DU." 
+              <Lecturer img={Martina} lecturer="Martina Pavleković" borderColor='purple' title='Vlasnica agencije za organizaciju vjenčanja "YES I DU".' 
               web="https://yes-i-du.net/" linkedIN="https://www.linkedin.com/in/martina-pavlekovi%C4%87-4331681a/" />
               <Lecturer img={Gordan} lecturer="Gordan Turković" borderColor='purple' title="Izvršni direktor i suvlasnik u agenciji CTA komunikacije" 
               linkedIN="https://www.linkedin.com/in/gordan-turkovi%C4%87/" web="https://ctakomunikacije.hr/"/>
@@ -143,7 +143,7 @@ const LecturersSection = (props) => {
               <Lecturer img={Romana} lecturer="Romana Knežević" borderColor='purple' title="Moderatorica konferencije, diplomski studij Odnosi s javnostima"/>
               <Lecturer img={Karla} lecturer="Karla Sabljić" title="Moderatorica konferencije, prijediplomski studij Mediji i kultura društva"
               borderColor='purple'/>
-              <Lecturer img={Sara} lecturer="Sara Kalogjera" title="Moderatorica konferencije, diplomski studij Odnosi s javnostima"
+              <Lecturer img={Sara} lecturer="Sara Kalogjera" title="Moderatorica konferencije, diplomski studij Mediji"
               borderColor='purple'/>
             </div>
           </div>

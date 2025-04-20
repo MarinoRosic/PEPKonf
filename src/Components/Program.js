@@ -16,7 +16,7 @@ const Program = () => {
   const day2 = [
     { time: '9:30', tema: 'Okupljanje + kava' }, 
     { time: '10:00', tema: 'PANEL - Splitski cluster - snaga kreativnosti u OSJ', prikazi: true, 
-  predavaci: ['Gordan Turković, CTA komunikacije', 'Luka Šipić, Vrh komunikacije', 'Andrea Čović Vidović, Europska komisija u Hrvatskoj', 'Moderatorica: Romana Knežević, studentica']}, 
+  predavaci: ['Gordan Turković, CTA komunikacije', 'Luka Šipić, Vrh komunikacije', 'Andrea Čović Vidović, Voditeljica medija Europske komisije u Hrvatskoj', 'Moderatorica: Romana Knežević, studentica']}, 
     { time: '11:00', tema: '1:1 Iskustvo i rad u eventu, PR, iskustvo, priča...', prikazi: true, 
     predavaci: ['Nevena Rendeli - Women’s Weekend, Prime komunikacije', 'Moderatorica: Anamarija Lučić, studentica']},
     { time: '11:50 - 12:20', tema: 'PAUZA - kava' },
