@@ -2,8 +2,6 @@ import React from 'react'
 import OrganizerCard from "./OrganizerCard"
 import LZux from "../assets/images/LeonardaOrganizator.jpg"
 import Marija from "../assets/images/MarijaMamic.jpeg"
-import Andrea from "../assets/images/Andrea.jpg"
-import Matko from "../assets/images/Matko.jpg"
 import Anamarija from "../assets/images/AnamarijaLucic.jpeg"
 import { motion } from 'framer-motion'
 

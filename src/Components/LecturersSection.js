@@ -15,6 +15,7 @@ import LukaSipic from "../assets/images/LukaSipic.jpg"
 import Damira from "../assets/images/Damira.jpg"
 import Mislav from "../assets/images/Mislav.jpg"
 import Karla from "../assets/images/KarlaSabljic.jpeg"
+import Sara from "../assets/images/SaraKalogjera.jpeg"
 import { motion } from 'framer-motion'
 
 const LecturersSection = (props) => {
@@ -137,10 +138,12 @@ const LecturersSection = (props) => {
                 Moderatorice:
             </motion.h1>
             <div className='flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-x-24 gap-y-10 lg:gap-y-20'>
-              <Lecturer img={AnamarijaLucic} lecturer="Anamarija Lučić" title="Moderatorica konferencije, preddiplomski studij Mediji i kultura društva"
+              <Lecturer img={AnamarijaLucic} lecturer="Anamarija Lučić" title="Moderatorica konferencije, diplomski studij Odnosi s javnostima"
               borderColor='purple'/>
-              <Lecturer img={Romana} lecturer="Romana Knežević" borderColor='purple' title="Moderatorica konferencije, preddiplomski studij Mediji i kultura društva"/>
-              <Lecturer img={Karla} lecturer="Karla Sabljić" title="Moderatorica konferencije, preddiplomski studij Mediji i kultura društva"
+              <Lecturer img={Romana} lecturer="Romana Knežević" borderColor='purple' title="Moderatorica konferencije, diplomski studij Odnosi s javnostima"/>
+              <Lecturer img={Karla} lecturer="Karla Sabljić" title="Moderatorica konferencije, prijediplomski studij Mediji i kultura društva"
+              borderColor='purple'/>
+              <Lecturer img={Sara} lecturer="Sara Kalogjera" title="Moderatorica konferencije, diplomski studij Odnosi s javnostima"
               borderColor='purple'/>
             </div>
           </div>
