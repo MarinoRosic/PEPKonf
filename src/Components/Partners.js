@@ -8,13 +8,16 @@ import lightMedija from "../assets/images/light_Media.png"
 import SZDU from "../assets/images/SZDU.png"
 import maritimo from "../assets/images/maritimo.jpg"
 import slatkoKaoCukar from "../assets/images/slatkoKaoCukar.png"
-import Medardo from "../assets/images/Medardo.png"
+import Medardo from "../assets/images/DubrovnikMed.png"
+import RagusaSpirits from "../assets/images/RagusaSpirits.png"
+import HoneyDU from "../assets/images/HoneyDU.png"
+import DubManuf from "../assets/images/DubrovackaManufaktura.png"
 
 const Partners = () => {
   return (
     <>
-        <section className='relative xl:h-[1000px] w-full bg-white flex flex-col justify-normal items-center'>
-            <div className='flex flex-col content-center xl:flex-row xl:gap-x-36'>
+        <section className='relative xl:h-[1350px] w-full gap-y-5 bg-white flex flex-col justify-normal items-center'>
+            <div className='flex flex-col content-center lg:flex-row lg:gap-x-10'>
                 <div className='content-center mx-auto'>
                     <a href='https://www.huoj.hr/' target='_blank' rel='noreferrer'><img className='h-[250px] xl:h-[300px] w-[250px] xl:w-[300px]' src={UdrugaZaOSJ} alt="" /></a>
                 </div>
@@ -25,7 +28,7 @@ const Partners = () => {
                     <a href='https://www.instagram.com/szdu_unidu/' target='_blank' rel='noreferrer'><img className='h-[220px] xl:h-[300px] w-[200px] xl:w-[300px]' src={SZDU} alt="" /></a>
                 </div>
             </div>
-            <div className='flex flex-col content-center xl:flex-row xl:gap-x-36 gap-y-3'>
+            <div className='flex flex-col content-center lg:flex-row lg:gap-x-10 gap-y-3'>
                 <div className='content-center mx-auto'>
                     <a href='https://light-media.hr/' target='_blank' rel='noreferrer'><img className='h-[220px] xl:h-[300px] w-[300px] xl:w-[380px]' src={lightMedija} alt="" /></a>
                 </div>
@@ -36,12 +39,23 @@ const Partners = () => {
                     <a href='http://fotostar.hr/' target='_blank' rel='noreferrer'><img className='h-[210px] w-[250px] xl:h-[250px] xl:w-[250px]' src={fotostar} alt="" /></a>
                 </div>
             </div>
-            <div className='flex flex-col content-center xl:flex-row xl:gap-x-36 gap-y-3'>
+            <div className='flex flex-col content-center lg:flex-row lg:gap-x-5 gap-y-5 px-5'>
                 <div className='content-center mx-auto'>
-                   <a href='https://www.slatkokaocukar.com/' target='_blank' rel='noreferrer'><img className='h-[270px] xl:h-[300px] w-[400px] xl:w-[500px]' src={slatkoKaoCukar} alt="" /></a>
+                    <a href='https://www.dubrovnikmed.com/honeydu/' target='_blank' rel='noreferrer'><img className='h-[330px] lg:h-[300px] w-[320px] lg:w-[300px]' src={Medardo} alt="" /></a>
                 </div>
                 <div className='content-center mx-auto'>
-                    <a href='https://www.dubrovnikmed.com/honeydu/' target='_blank' rel='noreferrer'><img className='h-[330px] xl:h-[300px] w-[320px] xl:w-[300px]' src={Medardo} alt="" /></a>
+                    <a href='https://www.dubrovnikmed.com/honeydu/' target='_blank' rel='noreferrer'><img className='h-[330px] lg:h-[300px] w-[320px] lg:w-[300px]' src={RagusaSpirits} alt="" /></a>
+                </div>
+                <div className='content-center mx-auto'>
+                    <a href='https://www.dubrovnikmed.com/honeydu/' target='_blank' rel='noreferrer'><img className='h-[330px] lg:h-[300px] w-[320px] lg:w-[300px]' src={HoneyDU} alt="" /></a>
+                </div>
+                <div className='content-center mx-auto'>
+                    <a href='https://www.dubrovnikmed.com/honeydu/' target='_blank' rel='noreferrer'><img className='h-[330px] lg:h-[300px] w-[320px] lg:w-[300px]' src={DubManuf} alt="" /></a>
+                </div>
+            </div>
+            <div className='flex flex-col content-center lg:flex-row lg:gap-x-10 gap-y-3'>
+                <div className='content-center mx-auto'>
+                   <a href='https://www.slatkokaocukar.com/' target='_blank' rel='noreferrer'><img className='h-[270px] xl:h-[300px] w-[400px] xl:w-[500px]' src={slatkoKaoCukar} alt="" /></a>
                 </div>
                 <div className='content-center mx-auto'>
                     <a href='https://maritimo-recycling.com/' target='_blank' rel='noreferrer'><img className='lg:mb-0 mb-20 h-[280px] xl:h-[300px] w-[400px] xl:w-[400px]' src={maritimo} alt="" /></a>
