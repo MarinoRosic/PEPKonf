@@ -68,3 +68,24 @@ body {
   background: #772f6f;
   transform-origin: top;
 }
+
+.images-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.image {
+  width: 100%;
+  height: 21rem;
+  cursor: pointer;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+}

@@ -13,24 +13,31 @@ import Presentation from '../Components/Presentation';
 import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
-import transition from '../Transition'
+import transition from '../Transition';
+import { YearProvider } from '../Components/YearContext';
+import YearButtons from '../Components/YearButtons';
+import Gallery from '../Components/Gallery';
 
 const Home = () => {
   return (
     <>
-      <HomeSection />
-      <Presentation />
-      <AboutPEPSection />
-      <WWWSection />
-      <PEPThemes />
-      <LecturersSection />
-      <Program />
-      <AboutUsSection />
-      <Organizers />
-      <ContactUs />
-      <SeeYou />
-      <Partners />
-      <ScrollToTop />
+    <YearProvider>
+        <HomeSection />
+        <Presentation />
+        <AboutPEPSection />
+        <WWWSection />
+        <PEPThemes />
+        <YearButtons />
+        <LecturersSection />
+        <Gallery />
+        <Program />
+        <AboutUsSection />
+        <Organizers />
+        <ContactUs />
+        <SeeYou />
+        <Partners />
+        <ScrollToTop />
+      </YearProvider>
     </>
   )
 }
