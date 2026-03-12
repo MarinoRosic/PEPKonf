@@ -14,11 +14,13 @@ import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
 import transition from '../Transition'
+import ComingSoon from '../Components/ComingSoon';
 
 const Home = () => {
   return (
     <>
-      <HomeSection />
+      <ComingSoon />
+      {/* <HomeSection />
       <Presentation />
       <AboutPEPSection />
       <WWWSection />
@@ -30,7 +32,7 @@ const Home = () => {
       <ContactUs />
       <SeeYou />
       <Partners />
-      <ScrollToTop />
+      <ScrollToTop /> */}
     </>
   )
 }

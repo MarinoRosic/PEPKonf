@@ -1,0 +1,106 @@
+/* ComingSoon.css – fixed text width + better centering */
+
+.coming-soon {
+    min-height: 100vh;
+    background: #261539;
+    color: #fff;
+    display: flex;                /* changed to flex for easier vertical stacking */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    pointer-events: none;
+    max-width: 90vw;             /* prevents extreme stretching on mobile */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  .logo {
+    max-width: 320px;
+    height: auto;
+    filter: brightness(1.08) drop-shadow(0 0 35px rgba(240, 240, 255, 0.2));
+    animation: 
+      gentle-breathe 14s ease-in-out infinite,
+      float 18s ease-in-out infinite;   /* ← add this line */
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(6px, -12px);   /* small movement – adjust px values */
+    }
+  }
+
+  .coming-soon-text {
+    font-size: 20px;   /* smaller starting size, scales better */
+    font-weight: 100;
+    letter-spacing: 0.35em;                   /* reduced from 0.5–0.6em → less "broken" */
+    text-transform: uppercase;
+    margin: 0.3em 0 0 0;
+    line-height: 1.15;                        /* tighter line height */
+    max-width: 85ch;                          /* ← THIS is the key fix: limits width */
+    background: linear-gradient(85deg, #d0d0ff, #ffffff, #f0f0ff, #ffffff, #d0d0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300%;
+    animation: shine 10s linear infinite;
+  }
+  
+  /* ─── Focused spotlight ─────────────────────────────────────── */
+  .spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+  
+    background:
+      radial-gradient(
+        ellipse 260px 180px at var(--spot-x) var(--spot-y),
+        rgba(255, 245, 200, 0.22) 0%,
+        rgba(255, 245, 200, 0.09) 50%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse 600px 400px at var(--spot-x) var(--spot-y),
+        transparent 20%,
+        rgba(0, 0, 0, 0.75) 75%
+      );
+    mix-blend-mode: screen;
+  }
+  
+  /* Edge vignette */
+  .vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.9) 100%);
+  }
+  
+  /* Animations */
+  @keyframes gentle-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.025); }
+  }
+  
+  @keyframes shine {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+
+  .godina {
+    font-size: 70px;
+  }
