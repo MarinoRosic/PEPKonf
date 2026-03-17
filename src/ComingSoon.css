@@ -101,6 +101,29 @@
     100% { background-position: 300% 50%; }
   }
 
+  .lzux {
+    font-size: 60px;
+  }
   .godina {
     font-size: 70px;
+  }
+ 
+
+  @media (max-width: 767px) {          /* ← very common "mobile" breakpoint */
+    .lzux {
+      font-size: 50px;
+    }
+    .godina {
+      font-size: 50px;
+    }
+  }
+
+  @media (max-width: 480px)
+  {
+    .lzux {
+      font-size: 30px;
+    }
+    .godina {
+      font-size: 30px;
+    }
   }

@@ -41,8 +41,9 @@ export default function ComingSoon() {
           />
           {/* <div className="logo-placeholder">LOGO</div> */}
         </div>
-        <h1 className="godina">2026</h1>
-        <h1 className="coming-soon-text">Coming soon...</h1>
+        <h1 className="coming-soon-text">Save the date</h1>
+        <h1 className="godina">16. & 17.4.2026. </h1>
+        <h1 className="lzux">Stay tuned!</h1>
       </div>
 
       <div ref={spotlightRef} className="spotlight" />
