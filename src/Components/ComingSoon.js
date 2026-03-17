@@ -81,7 +81,7 @@ export default function ComingSoon() {
         </h1>
 
         <h1 className="
-          text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+          text-4xl sm:text-5xl md:text-7xl lg:text-8xl
           font-light tracking-wide
           mb-3 md:mb-4
         ">
@@ -89,7 +89,7 @@ export default function ComingSoon() {
         </h1>
 
         <h1 className="
-          text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+          text-3xl sm:text-5xl md:text-6xl lg:text-7xl
           font-light
         ">
           Stay tuned!

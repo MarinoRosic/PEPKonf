@@ -31,9 +31,9 @@ const Home = () => {
       <Organizers />
       <ContactUs />
       <SeeYou />
-
-      <ScrollToTop /> */}
+       */}
       <Partners />
+      <ScrollToTop />
     </>
   )
 }
