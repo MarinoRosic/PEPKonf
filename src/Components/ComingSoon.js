@@ -5,20 +5,19 @@ export default function ComingSoon() {
   const spotlightRef = useRef(null);
 
   useEffect(() => {
-    const spotlight = spotlightRef.current;
-    if (!spotlight) return;
+    const el = spotlightRef.current;
+    if (!el) return;
 
     let angle = 0;
     const speed = 0.005;
 
     const animate = () => {
       angle += speed;
-
       const x = 50 + Math.cos(angle) * 18;
       const y = 50 + Math.sin(angle * 1.4) * 12;
 
-      spotlight.style.setProperty('--spot-x', `${x}%`);
-      spotlight.style.setProperty('--spot-y', `${y}%`);
+      el.style.setProperty('--spot-x', `${x}%`);
+      el.style.setProperty('--spot-y', `${y}%`);
 
       requestAnimationFrame(animate);
     };
@@ -29,8 +28,8 @@ export default function ComingSoon() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#261539] text-white flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6">
-      {/* Spotlight layer */}
+    <div className="min-h-[100dvh] bg-[#261539] text-white flex flex-col items-center justify-center relative overflow-hidden px-5 sm:px-8 lg:px-12">
+      {/* Single centered spotlight */}
       <div
         ref={spotlightRef}
         className="absolute inset-0 pointer-events-none z-[1]"
@@ -52,26 +51,28 @@ export default function ComingSoon() {
         }}
       />
 
-      {/* Vignette overlay */}
-      <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.9)_100%)]" />
+      {/* Vignette */}
+      <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(circle_at_center,transparent_38%,rgba(0,0,0,0.88)_100%)]" />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl w-full flex flex-col items-center">
-        <div className="mb-10 md:mb-12">
+      <div className="relative z-10 text-center max-w-5xl w-full flex flex-col items-center">
+        <div className="mb-8 md:mb-12 lg:mb-16">
           <img
             src={pepLogo}
             alt="PEP Logo"
             className="
-              max-w-[280px] sm:max-w-[320px] md:max-w-[360px] w-full h-auto
-              brightness-110 drop-shadow-[0_0_35px_rgba(240,240,255,0.2)]
-              animate-gentle-breathe animate-float
+              max-w-[220px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] 
+              w-full h-auto
+              brightness-110 
+              drop-shadow-[0_0_40px_rgba(240,240,255,0.22)]
+              animate-logo-motion           {/* ← fixed: one animation name */}
             "
           />
         </div>
 
         <h1 className="
-          text-xl sm:text-2xl md:text-3xl
-          font-light tracking-[0.35em] uppercase
+          text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl
+          font-light tracking-[0.3em] uppercase
           bg-gradient-to-r from-indigo-200 via-white to-indigo-100
           bg-clip-text text-transparent bg-[length:300%]
           animate-shine
@@ -81,15 +82,15 @@ export default function ComingSoon() {
         </h1>
 
         <h1 className="
-          text-4xl sm:text-5xl md:text-7xl lg:text-8xl
-          font-light tracking-wide
-          mb-3 md:mb-4
+          text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl
+          font-light tracking-wide leading-tight
+          mb-3 md:mb-5
         ">
           16. & 17.4.2026.
         </h1>
 
         <h1 className="
-          text-3xl sm:text-5xl md:text-6xl lg:text-7xl
+          text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl
           font-light
         ">
           Stay tuned!

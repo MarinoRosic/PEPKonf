@@ -13,20 +13,15 @@ module.exports = {
         'about-Mobitel': "url('./assets/images/aboutPEP2mobitel.png')",
         'stolice-BG' : "url('./assets/images/PEP-naslovna.jpg')",
         'stolice-BG-Mob' : "url('./assets/images/PEP-naslovna-mob.jpg')"
-      },
+      }, 
       animation: {
-        'gentle-breathe': 'gentleBreathe 14s ease-in-out infinite',
-        float: 'float 18s ease-in-out infinite',
+        'logo-motion': 'logoMotion 16s ease-in-out infinite',   // ← new combined name
         shine: 'shine 10s linear infinite',
       },
       keyframes: {
-        gentleBreathe: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.025)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(6px, -12px)' },
+        logoMotion: {
+          '0%, 100%': { transform: 'scale(1) translate(0, 0)' },
+          '50%':      { transform: 'scale(1.025) translate(6px, -12px)' },
         },
         shine: {
           '0%':   { backgroundPosition: '0% 50%' },
