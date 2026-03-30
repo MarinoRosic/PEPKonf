@@ -14,6 +14,7 @@ import HoneyDU from "../assets/images/HoneyDU.png"
 import DubManuf from "../assets/images/DubrovackaManufaktura.png"
 
 const Partners = () => {
+    var currentYear = new Date().getFullYear();
   return (
     <>
         <section className='relative xl:h-[1350px] w-full gap-y-5 bg-white flex flex-col justify-normal items-center'>
@@ -64,9 +65,9 @@ const Partners = () => {
             <div className='absolute bottom-0 h-[50px] border-t-[#261539] border-t-2 w-full bg-[#261539] px-2'>
                 <div className='flex flex-row items-center content-center justify-center flex-grow h-full'>
                     <p className='text-sm span font-thin w-[33%] justify-center text-left content-center items-center normal-font'>
-                        <Link onClick={() => { setTimeout(() => {window.scroll(0,0);}, 500)  }} to='/privacypolicy'>Privacy Policy</Link></p>
-                    <p className='w-[33%] text-sm span text-center justify-center content-center items-center normal-font'>Copyright © 2025 PEP Konf</p>
-                    <p className='span font-thin text-sm w-[33%] justify-center text-right content-center items-center normal-font'>Made by <a href="https://www.afdu.dev"><span className='text-[#F0E2FF]'>AFDU</span></a></p>
+                        <Link onClick={() =>  { setTimeout(() => {window.scroll(0,0);}, 500)  }} to='/privacypolicy'>Privacy Policy</Link></p>
+                    <p className='w-[33%] text-sm span text-center justify-center content-center items-center normal-font'>Copyright © {currentYear} PEP Konf</p>
+                    <p className='span font-thin text-sm w-[33%] justify-center text-right content-center items-center normal-font'>Made by <a href="/#"><span className='text-[#F0E2FF]'>PRIT</span></a></p>
                 </div>
             </div>
         </section>

@@ -21,15 +21,23 @@ import Gallery from '../Components/Gallery';
 const Home = () => {
   return (
     <>
-    <YearProvider>
+      <YearProvider>
         <HomeSection />
         <Presentation />
         <AboutPEPSection />
         <WWWSection />
         <PEPThemes />
-        <YearButtons />
-        <LecturersSection />
-        <Gallery />
+
+        {/* ── This wrapper controls the sticky lifetime ── */}
+        <div id="year-content-start" className="relative year-dependent-content">
+
+          <YearButtons />           {/* ← sticky inside this wrapper */}
+          <Gallery />
+          <LecturersSection />
+
+        </div>
+
+        {/* Everything after Gallery is NOT year-dependent → bar should no longer stick here */}
         <Program />
         <AboutUsSection />
         <Organizers />
