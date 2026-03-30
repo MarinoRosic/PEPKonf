@@ -17,10 +17,12 @@ import transition from '../Transition';
 import { YearProvider } from '../Components/YearContext';
 import YearButtons from '../Components/YearButtons';
 import Gallery from '../Components/Gallery';
+import LenisProvider from '../Components/providers/LenisProvider';
 
 const Home = () => {
   return (
     <>
+      <LenisProvider>
       <YearProvider>
         <HomeSection />
         <Presentation />
@@ -46,6 +48,7 @@ const Home = () => {
         <Partners />
         <ScrollToTop />
       </YearProvider>
+      </LenisProvider>
     </>
   )
 }
