@@ -1,51 +1,85 @@
-import React, {useRef} from 'react'
-import { motion, useInView } from "framer-motion"
+import { motion } from 'framer-motion';
+import RevealText from './RevealText';
 
-const OrganizerCard = (props) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {once: true});
+// Outer card — fires whileInView, then orchestrates children via stagger.
+// The card itself has no visual animation (no opacity/transform on it);
+// it's purely an orchestration container.
+const cardVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.15,
+      staggerChildren: 0.22,
+    },
+  },
+};
+
+// Same treatment as AboutUsCard — scale + blur + fade.
+// All circular portrait photos animate the same way throughout the site.
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.82, filter: 'blur(12px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+// Used by the description text — same fade-up as body paragraphs elsewhere.
+// No blur on text, no horizontal slide.
+const textVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const OrganizerCard = ({ name, img, text }) => {
   return (
-    <>
-    <div className='flex flex-col px-8 lg:px-10 py-8 border-b-2 border-b-[#db9bd5] lg:flex-row w-full overflow-hidden'>
-        <div className='lg:w-[50%]'>
-            <motion.div 
-            className='h-[310px] w-[310px] rounded-full border-[#772F6F] border-[13px] mx-auto'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(-100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
-            }}
-            >
-                    <img className='object-cover w-full h-full rounded-full' src={props.img} alt="" />
-            </motion.div>
-        </div>
-        <div className='pt-10 lg:w-[50%]'>
-            <motion.h2 
-            className='pb-10 text-4xl text-white span'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
-            }}
-            >{props.name}
-            </motion.h2>
-            <motion.p 
-            className='text-2xl text-white'
-            ref={ref}
-            style={{
-                transform: isInView ? "none" : "translateX(100%)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
-            }}
-            >
-                {props.text}
-            </motion.p>
-        </div>
-    </div>
-    </>
-  )
-}
+    // overflow-hidden removed from this div intentionally —
+    // filter: blur(10px) renders slightly outside the element's layout box.
+    // overflow-hidden would hard-clip that blur, giving the photo a sharp-edged
+    // cutoff instead of a soft fade. The parent section still has overflow-hidden
+    // so nothing leaks outside the page.
+    <motion.div
+      className='flex flex-col px-8 lg:px-10 py-8 border-b-2 border-b-[#db9bd5] lg:flex-row w-full'
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <div className='lg:w-[50%]'>
+        {/* Image — first variant child (stagger index 0), fires at delayChildren = 0.1s */}
+        <motion.div
+          className='h-[310px] w-[310px] rounded-full border-[#772F6F] border-[13px] mx-auto'
+          variants={imageVariants}
+        >
+          <img className='object-cover w-full h-full rounded-full' src={img} alt="" />
+        </motion.div>
+      </div>
 
-export default OrganizerCard
+      <div className='pt-10 lg:w-[50%]'>
+        {/* Name — RevealText can't join the variant system (it's not a motion element),
+            so it gets a manual delay that slots it between image (0.1s) and description (0.25s).
+            delay: 0.2s → words start appearing just as the image is resolving. */}
+        <h2 className='pb-10 text-4xl text-white span'>
+          <RevealText delay={0.3}>{name}</RevealText>
+        </h2>
+
+        {/* Description — second variant child (stagger index 1), fires at 0.25s.
+            Fades up after the name has started revealing — follows reading order. */}
+        <motion.p
+          className='text-2xl text-white'
+          variants={textVariants}
+        >
+          {text}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+};
+
+export default OrganizerCard;

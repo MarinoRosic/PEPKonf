@@ -1,14 +1,15 @@
-import React from 'react'
-import Lecturer from './Lecturer'
+import { useMemo } from 'react';
+import Lecturer from './Lecturer';
 import { AnimatePresence, motion } from 'framer-motion';
+import RevealText from './RevealText';
 import { useYear } from '../Components/YearContext';
-import { lecturersByYear } from '../data/lecturersData'; 
+import { lecturersByYear } from '../data/lecturersData';
 
 const LecturersSection = () => {
   const { selectedYear } = useYear();
 
   const data = lecturersByYear[selectedYear] || {
-    panelisti: [], radionica: [], predavaci: [], moderatorice: []
+    panelisti: [], radionica: [], predavaci: [], moderatorice: [],
   };
 
   const hasContent =
@@ -16,6 +17,17 @@ const LecturersSection = () => {
     data.radionica?.length > 0 ||
     data.predavaci?.length > 0 ||
     data.moderatorice?.length > 0;
+
+  // Checked once at mount — we don't need to respond to resize since layout
+  // doesn't meaningfully change mid-session on a conference site.
+  // On mobile: year transitions use opacity-only (no x-axis slide).
+  // Horizontal slides on mobile can cause overflow glitches and fight
+  // against the vertical scroll direction. On desktop the x-slide
+  // makes semantic sense — switching years feels like turning a page.
+  const isMobile = useMemo(
+    () => window.matchMedia('(max-width: 768px)').matches,
+    []
+  );
 
   return (
     <section className="flex flex-col h-full pt-16 border-t-2 border-t-[#db9bd5] overflow-hidden">
@@ -31,67 +43,39 @@ const LecturersSection = () => {
       ) : (
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedYear}                     // ← important: triggers animation on year change
-            initial={{ opacity: 0, x: 60 }}
+            key={selectedYear}
+            // On mobile: pure fade (no x movement).
+            // On desktop: slide from right on enter, slide to left on exit.
+            // isMobile ? 0 : 60 — ternary picks the x value at runtime.
+            initial={{ opacity: 0, x: isMobile ? 0 : 60 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -60 }}
-            transition={{
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1],           // similar to your page transition curve
-            }}
+            exit={{ opacity: 0, x: isMobile ? 0 : -60 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="w-full"
           >
+
             {data.panelisti?.length > 0 && (
               <div>
-                <motion.h1
-                  className="text-5xl text-center text-white xl:text-7xl"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileInView={{ opacity: 1, scale: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                    scale: {
-                      type: "spring",
-                      damping: 5,
-                      stiffness: 100,
-                      restDelta: 0.001
-                    }
-                  }}
-                >
-                  Panelisti:
-                </motion.h1>
+                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                  <RevealText>Panelisti:</RevealText>
+                </h1>
+
                 <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
                   {data.panelisti.map((props, i) => (
-                    <Lecturer key={i} {...props} />
+                    <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
               </div>
             )}
 
             {data.radionica?.length > 0 && (
-              <div className="pt-14">  {/* ← added pt-14 like in your original */}
-                <motion.h1
-                  className="text-5xl text-center text-white xl:text-7xl"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileInView={{ opacity: 1, scale: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                    scale: {
-                      type: "spring",
-                      damping: 5,
-                      stiffness: 100,
-                      restDelta: 0.001
-                    }
-                  }}
-                >
-                  Radionica:
-                </motion.h1>
+              <div className="pt-14">
+                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                  <RevealText>Radionica:</RevealText>
+                </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
                   {data.radionica.map((props, i) => (
-                    <Lecturer key={i} {...props} />
+                    <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
               </div>
@@ -99,27 +83,12 @@ const LecturersSection = () => {
 
             {data.predavaci?.length > 0 && (
               <div className="pt-14">
-                <motion.h1
-                  className="text-5xl text-center text-white xl:text-7xl"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileInView={{ opacity: 1, scale: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                    scale: {
-                      type: "spring",
-                      damping: 5,
-                      stiffness: 100,
-                      restDelta: 0.001
-                    }
-                  }}
-                >
-                  Predavači:
-                </motion.h1>
+                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                  <RevealText>Predavači:</RevealText>
+                </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
                   {data.predavaci.map((props, i) => (
-                    <Lecturer key={i} {...props} />
+                    <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
               </div>
@@ -127,31 +96,17 @@ const LecturersSection = () => {
 
             {data.moderatorice?.length > 0 && (
               <div className="pt-14">
-                <motion.h1
-                  className="text-5xl text-center text-white xl:text-7xl"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileInView={{ opacity: 1, scale: 0.9 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                    scale: {
-                      type: "spring",
-                      damping: 5,
-                      stiffness: 100,
-                      restDelta: 0.001
-                    }
-                  }}
-                >
-                  Moderatorice:
-                </motion.h1>
+                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                  <RevealText>Moderatorice:</RevealText>
+                </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
                   {data.moderatorice.map((props, i) => (
-                    <Lecturer key={i} {...props} />
+                    <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
               </div>
             )}
+
           </motion.div>
         </AnimatePresence>
       )}
@@ -159,4 +114,4 @@ const LecturersSection = () => {
   );
 };
 
-export default LecturersSection
+export default LecturersSection;
