@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGlobe } from 'react-icons/fa';
 import RevealText from './RevealText';
+import RotatingAvatar from './RotatingAvatar';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
@@ -39,11 +40,6 @@ const iconVariants = {
   },
 };
 
-const colorVariants = {
-  pink: 'border-[#db9bd5]',
-  purple: 'border-[#772F6F]',
-};
-
 const Lecturer = ({ img, borderColor, lecturer, title, linkedIN, web, index = 0 }) => {
   return (
     <motion.div
@@ -55,8 +51,8 @@ const Lecturer = ({ img, borderColor, lecturer, title, linkedIN, web, index = 0 
       viewport={{ once: true, amount: 0.2 }}
     >
       {/* Photo — no separate animation, it IS the card. Appears with the blur+fade. */}
-      <div className={`h-[250px] w-[250px] lg:h-[320px] lg:w-[320px] rounded-full bg-black ${colorVariants[borderColor]} border-[13px] mx-auto`}>
-        <img className="object-cover w-full h-full rounded-full" src={img} alt="" />
+      <div className="h-[250px] w-[250px] lg:h-[320px] lg:w-[320px] mx-auto">
+        <RotatingAvatar img={img} borderColor={borderColor} />
       </div>
 
       <div className="flex flex-col">

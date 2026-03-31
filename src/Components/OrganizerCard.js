@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 import SectionDivider from './SectionDivider';
+import RotatingAvatar from './RotatingAvatar';
 
 // Outer card — fires whileInView, then orchestrates children via stagger.
 // The card itself has no visual animation (no opacity/transform on it);
@@ -56,42 +57,9 @@ const OrganizerCard = ({ name, img, text }) => {
       <div className='lg:w-[50%]'>
         <motion.div
           variants={imageVariants}
-          style={{ position: 'relative', width: 310, height: 310, margin: '0 auto' }}
+          className="w-[310px] h-[310px] mx-auto"
         >
-          {/* spinning conic gradient ring */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              borderRadius: '50%',
-              background: 'conic-gradient(from 0deg, #db9bd5, #772F6F, #261539, #db9bd5)',
-              boxShadow: '0 0 28px 8px rgba(219,155,213,0.25)',
-            }}
-          />
-          {/* dark cutout — controls border thickness (6px each side) */}
-          <div style={{
-            position: 'absolute',
-            inset: 6,
-            borderRadius: '50%',
-            background: '#261539',
-            zIndex: 1,
-          }} />
-          {/* image */}
-          <img
-            className='object-cover'
-            src={img}
-            alt=""
-            style={{
-              position: 'absolute',
-              inset: 6,
-              width: 'calc(100% - 12px)',
-              height: 'calc(100% - 12px)',
-              borderRadius: '50%',
-              zIndex: 2,
-            }}
-          />
+          <RotatingAvatar img={img} />
         </motion.div>
       </div>
 

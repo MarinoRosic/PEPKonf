@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import aboutUsImg from "../assets/images/aboutUs.png";
 import RevealText from './RevealText';
+import RotatingAvatar from './RotatingAvatar';
 
 // Scale up from 85% + blur sharpening + fade.
 // Works particularly well on circles — feels like the portrait is materializing into focus.
@@ -19,7 +20,7 @@ const AboutUsCard = () => {
   return (
     <div className='pt-12'>
       <motion.div
-        className='h-[300px] w-[300px] rounded-full border-[#772F6F] border-[13px] mx-auto'
+        className='h-[300px] w-[300px] mx-auto'
         variants={imageVariants}
         initial="hidden"
         whileInView="visible"
@@ -27,7 +28,7 @@ const AboutUsCard = () => {
         // A circle is tall; without this it could fire before the user even sees it.
         viewport={{ once: true, amount: 0.3 }}
       >
-        <img className='object-cover w-full h-full rounded-full' src={aboutUsImg} alt="" />
+        <RotatingAvatar img={aboutUsImg} borderColor="purple" />
       </motion.div>
 
       {/* Caption — RevealText fires once the image has mostly settled.
