@@ -21,6 +21,8 @@ const Logo = ({ href, src, alt = '', tall = false }) => (
     <img
       src={src}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className={`w-auto object-contain ${tall ? 'h-36' : 'h-32'}`}
     />
   </a>

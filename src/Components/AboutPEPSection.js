@@ -1,12 +1,26 @@
 import {React, useRef} from 'react'
 import { motion, useInView } from 'framer-motion'
+import stoliceMob from "../assets/images/PEP-naslovna-mob.jpg"
+import stoliceDesktop from "../assets/images/PEP-naslovna.jpg"
 
 const AboutPEPSection = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='bg-stolice-BG-Mob bg-cover bg-center bg-no-repeat lg:bg-stolice-BG flex flex-col h-[100vh] font-main w-full overflow-hidden'>
+        <section className='relative flex flex-col h-[100vh] font-main w-full overflow-hidden'>
+          {/* <picture> loads only the right image for the viewport — no wasted bytes.
+              As an <img> it gets lazy loading and async decoding, unlike CSS background-image. */}
+          <picture>
+            <source media="(max-width: 1023px)" srcSet={stoliceMob} />
+            <img
+              src={stoliceDesktop}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+            />
+          </picture>
             <div className='flex flex-col my-auto'>
                 <motion.div 
                 className='flex flex-col w-full px-8 pb-20 mx-auto lg:px-20'

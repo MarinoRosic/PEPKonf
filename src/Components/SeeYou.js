@@ -5,7 +5,7 @@ const SeeYou = () => {
   return (
     <section className='flex flex-col items-center justify-center overflow-hidden'>
       <div className='relative content-center w-full h-full'>
-        <img className='w-full md:h-[700px]' src={stolice} alt="" />
+        <img className='w-full md:h-[700px]' src={stolice} alt="" loading="lazy" decoding="async" />
       </div>
       <div className='absolute flex items-center'>
         <h1 className='text-5xl text-white'>

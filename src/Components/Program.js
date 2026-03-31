@@ -53,7 +53,7 @@ const Program = () => {
           <RevealText>PRogram:</RevealText>
         </h1>
         <div className='pt-12 lg:pt-20'>
-          <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" />
+          <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" loading="lazy" decoding="async" />
         </div>
       </header>
       <Table datum="24.4. Četvrtak" day={day1} />

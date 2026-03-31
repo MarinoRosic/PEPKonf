@@ -1,10 +1,24 @@
 import pepLogo from "../assets/images/PEPLogo3.png";
+import stoliceMob from "../assets/images/PEP-naslovna-mob.jpg";
+import stoliceDesktop from "../assets/images/PEP-naslovna.jpg";
 import { motion } from 'framer-motion';
 import SplitText from './SplitText';
 
 const HomeSection = () => {
   return (
-    <section className='bg-stolice-BG-Mob lg:bg-stolice-BG h-[100vh] overflow-hidden bg-cover flex flex-col items-center gap-y-10'>
+    <section className='relative h-[100vh] overflow-hidden flex flex-col items-center gap-y-10'>
+      {/* Hero background — fetchpriority="high" tells the browser to load this before
+          other resources. No loading="lazy" or decoding="async" on hero images.
+          <picture> serves the right size for the viewport, no wasted bytes. */}
+      <picture>
+        <source media="(max-width: 1023px)" srcSet={stoliceMob} />
+        <img
+          src={stoliceDesktop}
+          alt=""
+          fetchpriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+        />
+      </picture>
 
       {/* Logo — `animate` (not whileInView) because the hero is always visible at page load.
           whileInView fires when an element scrolls INTO the viewport, but the hero
@@ -39,7 +53,7 @@ const HomeSection = () => {
           delay={1.2} — starts after the tagline has built enough to feel sequenced. */}
       <div className='h-[33%] mx-10 content-center'>
         <p className='text-xl italic font-thin text-center text-white'>
-          <SplitText delay={1.2} stagger={0.025}>24. - 25. travnja 2025. Sveučilišni kampus u Dubrovniku</SplitText>
+          <SplitText delay={1.2} stagger={0.025}>16. - 17. travnja 2026. Sveučilišni kampus u Dubrovniku</SplitText>
         </p>
       </div>
 

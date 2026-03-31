@@ -15,7 +15,7 @@ const Images = props => {
                 key={index}
                 className="image"
                 >
-                <img src={slide.src} alt={slide.description} />
+                <img src={slide.src} alt={slide.description} loading="lazy" decoding="async" />
                 </div>
             ))}
             </div>

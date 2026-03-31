@@ -83,6 +83,8 @@ const Coverflow = ({ data, onImageClick }) => {
                 src={slide.src}
                 alt={slide.description}
                 style={{ width: CARD_W, height: CARD_H, objectFit: 'cover', display: 'block' }}
+                loading="lazy"
+                decoding="async"
                 draggable={false}
               />
               {!isCenter && (

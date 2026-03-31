@@ -36,6 +36,8 @@ const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness =
         className="object-cover absolute rounded-full"
         src={img}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         style={{
           inset: borderThickness,
           width: `calc(100% - ${borderThickness * 2}px)`,

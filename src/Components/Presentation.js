@@ -22,7 +22,7 @@ const Presentation = () => {
               }
             }}
             >
-                <img className='mx-auto md:h-[850px] py-10' src={presImageMob} alt="" />
+                <img className='mx-auto md:h-[850px] py-10' src={presImageMob} alt="" loading="lazy" decoding="async" />
             </motion.div>
         </section>
     </>
