@@ -6,9 +6,9 @@ const WWWSection = () => {
     <>
         <section className='flex h-[100vh] font-main overflow-hidden'>
             <div className='flex flex-col px-8 mx-auto md:px-20 content-center justify-center gap-y-12 lg:gap-y-20'>
-                <WWWCard question="ŠTO?" answer="PEP konferencija je događaj koji okuplja istaknute predavače iz područja odnosa s javnošću i novinarstva kako bi podijelili svoje znanje, iskustvo i najnovije trendove sa studentima i mladima." />
-                <WWWCard question="KAD?" answer="Četvrtak & petak | 24. i 25. travnja 2025." />
-                <WWWCard question="GDJE?" answer="Sveučilišni kampus, Ulica branitelja Dubrovnika 41, Dubrovnik" />
+                <WWWCard delay={0}   question="ŠTO?" answer="PEP konferencija je događaj koji okuplja istaknute predavače iz područja odnosa s javnošću i novinarstva kako bi podijelili svoje znanje, iskustvo i najnovije trendove sa studentima i mladima." />
+                <WWWCard delay={0.2} question="KAD?" answer="Četvrtak & petak | 16. i 17. travnja 2026." />
+                <WWWCard delay={0.4} question="GDJE?" answer="Sveučilišni kampus, Ulica branitelja Dubrovnika 41, Dubrovnik" />
             </div>
         </section>
     </>

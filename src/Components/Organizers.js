@@ -1,6 +1,6 @@
 import RevealText from './RevealText';
 import OrganizerCard from "./OrganizerCard";
-import LZux from "../assets/images/LeonardaOrganizator.jpg";
+import LZux from "../assets/images/LZUX.jpg";
 import Marija from "../assets/images/MarijaMamic.jpeg";
 import Anamarija from "../assets/images/AnamarijaLucic.jpeg";
 
