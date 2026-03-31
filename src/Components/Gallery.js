@@ -3,7 +3,6 @@ import Lightbox from "yet-another-react-lightbox"
 import { slike } from "../data/slike"
 import "yet-another-react-lightbox/styles.css"
 import Coverflow from "../Components/Coverflow"
-import SectionDivider from "../Components/SectionDivider"
 import transition from '../Transition'
 import { Zoom } from "yet-another-react-lightbox/plugins"
 import { AnimatePresence, motion } from 'framer-motion'

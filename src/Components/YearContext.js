@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const YearContext = createContext(undefined);
 
 export function YearProvider({ children }) {
-  const [selectedYear, setSelectedYear] = useState(2026); // default year – change if needed
+  const [selectedYear, setSelectedYear] = useState(2025); // default year – change if needed
 
   return (
     <YearContext.Provider value={{ selectedYear, setSelectedYear }}>

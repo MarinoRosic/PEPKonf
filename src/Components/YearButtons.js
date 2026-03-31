@@ -1,7 +1,7 @@
 import { useYear } from '../Components/YearContext';
 import {  motion } from 'framer-motion';
 
-const YEARS = [2026, 2025, 2024, 2023];
+const YEARS = [ 2025, 2024, 2023];
 
 export default function YearButtons() {
   const { selectedYear, setSelectedYear } = useYear();

@@ -54,12 +54,44 @@ const OrganizerCard = ({ name, img, text }) => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <div className='lg:w-[50%]'>
-        {/* Image — first variant child (stagger index 0), fires at delayChildren = 0.1s */}
         <motion.div
-          className='h-[310px] w-[310px] rounded-full border-[#772F6F] border-[13px] mx-auto'
           variants={imageVariants}
+          style={{ position: 'relative', width: 310, height: 310, margin: '0 auto' }}
         >
-          <img className='object-cover w-full h-full rounded-full' src={img} alt="" />
+          {/* spinning conic gradient ring */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: 'conic-gradient(from 0deg, #db9bd5, #772F6F, #261539, #db9bd5)',
+              boxShadow: '0 0 28px 8px rgba(219,155,213,0.25)',
+            }}
+          />
+          {/* dark cutout — controls border thickness (6px each side) */}
+          <div style={{
+            position: 'absolute',
+            inset: 6,
+            borderRadius: '50%',
+            background: '#261539',
+            zIndex: 1,
+          }} />
+          {/* image */}
+          <img
+            className='object-cover'
+            src={img}
+            alt=""
+            style={{
+              position: 'absolute',
+              inset: 6,
+              width: 'calc(100% - 12px)',
+              height: 'calc(100% - 12px)',
+              borderRadius: '50%',
+              zIndex: 2,
+            }}
+          />
         </motion.div>
       </div>
 
