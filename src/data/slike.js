@@ -9,12 +9,12 @@ export const slike =
         {
             src: Galerija1,
             title: 'PEPKonf',
-            description: 'PEPKonf Test',
+            description: 'Slika 1',
         },
         {
             src: Galerija2,
             title: 'PEPKonf',
-            description: 'PEPKonf Test',
+            description: 'Slika 2',
         },
     ],
     2024:
@@ -22,7 +22,7 @@ export const slike =
         {
             src: Galerija1,
             title: 'PEPKonf',
-            description: 'PEPKonf Test',
+            description: 'Slika 1',
         },
     ]
 }

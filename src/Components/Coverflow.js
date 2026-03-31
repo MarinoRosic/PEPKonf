@@ -1,0 +1,183 @@
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+
+const SIDE_COUNT = 2
+const CARD_W = 280
+const CARD_H = 380
+
+const Coverflow = ({ data, onImageClick }) => {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    setActiveIndex(0)
+  }, [data])
+
+  const goTo = (index) => {
+    if (index >= 0 && index < data.length) {
+      setActiveIndex(index)
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') goTo(activeIndex - 1)
+    else if (e.key === 'ArrowRight') goTo(activeIndex + 1)
+  }
+
+  const handleDragEnd = (_, info) => {
+    if (info.offset.x < -60) goTo(activeIndex + 1)
+    else if (info.offset.x > 60) goTo(activeIndex - 1)
+  }
+
+  return (
+    <div
+      className="relative w-full flex flex-col items-center select-none outline-none"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >
+      {/* 3D Stage */}
+      <div
+        className="relative w-full"
+        style={{ height: CARD_H + 80, perspective: '1200px' }}
+      >
+        {data.map((slide, i) => {
+          const offset = i - activeIndex
+          const abs = Math.abs(offset)
+          if (abs > SIDE_COUNT) return null
+
+          const isCenter = offset === 0
+
+          return (
+            <motion.div
+              key={i}
+              animate={{
+                x: offset * 210,
+                rotateY: -offset * 52,
+                scale: isCenter ? 1 : 0.76 - (abs - 1) * 0.06,
+                opacity: isCenter ? 1 : 0.72 - (abs - 1) * 0.2,
+                z: isCenter ? 40 : -abs * 50,
+              }}
+              transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+              drag={isCenter ? 'x' : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={handleDragEnd}
+              onClick={() => (isCenter ? onImageClick(activeIndex) : goTo(i))}
+              whileTap={isCenter ? { scale: 0.97 } : undefined}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                marginLeft: -CARD_W / 2,
+                marginTop: -(CARD_H / 2) - 20,
+                zIndex: 10 - abs * 2,
+                cursor: 'pointer',
+                borderRadius: 16,
+                overflow: 'hidden',
+                willChange: 'transform',
+                boxShadow: isCenter
+                  ? '0 25px 70px rgba(0,0,0,0.7), 0 0 40px rgba(219,155,213,0.2)'
+                  : '0 8px 30px rgba(0,0,0,0.5)',
+              }}
+            >
+              <img
+                src={slide.src}
+                alt={slide.description}
+                style={{ width: CARD_W, height: CARD_H, objectFit: 'cover', display: 'block' }}
+                draggable={false}
+              />
+              {!isCenter && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'rgba(0,0,0,0.3)',
+                    pointerEvents: 'none',
+                  }}
+                />
+              )}
+            </motion.div>
+          )
+        })}
+      </div>
+
+      {/* Caption */}
+      <p
+        className="text-[#db9bd5] text-sm tracking-wider mt-1"
+        style={{ minHeight: '1.25rem' }}
+      >
+        {data[activeIndex]?.description || data[activeIndex]?.title || ''}
+      </p>
+
+      {/* Navigation dots */}
+      <div className="flex items-center gap-2 mt-3">
+        {data.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Slika ${i + 1}`}
+            style={{
+              height: '6px',
+              width: i === activeIndex ? '20px' : '6px',
+              borderRadius: '3px',
+              background: i === activeIndex ? '#db9bd5' : 'rgba(255,255,255,0.25)',
+              transition: 'all 0.3s ease',
+              border: 'none',
+              padding: 0,
+              cursor: 'pointer',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Arrows */}
+      {[
+        {
+          dir: 'left',
+          label: 'Prethodna slika',
+          symbol: '‹',
+          onClick: () => goTo(activeIndex - 1),
+          disabled: activeIndex === 0,
+        },
+        {
+          dir: 'right',
+          label: 'Sljedeća slika',
+          symbol: '›',
+          onClick: () => goTo(activeIndex + 1),
+          disabled: activeIndex === data.length - 1,
+        },
+      ].map(({ dir, label, symbol, onClick, disabled }) => (
+        <button
+          key={dir}
+          onClick={onClick}
+          disabled={disabled}
+          aria-label={label}
+          style={{
+            position: 'absolute',
+            [dir]: '8px',
+            top: CARD_H / 2 + 10,
+            width: 36,
+            height: 36,
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.1)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            color: 'white',
+            fontSize: '22px',
+            cursor: disabled ? 'default' : 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: disabled ? 0.25 : 1,
+            transition: 'opacity 0.2s, background 0.2s',
+            zIndex: 20,
+          }}
+        >
+          {symbol}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+export default Coverflow
