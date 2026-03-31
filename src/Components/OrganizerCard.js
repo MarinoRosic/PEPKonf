@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
+import SectionDivider from './SectionDivider';
 
 // Outer card — fires whileInView, then orchestrates children via stagger.
 // The card itself has no visual animation (no opacity/transform on it);
@@ -44,8 +45,9 @@ const OrganizerCard = ({ name, img, text }) => {
     // overflow-hidden would hard-clip that blur, giving the photo a sharp-edged
     // cutoff instead of a soft fade. The parent section still has overflow-hidden
     // so nothing leaks outside the page.
+    <>
     <motion.div
-      className='flex flex-col px-8 lg:px-10 py-8 border-b-2 border-b-[#db9bd5] lg:flex-row w-full'
+      className='flex flex-col px-8 lg:px-10 py-8 lg:flex-row w-full'
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
@@ -79,6 +81,8 @@ const OrganizerCard = ({ name, img, text }) => {
         </motion.p>
       </div>
     </motion.div>
+    <SectionDivider />
+    </>
   );
 };
 

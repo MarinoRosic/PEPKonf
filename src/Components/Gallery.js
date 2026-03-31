@@ -3,6 +3,7 @@ import Lightbox from "yet-another-react-lightbox"
 import { slike } from "../data/slike"
 import "yet-another-react-lightbox/styles.css"
 import Coverflow from "../Components/Coverflow"
+import SectionDivider from "../Components/SectionDivider"
 import transition from '../Transition'
 import { Zoom } from "yet-another-react-lightbox/plugins"
 import { AnimatePresence, motion } from 'framer-motion'
@@ -25,7 +26,7 @@ const Gallery = () => {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="w-full"
           >
-            <section className="overflow-x-hidden py-10 border-t-[#db9bd5] border-t-2 border-b-[#db9bd5] border-b-2">
+            <section className="overflow-x-hidden py-10">
               <motion.div className="overflow-hidden">
                 <h1 className="content-center text-5xl font-bold text-center text-white md:text-6xl xl:text-7xl lg:mt-8">
                   Galerija {selectedYear}

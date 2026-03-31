@@ -1,14 +1,16 @@
 import {React, useRef} from 'react'
 import { motion, useInView } from 'framer-motion'
+import SectionDivider from './SectionDivider'
 
 const PEPThemes = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true});
   return (
     <>
-        <section className='grid h-[600px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden py-10 border-t-[#db9bd5] border-t-2'>
+        <SectionDivider label="PEP 2026" labelPosition="left" className="px-4" />
+        <section className='grid h-[600px] lg:h-[100vh] lg:grid-cols-3 lg:grid-rows-3 mx-auto auto-cols-fr overflow-hidden py-10'>
             <div className='max-sm:hidden'></div>
-            <motion.div 
+            <motion.div
             className='overflow-hidden'>
                 <h1 
                 className='content-center text-5xl font-bold text-center text-white md:text-6xl xl:text-7xl lg:mt-8'
@@ -81,6 +83,7 @@ const PEPThemes = () => {
             >Javni nastup</motion.p>
             <div className='max-sm:hidden'></div>
         </section>
+        <SectionDivider className="px-4 mt-8" labelPosition='right' label="Odnosi s javnošću"/>
     </>
   )
 }

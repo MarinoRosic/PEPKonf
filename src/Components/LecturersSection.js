@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import Lecturer from './Lecturer';
+import SectionDivider from './SectionDivider';
 import { AnimatePresence, motion } from 'framer-motion';
 import RevealText from './RevealText';
 import { useYear } from '../Components/YearContext';
@@ -30,7 +31,9 @@ const LecturersSection = () => {
   );
 
   return (
-    <section className="flex flex-col h-full pt-16 border-t-2 border-t-[#db9bd5] overflow-hidden">
+    <>
+        <SectionDivider className='px-4' label="Event menadžment"/>
+    <section className="flex flex-col h-full pt-16 overflow-hidden">
       {!hasContent ? (
         <motion.div
           className="text-center text-white text-2xl py-20"
@@ -60,11 +63,12 @@ const LecturersSection = () => {
                   <RevealText>Panelisti:</RevealText>
                 </h1>
 
-                <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
+                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
                   {data.panelisti.map((props, i) => (
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
+                <SectionDivider className="px-4" label="Novinarstvo" labelPosition='right'/>
               </div>
             )}
 
@@ -73,11 +77,12 @@ const LecturersSection = () => {
                 <h1 className="text-5xl text-center text-white xl:text-7xl">
                   <RevealText>Radionica:</RevealText>
                 </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
+                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
                   {data.radionica.map((props, i) => (
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
+                <SectionDivider className="px-4" />
               </div>
             )}
 
@@ -86,11 +91,12 @@ const LecturersSection = () => {
                 <h1 className="text-5xl text-center text-white xl:text-7xl">
                   <RevealText>Predavači:</RevealText>
                 </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
+                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
                   {data.predavaci.map((props, i) => (
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
+                <SectionDivider className="px-4" />
               </div>
             )}
 
@@ -99,11 +105,12 @@ const LecturersSection = () => {
                 <h1 className="text-5xl text-center text-white xl:text-7xl">
                   <RevealText>Moderatorice:</RevealText>
                 </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 border-b-2 border-b-[#db9bd5] gap-y-10 lg:gap-y-20">
+                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
                   {data.moderatorice.map((props, i) => (
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
+                <SectionDivider className="px-4" />
               </div>
             )}
 
@@ -111,6 +118,7 @@ const LecturersSection = () => {
         </AnimatePresence>
       )}
     </section>
+    </>
   );
 };
 

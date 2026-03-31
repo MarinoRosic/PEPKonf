@@ -6,6 +6,7 @@ import Anamarija from "../assets/images/AnamarijaLucic.jpeg";
 
 const Organizers = () => {
   return (
+    <>
     <section className='flex flex-col w-full h-full overflow-hidden'>
       <header className='pt-32 mx-auto'>
         <h1 className='pb-10 text-5xl font-extrabold text-white lg:text-8xl font-main'>
@@ -16,6 +17,7 @@ const Organizers = () => {
       <OrganizerCard name="Anamarija Lučić"  img={Anamarija} text="Organizatorica i koordinatorica ponuda, nabave, cateringa i programa" />
       <OrganizerCard name="Marija Mamić"     img={Marija}    text="Organizatorica i voditeljica društvenih mreža" />
     </section>
+    </>
   );
 };
 

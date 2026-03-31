@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import AboutUsCard from './AboutUsCard';
 import RevealText from './RevealText';
+import SectionDivider from './SectionDivider';
 
 // Orchestrates the two paragraphs — fires once in view, then staggers children.
 // staggerChildren: 0.15 means paragraph 2 starts 0.15s after paragraph 1.
@@ -23,7 +24,9 @@ const paraVariants = {
 
 const AboutUsSection = () => {
   return (
-    <section className='flex flex-col h-full lg:h-[980px] lg:pt-8 overflow-hidden'>
+    <>
+      <SectionDivider className='px-4' label="Poduzetništvo" />
+      <section className='flex flex-col h-full lg:h-[980px] py-12 lg:pt-8 overflow-hidden'>
       <header className='pt-10 mx-auto'>
         <h1 className='text-6xl font-extrabold text-white lg:text-8xl'>
           <RevealText>O nama</RevealText>
@@ -63,6 +66,8 @@ const AboutUsSection = () => {
         </motion.div>
       </div>
     </section>
+    <SectionDivider />
+    </>
   );
 };
 
