@@ -1,31 +1,51 @@
-import React from 'react'
-import presImageMob from "../assets/images/presentationMob.png"
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+
+const lines = [
+  { text: 'PR.',          pink: false },
+  { text: 'PRIČE.',           pink: true  },
+  { text: 'ISKUSTVO.',        pink: false },
+  { text: 'SVE NA',           pink: false },
+  { text: 'JEDNOM MJESTU.',   pink: true  },
+]
+
+const MaskLine = ({ children, delay, isInView }) => (
+  <div className="overflow-hidden">
+    <motion.div
+      initial={{ y: '105%' }}
+      animate={isInView ? { y: 0 } : {}}
+      transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94], delay }}
+    >
+      {children}
+    </motion.div>
+  </div>
+)
 
 const Presentation = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-150px' })
+
   return (
-    <>
-        <section className='h-[680px] md:h-[100vh] overflow-hidden flex justify-center'>
-            <motion.div 
-            className='h-full flex items-center my-auto'
-            initial={{ opacity: 0, scale: 0.6 }}
-            whileInView={{opacity:1, scale: 0.9}}
-            viewport={{once: true}}
-            transition={{
-              duration: 0.3,
-              ease: [0, 0.71, 0.2, 1.01],
-              scale: {
-                type: "spring",
-                damping: 5,
-                stiffness: 100,
-                restDelta: 0.001
-              }
-            }}
+    <section
+      ref={ref}
+      className="flex items-center min-h-screen px-8 lg:px-20 py-24"
+    >
+      <div className="flex flex-col gap-1 md:gap-2">
+        {lines.map(({ text, pink }, i) => (
+          <MaskLine key={i} delay={i * 0.14} isInView={isInView}>
+            <h2
+              className={`
+                text-[13vw] sm:text-[11vw] lg:text-[9vw]
+                font-extrabold leading-none tracking-tight font-main
+                ${pink ? 'text-[#db9bd5]' : 'text-white'}
+              `}
             >
-                <img className='mx-auto md:h-[850px] py-10' src={presImageMob} alt="" loading="lazy" decoding="async" />
-            </motion.div>
-        </section>
-    </>
+              {text}
+            </h2>
+          </MaskLine>
+        ))}
+      </div>
+    </section>
   )
 }
 

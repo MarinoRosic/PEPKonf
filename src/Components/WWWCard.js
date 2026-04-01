@@ -14,7 +14,7 @@ const WWWCard = (props) => {
       {/* Question + underline draw */}
       <div className='relative inline-block pb-4'>
         <motion.h1
-          className='text-[#772F6F] text-3xl lg:text-5xl font-extrabold'
+          className='text-[#772F6F] text-3xl md:text-4xl lg:text-5xl font-extrabold'
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut', delay: delay }}

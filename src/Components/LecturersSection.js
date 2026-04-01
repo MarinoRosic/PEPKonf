@@ -59,7 +59,7 @@ const LecturersSection = () => {
 
             {data.panelisti?.length > 0 && (
               <div>
-                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Panelisti:</RevealText>
                 </h1>
 
@@ -74,7 +74,7 @@ const LecturersSection = () => {
 
             {data.radionica?.length > 0 && (
               <div className="pt-14">
-                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Radionica:</RevealText>
                 </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
@@ -88,7 +88,7 @@ const LecturersSection = () => {
 
             {data.predavaci?.length > 0 && (
               <div className="pt-14">
-                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Predavači:</RevealText>
                 </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
@@ -102,7 +102,7 @@ const LecturersSection = () => {
 
             {data.moderatorice?.length > 0 && (
               <div className="pt-14">
-                <h1 className="text-5xl text-center text-white xl:text-7xl">
+                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Moderatorice:</RevealText>
                 </h1>
                 <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">

@@ -1,28 +1,27 @@
 import { useYear } from '../Components/YearContext';
-import {  motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useLenis } from 'lenis/react';
 
 const YEARS = [ 2025, 2024, 2023];
 
 export default function YearButtons() {
   const { selectedYear, setSelectedYear } = useYear();
+  const lenis = useLenis();
 
   const handleYearClick = (year) => {
-    // First update the selected year (this triggers content change)
     setSelectedYear(year);
 
-    // Then scroll to the start of the year-dependent content
     setTimeout(() => {
       const startElement = document.getElementById('year-content-start');
-      if (startElement) {
-        const rect = startElement.getBoundingClientRect();
-        const targetY = rect.top + window.scrollY;
+      if (!startElement) return;
 
-        window.scrollTo({
-          top: targetY,
-          behavior: 'smooth',
-        });
+      if (lenis) {
+        lenis.scrollTo(startElement, { duration: 1.2 });
+      } else {
+        // Fallback for mobile (Lenis disabled on touch)
+        startElement.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 150); // ← adjust this delay if needed (100–250 ms range usually works best)
+    }, 150);
   };
 
   return (

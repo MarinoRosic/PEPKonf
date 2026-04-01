@@ -24,7 +24,7 @@ const rowVariants = {
 const Table = ({ datum, day }) => {
   return (
     <section className='flex flex-col w-full mb-20'>
-      <h1 className='text-[#772F6F] text-3xl lg:text-6xl mx-auto pt-16 lg:pt-20 lg:pb-5 font-extrabold'>
+      <h1 className='text-[#772F6F] text-3xl md:text-4xl lg:text-6xl mx-auto pt-16 lg:pt-20 lg:pb-5 font-extrabold'>
         <RevealText>{datum}</RevealText>
       </h1>
 
@@ -45,12 +45,12 @@ const Table = ({ datum, day }) => {
             // Each row is a variant child — receives "hidden"/"visible" state
             // propagated from the container, staggered by index * 0.06s.
             <motion.div
-              className='z-50 pb-3 text-white text-md lg:text-3xl'
+              className='z-50 pb-3 text-white text-base md:text-xl lg:text-3xl'
               key={index}
               variants={rowVariants}
             >
               <span>{time} - </span>
-              <span className='text-md lg:text-2xl roza'>{tema}</span>
+              <span className='text-base md:text-lg lg:text-2xl roza'>{tema}</span>
               {prikazi && predavaci.map((item, key) => (
                 <ul key={key} className='mx-10 my-3 text-sm text-white list-disc lg:text-lg'>
                   <li>{item}</li>

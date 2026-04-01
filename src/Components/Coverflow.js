@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 const SIDE_COUNT = 2
-const CARD_W = 280
-const CARD_H = 380
 
 const Coverflow = ({ data, onImageClick }) => {
   const [activeIndex, setActiveIndex] = useState(0)
+
+  const isMobile = useMemo(() => window.matchMedia('(max-width: 768px)').matches, [])
+  const CARD_W = isMobile ? 280 : 340
+  const CARD_H = isMobile ? 380 : 460
+  const CARD_SPACING = isMobile ? 210 : 255
 
   useEffect(() => {
     setActiveIndex(0)
@@ -50,7 +53,7 @@ const Coverflow = ({ data, onImageClick }) => {
             <motion.div
               key={i}
               animate={{
-                x: offset * 210,
+                x: offset * CARD_SPACING,
                 rotateY: -offset * 52,
                 scale: isCenter ? 1 : 0.76 - (abs - 1) * 0.06,
                 opacity: isCenter ? 1 : 0.72 - (abs - 1) * 0.2,
@@ -103,12 +106,12 @@ const Coverflow = ({ data, onImageClick }) => {
       </div>
 
       {/* Caption */}
-      <p
+      {/* <p
         className="text-[#db9bd5] text-sm tracking-wider mt-1"
         style={{ minHeight: '1.25rem' }}
       >
         {data[activeIndex]?.description || data[activeIndex]?.title || ''}
-      </p>
+      </p> */}
 
       {/* Navigation dots */}
       <div className="flex items-center gap-2 mt-3">

@@ -8,7 +8,7 @@ const SeeYou = () => {
         <img className='w-full md:h-[700px]' src={stolice} alt="" loading="lazy" decoding="async" />
       </div>
       <div className='absolute flex items-center'>
-        <h1 className='text-5xl text-white'>
+        <h1 className='text-5xl text-white md:text-7xl lg:text-8xl xl:text-9xl'>
           <SplitText delay={0.2} stagger={0.07}>Vidimo se!</SplitText>
         </h1>
       </div>

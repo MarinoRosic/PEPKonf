@@ -49,7 +49,7 @@ const Program = () => {
   return (
     <section className='flex flex-col w-full h-full'>
       <header className='pt-16 mx-auto'>
-        <h1 className='absolute z-20 text-5xl font-bold text-white lg:text-8xl'>
+        <h1 className='absolute z-20 text-5xl font-bold text-white md:text-6xl lg:text-8xl'>
           <RevealText>PRogram:</RevealText>
         </h1>
         <div className='pt-12 lg:pt-20'>

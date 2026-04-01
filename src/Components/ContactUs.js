@@ -43,9 +43,9 @@ const ContactUs = () => {
   }
 
   return (
-    <section className='flex flex-col h-[780px] lg:h-full overflow-hidden pb-20 lg:pb-32'>
+    <section id="kontakt" className='flex flex-col h-[780px] lg:h-full overflow-hidden pb-20 lg:pb-32'>
       <header className='mx-auto pt-14 lg:pt-16'>
-        <h1 className='text-5xl font-extrabold text-white lg:text-7xl'>
+        <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-7xl'>
           <SplitText stagger={0.06}>Kontakt</SplitText>
         </h1>
       </header>
@@ -78,7 +78,7 @@ const ContactUs = () => {
           </motion.div>
         </motion.div>
 
-        <h2 className='pt-8 text-3xl text-center text-white'>
+        <h2 className='pt-8 text-3xl text-center text-white lg:text-5xl'>
           <RevealText delay={0.1}>Prijava:</RevealText>
         </h2>
 
@@ -92,17 +92,17 @@ const ContactUs = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <motion.input
-              className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="text" name="name" id="name" placeholder=' Ime' required
               variants={itemVariants}
             />
             <motion.input
-              className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="text" name="surname" id="surname" placeholder=' Prezime' required
               variants={itemVariants}
             />
             <motion.input
-              className='italic w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="email" name="email" id="email" placeholder=' E-mail' required
               variants={itemVariants}
             />

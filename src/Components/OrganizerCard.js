@@ -74,7 +74,7 @@ const OrganizerCard = ({ name, img, text }) => {
         {/* Description — second variant child (stagger index 1), fires at 0.25s.
             Fades up after the name has started revealing — follows reading order. */}
         <motion.p
-          className='text-2xl text-white'
+          className='text-xl md:text-2xl text-white'
           variants={textVariants}
         >
           {text}

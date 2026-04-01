@@ -18,7 +18,7 @@ const MaskLine = ({ children, delay, isInView, className = '' }) => (
 
 const AboutPEPSection = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '-10% 0px -10% 0px' })
 
   return (
     <section ref={ref} className='relative flex flex-col h-[100vh] font-main w-full overflow-hidden'>
