@@ -50,14 +50,14 @@ const ThemeRow = ({ theme, index, isInView }) => (
             {theme}
           </motion.span>
 
-          <motion.span
+          {/* <motion.span
             className="ml-auto text-2xl md:text-3xl shrink-0"
             style={{ color: 'rgba(219, 155, 213, 0.5)' }}
             variants={{ rest: { x: -10, opacity: 0 }, hover: { x: 0, opacity: 1 } }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             →
-          </motion.span>
+          </motion.span> */}
         </div>
       </motion.div>
     </motion.div>

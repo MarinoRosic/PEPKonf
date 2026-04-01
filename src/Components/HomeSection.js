@@ -36,7 +36,7 @@ const HomeSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img className='h-[clamp(55px,_14vw,_90px)] w-[clamp(55px,_14vw,_90px)]' src={pepLogo} alt="PEP Logo" />
+        <img className='h-[clamp(65px,_50vw,_140px)] w-[clamp(65px,_50vw,_140px)]' src={pepLogo} alt="PEP Logo" />
       </motion.div>
 
       {/* Main content — left-aligned editorial layout */}

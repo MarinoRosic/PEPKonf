@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGlobe } from 'react-icons/fa';
 import RevealText from './RevealText';
 import RotatingAvatar from './RotatingAvatar';
+import LecturerModal from './LecturerModal';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
@@ -40,61 +42,75 @@ const iconVariants = {
   },
 };
 
-const Lecturer = ({ img, borderColor, lecturer, title, linkedIN, web, index = 0 }) => {
+const Lecturer = ({ img, borderColor, lecturer, title, bio, linkedIN, web, index = 0 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <motion.div
-      className="w-full sm:flex-1"
-      variants={cardVariants}
-      custom={index}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      {/* Photo — no separate animation, it IS the card. Appears with the blur+fade. */}
-      <div className="h-[250px] w-[250px] lg:h-[320px] lg:w-[320px] mx-auto">
-        <RotatingAvatar img={img} borderColor={borderColor} />
-      </div>
+    <>
+      <LecturerModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        img={img}
+        borderColor={borderColor}
+        lecturer={lecturer}
+        title={title}
+        bio={bio}
+        linkedIN={linkedIN}
+        web={web}
+      />
 
-      <div className="flex flex-col">
-        {/* Name — RevealText manages its own animation (word-by-word slide-up from a mask).
-            It can't join the variant/staggerChildren system since it's not a motion element.
-            Instead we give it a manually computed delay:
-              index * 0.08  → same base delay as the card itself (card 0 = 0s, card 1 = 0.08s)
-              + 0.2         → starts 0.2s after the card begins, so name appears while card
-                              is still settling (feels like content filling in, not two separate events)
-            The title (below) starts at index * 0.08 + 0.3 via delayChildren,
-            so the name leads by 0.1s — enough to read it before the title arrives. */}
-        <p className="pt-5 text-lg font-medium text-center text-white">
-          <RevealText delay={index * 0.12 + 0.25}>{lecturer}</RevealText>
-        </p>
-
-        {/* Title — first staggerChildren variant child.
-            Starts at: card_delay + delayChildren = index*0.08 + 0.3
-            framer-motion finds this as the first motion descendant with matching variants
-            and assigns it stagger index 0. */}
-        <motion.p
-          className="text-md font-thin text-center text-[#db9bd5] px-10"
-          variants={textVariants}
+      <motion.div
+        className="w-full sm:flex-1"
+        variants={cardVariants}
+        custom={index}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+      {/* Mobile: row (avatar left, text right). sm+: column (stacked). */}
+      <div className="flex flex-row sm:flex-col items-center px-4 sm:px-0">
+        {/* Photo — tappable to open modal */}
+        <motion.div
+          className="relative h-[90px] w-[90px] flex-shrink-0 sm:h-[250px] sm:w-[250px] lg:h-[320px] lg:w-[320px] sm:mx-auto cursor-pointer"
+          onClick={() => setModalOpen(true)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          {title}
-        </motion.p>
-      </div>
+          <RotatingAvatar img={img} borderColor={borderColor} />
+          {/* Info badge */}
+          <div className="absolute bottom-0 right-0 sm:bottom-1 sm:right-1 h-5 w-5 sm:h-7 sm:w-7 rounded-full bg-[#db9bd5] flex items-center justify-center shadow-lg shadow-[#db9bd5]/30 z-10">
+            <span className="text-[#261539] font-bold leading-none text-[10px] sm:text-sm">i</span>
+          </div>
+        </motion.div>
 
-      {/* Icons — second staggerChildren variant child, stagger index 1.
-          Starts at: index*0.08 + 0.3 + 0.1 = index*0.08 + 0.4
-          framer-motion propagates the "visible"/"hidden" state through the plain <div>
-          wrappers above — it traverses the full React tree, not just direct children. */}
-      <motion.div className="flex" variants={iconVariants}>
-        <div className="flex flex-row pt-3 mx-auto">
-          <div className="text-white h-[50px] w-[40px]">
-            <a className="ikona" href={web}><FaGlobe size={30} /></a>
-          </div>
-          <div className="text-white h-[50px] w-[40px]">
-            <a className="ikona" href={linkedIN}><FaLinkedin size={30} /></a>
-          </div>
+        {/* Name + title + icons */}
+        <div className="flex flex-col ml-4 sm:ml-0 sm:items-center">
+          <p className="text-lg font-medium text-white sm:pt-5 sm:text-center">
+            <RevealText delay={index * 0.12 + 0.25}>{lecturer}</RevealText>
+          </p>
+
+          <motion.p
+            className="text-sm font-thin text-[#db9bd5] sm:text-md sm:text-center sm:px-10"
+            variants={textVariants}
+          >
+            {title}
+          </motion.p>
+
+          <motion.div className="flex" variants={iconVariants}>
+            <div className="flex flex-row pt-1 sm:pt-3 sm:mx-auto">
+              <div className="text-white h-[40px] w-[35px] sm:h-[50px] sm:w-[40px]">
+                <a className="ikona" href={web}><FaGlobe size={24} /></a>
+              </div>
+              <div className="text-white h-[40px] w-[35px] sm:h-[50px] sm:w-[40px]">
+                <a className="ikona" href={linkedIN}><FaLinkedin size={24} /></a>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
+    </>
   );
 };
 

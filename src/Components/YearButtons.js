@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useYear } from '../Components/YearContext'
 import { useLenis } from 'lenis/react'
 
-const YEARS = [2025, 2024, 2023]
+const YEARS = [2026, 2025, 2024, 2023]
 
 export default function YearButtons() {
   const { selectedYear, setSelectedYear } = useYear()
@@ -47,7 +47,7 @@ export default function YearButtons() {
                 relative px-5 py-2 sm:px-7 sm:py-2.5 rounded-full
                 text-sm sm:text-base font-semibold tracking-wide
                 transition-colors duration-200
-                ${isActive ? 'text-[#0f0f1a]' : 'text-white/50 hover:text-white/80'}
+                ${isActive ? 'text-[#261539]' : 'text-white/50 hover:text-white/80'}
               `}
             >
               {isActive && (

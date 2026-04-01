@@ -20,7 +20,7 @@ import Sara from "../assets/images/SaraKalogjera.jpeg"
 export const lecturersByYear = {
   2025: {
     panelisti: [
-      { img: Nevena,    lecturer: "Nevena Rendeli", title: "Novinarka, televizijska voditeljica, PR stručnjakinja i event menadžerica", web: "https://womensweekend.eu/en/team/", linkedIN: "https://www.linkedin.com/in/nevena-rendeli-vejzovic-58276467/", borderColor: 'purple' },
+      { img: Nevena,    lecturer: "Nevena Rendeli", title: "Novinarka, televizijska voditeljica, PR stručnjakinja i event menadžerica", web: "https://womensweekend.eu/en/team/", linkedIN: "https://www.linkedin.com/in/nevena-rendeli-vejzovic-58276467/", borderColor: 'purple', bio: 'Ovo je neki tekst o Neveni' },
       { img: IvanaMedo, lecturer: "Ivana Medo Bogdanović", title: "Ravnateljica Dubrovačkih ljetnih igara", web: "https://www.dubrovnik-festival.hr/en", borderColor: 'purple' },
       { img: Martina,   lecturer: "Martina Pavleković", title: 'Vlasnica agencije za organizaciju vjenčanja "YES I DU".', web: "https://yes-i-du.net/", linkedIN: "https://www.linkedin.com/in/martina-pavlekovi%C4%87-4331681a/", borderColor: 'purple' },
       { img: Gordan,    lecturer: "Gordan Turković", title: "Izvršni direktor i suvlasnik u agenciji CTA komunikacije", linkedIN: "https://www.linkedin.com/in/gordan-turkovi%C4%87/", web: "https://ctakomunikacije.hr/", borderColor: 'purple' },

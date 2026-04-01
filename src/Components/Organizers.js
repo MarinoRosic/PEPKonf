@@ -10,7 +10,7 @@ const Organizers = () => {
     <section className='flex flex-col w-full h-full overflow-hidden'>
       <header className='pt-32 mx-auto'>
         <h1 className='pb-10 text-5xl font-extrabold text-white md:text-6xl lg:text-8xl font-main'>
-          <RevealText>Organizatori:</RevealText>
+          <RevealText>Organizatori</RevealText>
         </h1>
       </header>
       <OrganizerCard name="Leonarda Tikvica" img={LZux}      text="Osnivačica i voditeljica projektnih aktivnosti i programa (alumna)" />

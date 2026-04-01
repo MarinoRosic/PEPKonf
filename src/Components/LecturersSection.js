@@ -36,12 +36,71 @@ const LecturersSection = () => {
     <section className="flex flex-col h-full pt-16 overflow-hidden">
       {!hasContent ? (
         <motion.div
-          className="text-center text-white text-2xl py-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center py-20 gap-10"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+          }}
         >
-          Coming soon... PEPKonf {selectedYear}
+          {/* Ghost avatar row */}
+          <motion.div
+            className="flex gap-4 md:gap-10"
+            variants={{
+              hidden:  {},
+              visible: { transition: { staggerChildren: 0.12 } },
+            }}
+          >
+            {[
+              'conic-gradient(from 0deg,   #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+              'conic-gradient(from 120deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+              'conic-gradient(from 240deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+              'conic-gradient(from 60deg,  #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+            ].map((gradient, i) => (
+              <motion.div
+                key={i}
+                className="relative h-[90px] w-[90px] md:h-[120px] md:w-[120px] rounded-full flex-shrink-0"
+                variants={{
+                  hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
+                  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+                }}
+                style={{ filter: 'drop-shadow(0 0 10px rgba(219,155,213,0.35))' }}
+              >
+                {/* spinning ring */}
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{ background: gradient, animation: 'ring-spin 4s linear infinite', willChange: 'transform' }}
+                />
+                {/* cutout */}
+                <div className="absolute rounded-full bg-[#261539]" style={{ inset: 5, zIndex: 1 }} />
+                {/* question mark */}
+                <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
+                  <span className="text-2xl md:text-3xl font-thin text-[#db9bd5] opacity-60 select-none">?</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Text */}
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-4xl font-thin text-white tracking-widest uppercase"
+            variants={{
+              hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
+              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+            }}
+          >
+            Uskoro
+          </motion.p>
+          <motion.p
+            className="text-sm font-thin text-[#db9bd5] tracking-wide -mt-5"
+            variants={{
+              hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
+              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+            }}
+          >
+            Predavači PEPKonf {selectedYear} bit će objavljeni uskoro.
+          </motion.p>
         </motion.div>
       ) : (
         <AnimatePresence mode="wait">
