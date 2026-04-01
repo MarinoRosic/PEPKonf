@@ -13,11 +13,11 @@ const LecturersSection = () => {
     panelisti: [], radionica: [], predavaci: [], moderatorice: [],
   };
 
-  const hasContent =
-    data.panelisti?.length > 0 ||
-    data.radionica?.length > 0 ||
-    data.predavaci?.length > 0 ||
-    data.moderatorice?.length > 0;
+  const hasPanelisti = data.panelisti?.length > 0;
+  const hasRadionica = data.radionica?.length > 0;
+  const hasPredavaci = data.predavaci?.length > 0;
+
+  const hasContent = hasPanelisti || hasRadionica || hasPredavaci || data.moderatorice?.length > 0;
 
   // Checked once at mount — we don't need to respond to resize since layout
   // doesn't meaningfully change mid-session on a conference site.
@@ -33,7 +33,7 @@ const LecturersSection = () => {
   return (
     <>
         <SectionDivider className='px-4' label="Event menadžment"/>
-    <section className="flex flex-col min-h-screen pt-16 overflow-hidden">
+    <section className={`flex flex-col ${!hasContent ? 'min-h-screen' : ''} pt-16 overflow-hidden`}>
       {!hasContent ? (
         <motion.div
           className="flex flex-col items-center justify-center flex-1 gap-12"
@@ -116,7 +116,7 @@ const LecturersSection = () => {
             className="w-full"
           >
 
-            {data.panelisti?.length > 0 && (
+            {hasPanelisti && (
               <div>
                 <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Panelisti</RevealText>
@@ -127,11 +127,11 @@ const LecturersSection = () => {
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
-                <SectionDivider className="px-4" label="Novinarstvo" labelPosition='right'/>
+                {(hasRadionica || hasPredavaci) && <SectionDivider className="px-4"/>}
               </div>
             )}
 
-            {data.radionica?.length > 0 && (
+            {hasRadionica && (
               <div className="pt-14">
                 <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Radionica</RevealText>
@@ -141,11 +141,11 @@ const LecturersSection = () => {
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
-                <SectionDivider className="px-4" />
+                {hasPredavaci && <SectionDivider className="px-4" />}
               </div>
             )}
 
-            {data.predavaci?.length > 0 && (
+            {hasPredavaci && (
               <div className="pt-14">
                 <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Predavači</RevealText>
@@ -155,11 +155,10 @@ const LecturersSection = () => {
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
-                <SectionDivider className="px-4" />
               </div>
             )}
 
-            {data.moderatorice?.length > 0 && (
+            {/* {data.moderatorice?.length > 0 && (
               <div className="pt-14">
                 <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
                   <RevealText>Moderatorice</RevealText>
@@ -169,9 +168,8 @@ const LecturersSection = () => {
                     <Lecturer key={i} index={i} {...props} />
                   ))}
                 </div>
-                <SectionDivider className="px-4" />
               </div>
-            )}
+            )} */}
 
           </motion.div>
         </AnimatePresence>
