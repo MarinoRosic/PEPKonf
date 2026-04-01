@@ -36,7 +36,7 @@ const HomeSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img className='h-[90px] w-[90px] lg:h-[70px] lg:w-[70px]' src={pepLogo} alt="PEP Logo" />
+        <img className='h-[clamp(55px,_14vw,_90px)] w-[clamp(55px,_14vw,_90px)]' src={pepLogo} alt="PEP Logo" />
       </motion.div>
 
       {/* Main content — left-aligned editorial layout */}
@@ -56,7 +56,7 @@ const HomeSection = () => {
         </motion.div>
 
         {/* Headline — SplitText kept, left-aligned, big */}
-        <h1 className='text-5xl font-extrabold sporka sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.92] tracking-tight mb-8'>
+        <h1 className='text-[clamp(1.75rem,_8.5vw,_9rem)] font-extrabold sporka leading-[0.92] tracking-tight mb-8'>
           <SplitText delay={0.3}>Budi i ti dio</SplitText>
           <br />
           <SplitText delay={0.8}>PRedobre PRiče.</SplitText>
