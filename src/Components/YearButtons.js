@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useYear } from '../Components/YearContext'
+import { useYear } from '../Components/providers/YearContext'
 import { useLenis } from 'lenis/react'
 
 const YEARS = [2026, 2025, 2024, 2023]

@@ -1,9 +1,7 @@
-import React from 'react'
 import Organizers from '../Components/Organizers';
 import AboutPEPSection from '../Components/AboutPEPSection';
 import AboutUsSection from '../Components/AboutUsSection';
 import ContactUs from '../Components/ContactUs';
-// import HeroSection from './Components/HeroSection';
 import LecturersSection from '../Components/LecturersSection';
 import Program from '../Components/Program';
 import WWWSection from '../Components/WWWSection';
@@ -14,32 +12,27 @@ import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
 import transition from '../Transition';
-import { YearProvider } from '../Components/YearContext';
+import { YearProvider } from '../Components/providers/YearContext';
 import YearButtons from '../Components/YearButtons';
 import Gallery from '../Components/Gallery';
 import LenisProvider from '../Components/providers/LenisProvider';
 
 const Home = () => {
   return (
-    <>
-      <LenisProvider>
-      <YearProvider>
+    <LenisProvider>
+    <YearProvider>
         <HomeSection />
         <Presentation />
         <AboutPEPSection />
         <WWWSection />
         <PEPThemes />
-
         {/* ── This wrapper controls the sticky lifetime ── */}
         <div id="year-content-start" className="relative year-dependent-content">
-
           <YearButtons />           {/* ← sticky inside this wrapper */}
           <Gallery />
           <LecturersSection />
-
         </div>
-
-        {/* Everything after Gallery is NOT year-dependent → bar should no longer stick here */}
+        {/* Everything after is NOT year-dependent → bar should no longer stick here */}
         <Program />
         <AboutUsSection />
         <Organizers />
@@ -47,9 +40,8 @@ const Home = () => {
         <SeeYou />
         <Partners />
         <ScrollToTop />
-      </YearProvider>
-      </LenisProvider>
-    </>
+    </YearProvider>
+    </LenisProvider>
   )
 }
 

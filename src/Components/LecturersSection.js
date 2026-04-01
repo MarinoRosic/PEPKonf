@@ -3,7 +3,7 @@ import Lecturer from './Lecturer';
 import SectionDivider from './SectionDivider';
 import { AnimatePresence, motion } from 'framer-motion';
 import RevealText from './RevealText';
-import { useYear } from '../Components/YearContext';
+import { useYear } from '../Components/providers/YearContext';
 import { lecturersByYear } from '../data/lecturersData';
 
 const LecturersSection = () => {

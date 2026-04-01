@@ -6,7 +6,7 @@ import Coverflow from "../Components/Coverflow"
 import transition from '../Transition'
 import { Zoom } from "yet-another-react-lightbox/plugins"
 import { AnimatePresence, motion } from 'framer-motion'
-import { useYear } from '../Components/YearContext'
+import { useYear } from '../Components/providers/YearContext'
 
 const Gallery = () => {
   const [index, setIndex] = useState(-1)

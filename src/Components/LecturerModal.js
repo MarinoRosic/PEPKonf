@@ -1,23 +1,9 @@
-import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLinkedin, FaGlobe, FaTimes } from 'react-icons/fa';
 import RotatingAvatar from './RotatingAvatar';
 
 const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio, linkedIN, web }) => {
-  const touchStartY = useRef(null);
-
-  const handleTouchStart = (e) => {
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleTouchEnd = (e) => {
-    if (touchStartY.current === null) return;
-    const delta = e.changedTouches[0].clientY - touchStartY.current;
-    touchStartY.current = null;
-    if (delta > 60) onClose();
-  };
-
   return createPortal(
     <AnimatePresence>
       {isOpen && (
@@ -45,15 +31,6 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#772F6F] via-[#db9bd5] to-[#772F6F]" />
 
               <div className="px-6 pb-10 pt-5">
-                {/* Drag handle (mobile hint + swipe-to-close) */}
-                <div
-                  className="sm:hidden flex justify-center items-center py-3 -mt-5 -mx-6 mb-2 touch-none select-none"
-                  onTouchStart={handleTouchStart}
-                  onTouchEnd={handleTouchEnd}
-                >
-                  <div className="w-10 h-1 bg-white/20 rounded-full" />
-                </div>
-
                 {/* Close button */}
                 <button
                   className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"

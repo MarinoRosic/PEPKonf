@@ -5,11 +5,13 @@
 @font-face {
   font-family: 'Cy-Grotesk';
   src: url(CyGrotesk-KeyBold.otf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Cy-Grotesk-Normal';
   src: url(CyGrotesk-KeyRegular.otf);
+  font-display: swap;
 }
 
 html {
@@ -18,7 +20,6 @@ html {
 
 body {
   background-color: #261539;
-  overflow: auto;
   font-family: "Cy-Grotesk";
 }
 
@@ -30,14 +31,7 @@ body {
   color: #772f6f;
 }
 
-.a {
-  animation: pulse 1s linear infinite;
-}
-
 .img-hor {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
 
@@ -51,26 +45,6 @@ body {
 
 .sporka{
   color: #F0E2FF;
-}
-
-.slide-in{
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #772f6f;
-  transform-origin: bottom;
-}
-
-.slide-out{
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #772f6f;
-  transform-origin: top;
 }
 
 .images-container {
