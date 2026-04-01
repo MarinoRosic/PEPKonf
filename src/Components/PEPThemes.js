@@ -18,7 +18,7 @@ const ThemeRow = ({ theme, index, isInView }) => (
       className="flex-1 flex flex-col"
       initial={{ y: '100%', opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : {}}
-      transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.07 }}
+      transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.05 }}
     >
       <motion.div
         className="relative flex-1 overflow-hidden border-t border-white/10 cursor-default"

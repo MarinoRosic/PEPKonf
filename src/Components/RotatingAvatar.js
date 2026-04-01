@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Conic gradient rotates via transform: rotate() — compositor-only, no repaints.
 // Previously used filter: drop-shadow animation which triggered a repaint every frame.
 
@@ -15,6 +17,7 @@ const glowPresets = {
 // borderColor: 'pink' | 'purple'
 // borderThickness: px gap between ring and image (default 6)
 const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness = 6 }) => {
+  const [loaded, setLoaded] = useState(false)
   const gradient = gradientPresets[borderColor] ?? gradientPresets.pink;
   const glow     = glowPresets[borderColor]     ?? glowPresets.pink;
 
@@ -43,6 +46,10 @@ const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness =
         className="absolute rounded-full"
         style={{ inset: borderThickness, background: '#261539', zIndex: 1 }}
       />
+      {/* shimmer — visible until image loads */}
+      {!loaded && (
+        <div className="img-shimmer absolute rounded-full" style={{ inset: borderThickness, zIndex: 2 }} />
+      )}
       {/* image */}
       <img
         className="object-cover absolute rounded-full"
@@ -50,11 +57,14 @@ const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness =
         alt={alt}
         loading="lazy"
         decoding="async"
+        onLoad={() => setLoaded(true)}
         style={{
           inset: borderThickness,
           width: `calc(100% - ${borderThickness * 2}px)`,
           height: `calc(100% - ${borderThickness * 2}px)`,
-          zIndex: 2,
+          zIndex: 3,
+          opacity: loaded ? 1 : 0,
+          transition: 'opacity 0.4s ease',
         }}
       />
     </div>

@@ -10,8 +10,8 @@ const cardVariants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 0.15,
-      staggerChildren: 0.22,
+      delayChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -24,7 +24,7 @@ const imageVariants = {
     opacity: 1,
     scale: 1,
     filter: 'blur(0px)',
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -35,7 +35,7 @@ const textVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -68,7 +68,7 @@ const OrganizerCard = ({ name, img, text }) => {
             so it gets a manual delay that slots it between image (0.1s) and description (0.25s).
             delay: 0.2s → words start appearing just as the image is resolving. */}
         <h2 className='pb-10 text-4xl text-white span'>
-          <RevealText delay={0.3}>{name}</RevealText>
+          <RevealText delay={0.2}>{name}</RevealText>
         </h2>
 
         {/* Description — second variant child (stagger index 1), fires at 0.25s.

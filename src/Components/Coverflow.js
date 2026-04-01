@@ -5,6 +5,7 @@ const SIDE_COUNT = 2
 
 const Coverflow = ({ data, onImageClick }) => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [loadedSrcs, setLoadedSrcs] = useState(new Set())
 
   const isMobile = useMemo(() => window.matchMedia('(max-width: 768px)').matches, [])
   const CARD_W = isMobile ? 280 : 340
@@ -82,13 +83,22 @@ const Coverflow = ({ data, onImageClick }) => {
                   : '0 8px 30px rgba(0,0,0,0.5)',
               }}
             >
+              {/* Shimmer shown until image loads */}
+              {!loadedSrcs.has(slide.src) && (
+                <div className="img-shimmer" style={{ position: 'absolute', inset: 0 }} />
+              )}
               <img
                 src={slide.src}
                 alt={slide.description}
-                style={{ width: CARD_W, height: CARD_H, objectFit: 'cover', display: 'block' }}
+                style={{
+                  width: CARD_W, height: CARD_H, objectFit: 'cover', display: 'block',
+                  opacity: loadedSrcs.has(slide.src) ? 1 : 0,
+                  transition: 'opacity 0.4s ease',
+                }}
                 loading="lazy"
                 decoding="async"
                 draggable={false}
+                onLoad={() => setLoadedSrcs(prev => new Set(prev).add(slide.src))}
               />
               {!isCenter && (
                 <div

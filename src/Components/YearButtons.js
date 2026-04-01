@@ -44,9 +44,9 @@ export default function YearButtons() {
               key={year}
               onClick={() => handleYearClick(year)}
               className={`
-                relative px-5 py-2 sm:px-7 sm:py-2.5 rounded-full
+                relative px-5 py-2 sm:px-7 sm:py-2.5 rounded-full overflow-hidden
                 text-sm sm:text-base font-semibold tracking-wide
-                transition-colors duration-200
+                transition-colors duration-200 outline-none
                 ${isActive ? 'text-[#261539]' : 'text-white/50 hover:text-white/80'}
               `}
             >

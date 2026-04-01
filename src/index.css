@@ -67,3 +67,14 @@ body {
   object-fit: cover;
   border-radius: 7px;
 }
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.img-shimmer {
+  background: linear-gradient(90deg, #261539 25%, #3d1a57 50%, #261539 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}

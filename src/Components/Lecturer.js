@@ -12,11 +12,11 @@ const cardVariants = {
     y: 0,
     filter: 'blur(0px)',
     transition: {
-      duration: 0.8,
-      delay: i * 0.12,
+      duration: 0.55,
+      delay: i * 0.08,
       ease: [0.16, 1, 0.3, 1],
-      delayChildren: 0.35,
-      staggerChildren: 0.14,
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
     },
   }),
 };
@@ -28,7 +28,7 @@ const textVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -38,7 +38,7 @@ const iconVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -87,7 +87,7 @@ const Lecturer = ({ img, borderColor, lecturer, title, bio, linkedIN, web, index
         {/* Name + title + icons */}
         <div className="flex flex-col ml-4 sm:ml-0 sm:items-center">
           <p className="text-lg font-medium text-white sm:pt-5 sm:text-center">
-            <RevealText delay={index * 0.12 + 0.25}>{lecturer}</RevealText>
+            <RevealText delay={index * 0.08 + 0.15}>{lecturer}</RevealText>
           </p>
 
           <motion.p

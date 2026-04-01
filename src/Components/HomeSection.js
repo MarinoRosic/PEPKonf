@@ -47,7 +47,7 @@ const HomeSection = () => {
           className='mb-6 inline-flex items-center gap-2.5 border border-white/30 rounded-full px-4 py-1.5 self-start backdrop-blur-sm'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className='w-1.5 h-1.5 rounded-full bg-[#db9bd5] inline-block' />
           <span className='text-xs font-semibold tracking-widest text-white uppercase'>
@@ -57,9 +57,9 @@ const HomeSection = () => {
 
         {/* Headline — SplitText kept, left-aligned, big */}
         <h1 className='text-[clamp(1.75rem,_8.5vw,_9rem)] font-extrabold sporka leading-[0.92] tracking-tight mb-8'>
-          <SplitText delay={0.3}>Budi i ti dio</SplitText>
+          <SplitText delay={0.2}>Budi i ti dio</SplitText>
           <br />
-          <SplitText delay={0.8}>PRedobre PRiče.</SplitText>
+          <SplitText delay={0.6}>PRedobre PRiče.</SplitText>
         </h1>
 
         {/* CTA — scrolls to contact/registration */}
@@ -68,7 +68,7 @@ const HomeSection = () => {
           className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           Prijavi se
         </motion.a>
@@ -79,7 +79,7 @@ const HomeSection = () => {
         className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 0.8 }}
+        transition={{ delay: 1.6, duration: 0.6 }}
       >
         <span className='text-[10px] tracking-[0.2em] text-white/50 uppercase font-semibold'>Scroll</span>
         <motion.div

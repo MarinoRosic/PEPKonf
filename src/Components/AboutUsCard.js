@@ -12,7 +12,7 @@ const imageVariants = {
     opacity: 1,
     scale: 1,
     filter: 'blur(0px)',
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -36,7 +36,7 @@ const AboutUsCard = () => {
           ~90% complete at 0.4s even though the full duration is 0.7s.
           So the caption starts appearing just as the image finishes landing. */}
       <p className='pt-8 px-8 text-xl lg:text-2xl font-bold text-center text-white lg:w-[400px] mx-auto'>
-        <RevealText delay={0.5}>
+        <RevealText delay={0.3}>
           Studenti Sveučilišta u Dubrovniku, Fakultet medija i odnosa s javnošću
         </RevealText>
       </p>

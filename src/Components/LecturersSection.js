@@ -41,7 +41,7 @@ const LecturersSection = () => {
           animate="visible"
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
           }}
         >
           {/* Ghost avatar row */}
@@ -49,7 +49,7 @@ const LecturersSection = () => {
             className="flex gap-4 md:gap-10"
             variants={{
               hidden:  {},
-              visible: { transition: { staggerChildren: 0.12 } },
+              visible: { transition: { staggerChildren: 0.08 } },
             }}
           >
             {[
@@ -63,7 +63,7 @@ const LecturersSection = () => {
                 className="relative h-[90px] w-[90px] md:h-[120px] md:w-[120px] rounded-full flex-shrink-0"
                 variants={{
                   hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
-                  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+                  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
                 }}
                 style={{ filter: 'drop-shadow(0 0 10px rgba(219,155,213,0.35))' }}
               >
@@ -87,7 +87,7 @@ const LecturersSection = () => {
             className="text-2xl md:text-3xl lg:text-4xl font-thin text-white tracking-widest uppercase"
             variants={{
               hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
-              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
             Uskoro
@@ -96,7 +96,7 @@ const LecturersSection = () => {
             className="text-sm font-thin text-[#db9bd5] tracking-wide -mt-5"
             variants={{
               hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
-              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
             Predavači PEPKonf {selectedYear} bit će objavljeni uskoro.

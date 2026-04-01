@@ -7,7 +7,7 @@ import SectionDivider from './SectionDivider';
 // staggerChildren: 0.15 means paragraph 2 starts 0.15s after paragraph 1.
 const textContainerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.22 } },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 // Each paragraph fades up by 24px.
@@ -18,7 +18,7 @@ const paraVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
   },
 };
 

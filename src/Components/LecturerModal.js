@@ -55,15 +55,8 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
                   {title}
                 </p>
 
-                {/* Bio — optional, add 'bio' field to lecturersData entries to populate */}
-                {bio && (
-                  <p className="text-sm text-white text-center mt-4 px-2 leading-relaxed">
-                    {bio}
-                  </p>
-                )}
-
                 {/* Socials */}
-                <div className="flex justify-center gap-6 mt-6">
+                  <div className="flex justify-center gap-6 mt-6">
                   {web && (
                     <a href={web} target="_blank" rel="noreferrer" className="ikona text-white">
                       <FaGlobe size={26} />
@@ -75,6 +68,13 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
                     </a>
                   )}
                 </div>
+
+                {/* Bio — optional, add 'bio' field to lecturersData entries to populate */}
+                {bio && (
+                  <p className="text-sm text-white text-center mt-4 px-2 leading-relaxed">
+                    {bio}
+                  </p>
+                )}
               </div>
             </motion.div>
           </div>
