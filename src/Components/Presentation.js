@@ -23,7 +23,7 @@ const MaskLine = ({ children, delay, isInView }) => (
 
 const Presentation = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-150px' })
+  const isInView = useInView(ref, { once: true, margin: '-5%' })
 
   return (
     <section
