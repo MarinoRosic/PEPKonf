@@ -13,7 +13,7 @@ const sentences = [...new Set(lines.map(l => l.sentence))]
 const lastSentence = sentences[sentences.length - 1]
 const penultimate = sentences[sentences.length - 2]
 const getDelay = (sentence) =>
-  sentence === lastSentence ? penultimate * 0.18 + 1.1 : sentence * 0.18
+  sentence === lastSentence ? penultimate * 0.20 + 1.1 : sentence * 0.20
 
 const MaskLine = ({ children, delay, isInView }) => (
   <div className="overflow-hidden">

@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 // Splits text into individual characters, each animating in with a stagger.
 // - Repeats every time the element enters view (not just once).
 // - Supports trigger prop for scroll-driven opacity parents.
-export default function SplitText({ children, className, delay = 0, stagger = 0.03, trigger }) {
+export default function SplitText({ children, className, delay = 0, stagger = 0.04, trigger }) {
   const containerRef = useRef(null);
   const isInView     = useInView(containerRef, { once: true });
   const [triggered, setTriggered] = useState(false);
@@ -40,7 +40,7 @@ export default function SplitText({ children, className, delay = 0, stagger = 0.
           initial={{ opacity: 0, y: 18 }}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{
-            duration: 0.4,
+            duration: 0.5,
             // stagger = 0.03s per character by default.
             // For "Hello" (5 chars): H at 0s, e at 0.03s, l at 0.06s, l at 0.09s, o at 0.12s
             delay: delay + i * stagger,

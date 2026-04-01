@@ -33,10 +33,10 @@ const LecturersSection = () => {
   return (
     <>
         <SectionDivider className='px-4' label="Event menadžment"/>
-    <section className="flex flex-col h-full pt-16 overflow-hidden">
+    <section className="flex flex-col min-h-screen pt-16 overflow-hidden">
       {!hasContent ? (
         <motion.div
-          className="flex flex-col items-center py-20 gap-10"
+          className="flex flex-col items-center justify-center flex-1 gap-12"
           initial="hidden"
           animate="visible"
           variants={{
@@ -60,7 +60,7 @@ const LecturersSection = () => {
             ].map((gradient, i) => (
               <motion.div
                 key={i}
-                className="relative h-[90px] w-[90px] md:h-[120px] md:w-[120px] rounded-full flex-shrink-0"
+                className="relative h-[90px] w-[90px] md:h-[200px] md:w-[200px] rounded-full flex-shrink-0"
                 variants={{
                   hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
                   visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
@@ -84,7 +84,7 @@ const LecturersSection = () => {
 
           {/* Text */}
           <motion.p
-            className="text-2xl md:text-3xl lg:text-4xl font-thin text-white tracking-widest uppercase"
+            className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
             variants={{
               hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
               visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
@@ -93,13 +93,13 @@ const LecturersSection = () => {
             Uskoro
           </motion.p>
           <motion.p
-            className="text-sm font-thin text-[#db9bd5] tracking-wide -mt-5"
+            className="text-lg lg:text-4xl text-[#db9bd5] tracking-wide -mt-5 text-center max-w-2xl lg:max-w-6xl px-6"
             variants={{
               hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
               visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
-            Predavači PEPKonf {selectedYear} bit će objavljeni uskoro.
+            PRedavači PEPKonf {selectedYear} bit će objavljeni uskoro.
           </motion.p>
         </motion.div>
       ) : (
