@@ -12,6 +12,10 @@
   src: url(CyGrotesk-KeyRegular.otf);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #261539;
   overflow: auto;
