@@ -7,12 +7,11 @@ export default function LenisProvider({ children }) {
     <ReactLenis
       root
       options={{
-        duration: 1,        // higher = slower, more luxurious feel (1.2 – 2.0 is common)
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // nice default easing
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        smoothTouch: false,   // usually false on mobile for better native feel
-        syncTouch: true,      // helps with touch devices
-        lerp: 0.1,            // lower = more inertia (smoother momentum)
+        smoothTouch: false,
+        syncTouch: true,
       }}
     >
       {children}

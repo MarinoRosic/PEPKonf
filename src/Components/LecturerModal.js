@@ -1,9 +1,23 @@
+import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLinkedin, FaGlobe, FaTimes } from 'react-icons/fa';
 import RotatingAvatar from './RotatingAvatar';
 
 const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio, linkedIN, web }) => {
+  const touchStartY = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartY.current === null) return;
+    const delta = e.changedTouches[0].clientY - touchStartY.current;
+    touchStartY.current = null;
+    if (delta > 60) onClose();
+  };
+
   return createPortal(
     <AnimatePresence>
       {isOpen && (
@@ -21,7 +35,7 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
           {/* Positioning wrapper — items-end on mobile (sheet), items-center on sm+ (modal) */}
           <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center pointer-events-none">
             <motion.div
-              className="relative w-full sm:max-w-md pointer-events-auto bg-[#261539] border border-[#db9bd5]/25 rounded-t-3xl sm:rounded-3xl overflow-y-auto max-h-[85vh]"
+              className="relative w-full sm:max-w-md pointer-events-auto bg-[#261539] border border-[#db9bd5]/25 border-b-0 sm:border-b rounded-t-3xl sm:rounded-3xl overflow-y-auto max-h-[85vh]"
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: '100%', opacity: 0 }}
@@ -31,8 +45,14 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#772F6F] via-[#db9bd5] to-[#772F6F]" />
 
               <div className="px-6 pb-10 pt-5">
-                {/* Drag handle (mobile hint) */}
-                <div className="sm:hidden w-10 h-1 bg-white/20 rounded-full mx-auto mb-5" />
+                {/* Drag handle (mobile hint + swipe-to-close) */}
+                <div
+                  className="sm:hidden flex justify-center items-center py-3 -mt-5 -mx-6 mb-2 touch-none select-none"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <div className="w-10 h-1 bg-white/20 rounded-full" />
+                </div>
 
                 {/* Close button */}
                 <button
