@@ -1,91 +1,67 @@
-import { useYear } from '../Components/YearContext';
-import { motion } from 'framer-motion';
-import { useLenis } from 'lenis/react';
+import { motion } from 'framer-motion'
+import { useYear } from '../Components/YearContext'
+import { useLenis } from 'lenis/react'
 
-const YEARS = [ 2025, 2024, 2023];
+const YEARS = [2025, 2024, 2023]
 
 export default function YearButtons() {
-  const { selectedYear, setSelectedYear } = useYear();
-  const lenis = useLenis();
+  const { selectedYear, setSelectedYear } = useYear()
+  const lenis = useLenis()
 
   const handleYearClick = (year) => {
-    setSelectedYear(year);
-
+    setSelectedYear(year)
     setTimeout(() => {
-      const startElement = document.getElementById('year-content-start');
-      if (!startElement) return;
-
+      const startElement = document.getElementById('year-content-start')
+      if (!startElement) return
       if (lenis) {
-        lenis.scrollTo(startElement, { duration: 1.2 });
+        lenis.scrollTo(startElement, { duration: 1.2 })
       } else {
-        // Fallback for mobile (Lenis disabled on touch)
-        startElement.scrollIntoView({ behavior: 'smooth' });
+        startElement.scrollIntoView({ behavior: 'smooth' })
       }
-    }, 150);
-  };
+    }, 150)
+  }
 
   return (
-    <section
-      className={`
-        sticky top-0 z-20
-        bg-[#0f0f1a]/92
-        backdrop-blur-md
-        border-b border-purple-900/50
-        shadow-xl shadow-black/40
-        pb-5 pt-4 md:pt-6
-        transition-all duration-200
-      `}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.h1
-          className="
-            text-center text-2xl md:text-4xl font-bold text-white
-            mb-5 md:mb-7
-          "
-          initial={{ opacity: 0.8, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-        >
-          PEP Konf po godinama
-        </motion.h1>
-
-        <div className="relative flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
-          {/* optional soft glow */}
-          <div
-            className="
-              absolute inset-0 -z-10
-              bg-gradient-to-r from-purple-950/25 via-indigo-950/15 to-purple-950/25
-              blur-xl opacity-70 rounded-full
-              max-w-xs sm:max-w-md md:max-w-lg mx-auto
-              pointer-events-none
-            "
-          />
-
-          {YEARS.map((year) => {
-            const isActive = selectedYear === year;
-
-            return (
-              <button
-                key={year}
-                onClick={() => handleYearClick(year)}
-                className={`
-                  min-w-[68px] px-4 py-2.5 sm:min-w-[80px] sm:px-5 sm:py-3
-                  rounded-full font-medium text-base sm:text-lg md:text-xl tracking-wide
-                  transition-all duration-300 ease-out
-                  border-2 backdrop-blur-sm
-                  ${
-                    isActive
-                      ? 'border-[#db9bd5] text-white bg-gradient-to-br from-[#db9bd5]/30 to-purple-900/25 shadow-[0_0_24px_rgba(219,155,213,0.5)] scale-105'
-                      : 'border-purple-700/60 text-purple-200/90 hover:text-white hover:border-[#db9bd5]/70 hover:bg-purple-950/40 hover:shadow-[0_0_16px_rgba(219,155,213,0.4)]'
-                  }
-                `}
-              >
-                {year}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+    <section className="sticky top-0 z-20 flex justify-center py-3 sm:py-5">
+      <motion.div
+        initial={{ y: -64, opacity: 0, scale: 0.9 }}
+        whileInView={{ y: 0, opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: 'spring', stiffness: 340, damping: 26 }}
+        className="
+          relative flex items-center gap-0.5 sm:gap-1
+          p-1 sm:p-1.5
+          bg-white/[0.06] backdrop-blur-2xl
+          border border-white/[0.08]
+          rounded-full
+          shadow-[0_8px_40px_rgba(0,0,0,0.5),0_0_0_0.5px_rgba(255,255,255,0.05)]
+        "
+      >
+        {YEARS.map((year) => {
+          const isActive = selectedYear === year
+          return (
+            <button
+              key={year}
+              onClick={() => handleYearClick(year)}
+              className={`
+                relative px-5 py-2 sm:px-7 sm:py-2.5 rounded-full
+                text-sm sm:text-base font-semibold tracking-wide
+                transition-colors duration-200
+                ${isActive ? 'text-[#0f0f1a]' : 'text-white/50 hover:text-white/80'}
+              `}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="year-pill"
+                  className="absolute inset-0 rounded-full bg-[#db9bd5] shadow-[0_0_20px_rgba(219,155,213,0.35)]"
+                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                />
+              )}
+              <span className="relative z-10">{year}</span>
+            </button>
+          )
+        })}
+      </motion.div>
     </section>
-  );
+  )
 }

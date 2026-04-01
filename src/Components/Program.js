@@ -56,8 +56,8 @@ const Program = () => {
           <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" loading="lazy" decoding="async" />
         </div>
       </header>
-      <Table datum="24.4. Četvrtak" day={day1} />
-      <Table datum="25.4. Petak"   day={day2} />
+      <Table datum="16.4. Četvrtak" day={day1} />
+      <Table datum="17.4. Petak"   day={day2} />
     </section>
   );
 };

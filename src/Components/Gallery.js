@@ -28,7 +28,7 @@ const Gallery = () => {
             <section className="overflow-x-hidden py-10">
               <motion.div className="overflow-hidden">
                 <h1 className="content-center text-5xl font-bold text-center text-white md:text-6xl lg:text-7xl lg:mt-8">
-                  Galerija {selectedYear}
+                  Galerija
                 </h1>
               </motion.div>
               <div className="pt-10 px-2">

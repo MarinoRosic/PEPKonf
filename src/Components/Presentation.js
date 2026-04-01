@@ -2,12 +2,18 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const lines = [
-  { text: 'PR.',          pink: false },
-  { text: 'PRIČE.',           pink: true  },
-  { text: 'ISKUSTVO.',        pink: false },
-  { text: 'SVE NA',           pink: false },
-  { text: 'JEDNOM MJESTU.',   pink: true  },
+  { text: 'PR.',            pink: false, sentence: 0 },
+  { text: 'PRIČE.',         pink: true,  sentence: 1 },
+  { text: 'ISKUSTVO.',      pink: false, sentence: 2 },
+  { text: 'SVE NA',         pink: false, sentence: 3 },
+  { text: 'JEDNOM MJESTU.', pink: true,  sentence: 3 },
 ]
+
+const sentences = [...new Set(lines.map(l => l.sentence))]
+const lastSentence = sentences[sentences.length - 1]
+const penultimate = sentences[sentences.length - 2]
+const getDelay = (sentence) =>
+  sentence === lastSentence ? penultimate * 0.18 + 1.1 : sentence * 0.18
 
 const MaskLine = ({ children, delay, isInView }) => (
   <div className="overflow-hidden">
@@ -31,8 +37,12 @@ const Presentation = () => {
       className="flex items-center min-h-screen px-8 lg:px-20 py-24"
     >
       <div className="flex flex-col gap-1 md:gap-2">
-        {lines.map(({ text, pink }, i) => (
-          <MaskLine key={i} delay={i * 0.14} isInView={isInView}>
+        {lines.map(({ text, pink, sentence }, i) => (
+          <MaskLine
+            key={i}
+            delay={getDelay(sentence)}
+            isInView={isInView}
+          >
             <h2
               className={`
                 text-[13vw] sm:text-[11vw] lg:text-[9vw]
