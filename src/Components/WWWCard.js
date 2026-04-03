@@ -37,7 +37,7 @@ const WWWCard = (props) => {
 
       {/* Answer fades in after underline finishes */}
       <motion.p
-        className='text-[#F0E2FF] text-lg md:text-2xl lg:text-3xl font-extrabold overflow-hidden'
+        className='text-white text-lg md:text-2xl lg:text-3xl font-extrabold overflow-hidden'
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.4, ease: 'easeOut', delay: delay + 0.7 }}

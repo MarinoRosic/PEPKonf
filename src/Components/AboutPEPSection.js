@@ -59,7 +59,7 @@ const AboutPEPSection = () => {
         <div className='px-8 pb-5 lg:px-20'>
           <MaskLine delay={0.58} isInView={isInView}>
             <p className='text-xl font-semibold text-white md:text-3xl'>
-              <span className='roza'>PR | novinarstvo | iskustvo | PRiče</span>
+              <span className='text-white'> PR | novinarstvo | iskustvo | PRiče</span>
             </p>
           </MaskLine>
         </div>
@@ -67,7 +67,7 @@ const AboutPEPSection = () => {
         <div className='px-8 pb-5 lg:px-20'>
           <MaskLine delay={0.70} isInView={isInView}>
             <p className='text-xl font-extrabold text-white md:text-3xl'>
-              <span className='roza'>16. i 17. TRAVNJA 2026.</span>
+              <span className='text-white'>16. i 17. TRAVNJA 2026.</span>
             </p>
           </MaskLine>
         </div>
@@ -75,7 +75,7 @@ const AboutPEPSection = () => {
         <div className='px-8 pb-5 lg:px-20'>
           <MaskLine delay={0.82} isInView={isInView}>
             <p className='text-xl font-extrabold text-white md:text-3xl'>
-              <span className='roza'>Sveučilišni kampus, ulica branitelja Dubrovnika 41, Dubrovnik</span>
+              <span className='text-white'>Sveučilišni kampus, ulica branitelja Dubrovnika 41, Dubrovnik</span>
             </p>
           </MaskLine>
         </div>

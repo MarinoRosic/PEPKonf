@@ -46,7 +46,7 @@ const LecturersSection = () => {
         >
           {/* Ghost avatar row */}
           <motion.div
-            className="flex gap-4 md:gap-10"
+            className="flex gap-3 md:gap-10 w-full px-6 sm:px-16 md:w-auto md:px-0"
             variants={{
               hidden:  {},
               visible: { transition: { staggerChildren: 0.08 } },
@@ -60,7 +60,7 @@ const LecturersSection = () => {
             ].map((gradient, i) => (
               <motion.div
                 key={i}
-                className="relative h-[90px] w-[90px] md:h-[200px] md:w-[200px] rounded-full flex-shrink-0"
+                className="relative flex-1 aspect-square md:flex-none md:h-[200px] md:w-[200px] rounded-full"
                 variants={{
                   hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
                   visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
