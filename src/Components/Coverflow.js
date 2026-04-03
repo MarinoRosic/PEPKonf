@@ -1,16 +1,15 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 
-const SIDE_COUNT = 2
-
 const Coverflow = ({ data, onImageClick }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [loadedSrcs, setLoadedSrcs] = useState(new Set())
 
   const isMobile = useMemo(() => window.matchMedia('(max-width: 768px)').matches, [])
-  const CARD_W = isMobile ? 280 : 340
-  const CARD_H = isMobile ? 380 : 460
-  const CARD_SPACING = isMobile ? 210 : 255
+  const SIDE_COUNT = isMobile ? 1 : 2
+  const CARD_W = isMobile ? 260 : 340
+  const CARD_H = isMobile ? 360 : 460
+  const CARD_SPACING = isMobile ? 195 : 280
 
   useEffect(() => {
     setActiveIndex(0)
@@ -41,7 +40,7 @@ const Coverflow = ({ data, onImageClick }) => {
       {/* 3D Stage */}
       <div
         className="relative w-full"
-        style={{ height: CARD_H + 80, perspective: '1200px' }}
+        style={{ height: CARD_H + 80, perspective: '1800px' }}
       >
         {data.map((slide, i) => {
           const offset = i - activeIndex
@@ -55,10 +54,10 @@ const Coverflow = ({ data, onImageClick }) => {
               key={i}
               animate={{
                 x: offset * CARD_SPACING,
-                rotateY: -offset * 52,
-                scale: isCenter ? 1 : 0.76 - (abs - 1) * 0.06,
-                opacity: isCenter ? 1 : 0.72 - (abs - 1) * 0.2,
-                z: isCenter ? 40 : -abs * 50,
+                rotateY: -offset * 30,
+                scale: isCenter ? 1 : 0.83 - (abs - 1) * 0.08,
+                opacity: isCenter ? 1 : 0.78 - (abs - 1) * 0.28,
+                z: isCenter ? 40 : -abs * 40,
               }}
               transition={{ type: 'spring', stiffness: 280, damping: 28 }}
               drag={isCenter ? 'x' : false}
@@ -91,7 +90,7 @@ const Coverflow = ({ data, onImageClick }) => {
                 src={slide.src}
                 alt={slide.description}
                 style={{
-                  width: CARD_W, height: CARD_H, objectFit: 'cover', display: 'block',
+                  width: CARD_W, height: CARD_H, objectFit: 'cover', objectPosition: slide.objectPosition || 'center center', display: 'block',
                   opacity: loadedSrcs.has(slide.src) ? 1 : 0,
                   transition: 'opacity 0.4s ease',
                 }}

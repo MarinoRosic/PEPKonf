@@ -25,7 +25,7 @@ const paraVariants = {
 const AboutUsSection = () => {
   return (
     <>
-      <SectionDivider className='px-4' label="Poduzetništvo" />
+      <SectionDivider className='px-4' label="Odgovorno komuniciranje" />
       <section className='flex flex-col h-full lg:h-[980px] py-12 lg:pt-8 overflow-hidden'>
       <header className='pt-10 mx-auto'>
         <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-8xl'>
