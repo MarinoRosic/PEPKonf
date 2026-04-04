@@ -12,10 +12,29 @@ import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
 import transition from '../Transition';
-import { YearProvider } from '../Components/providers/YearContext';
+import { YearProvider, useYear } from '../Components/providers/YearContext';
 import YearButtons from '../Components/YearButtons';
 import Gallery from '../Components/Gallery';
 import LenisProvider from '../Components/providers/LenisProvider';
+import { AnimatePresence, motion } from 'framer-motion';
+import SectionDivider from '../Components/SectionDivider';
+
+const YearTransition = ({ children }) => {
+  const { selectedYear } = useYear();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={selectedYear}
+        initial={{ opacity: 0, y: 40, scale: 0.98, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, y: 0,  scale: 1,    filter: 'blur(0px)' }}
+        exit={{    opacity: 0, y: -40, scale: 0.98, filter: 'blur(8px)' }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 
 const Home = () => {
   return (
@@ -29,8 +48,11 @@ const Home = () => {
         {/* ── This wrapper controls the sticky lifetime ── */}
         <div id="year-content-start" className="relative year-dependent-content">
           <YearButtons />           {/* ← sticky inside this wrapper */}
-          <Gallery />
-          <LecturersSection />
+          <SectionDivider className='px-4' label="Event menadžment" />
+          <YearTransition>
+            <Gallery />
+            <LecturersSection />
+          </YearTransition>
         </div>
         {/* Everything after is NOT year-dependent → bar should no longer stick here */}
         <Program />

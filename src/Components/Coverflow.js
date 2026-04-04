@@ -1,35 +1,54 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const Coverflow = ({ data, onImageClick }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [loadedSrcs, setLoadedSrcs] = useState(new Set())
+  const [windowSize, setWindowSize] = useState(() => ({
+    height: window.innerHeight,
+    isMobile: window.matchMedia('(max-width: 768px)').matches,
+  }))
 
-  const isMobile = useMemo(() => window.matchMedia('(max-width: 768px)').matches, [])
-  const SIDE_COUNT = isMobile ? 1 : 2
-  const CARD_W = isMobile ? 260 : 340
-  const CARD_H = isMobile ? 360 : 460
-  const CARD_SPACING = isMobile ? 195 : 280
+  useEffect(() => {
+    const onResize = () =>
+      setWindowSize({
+        height: window.innerHeight,
+        isMobile: window.matchMedia('(max-width: 768px)').matches,
+      })
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   useEffect(() => {
     setActiveIndex(0)
   }, [data])
 
-  const goTo = (index) => {
-    if (index >= 0 && index < data.length) {
-      setActiveIndex(index)
-    }
-  }
+  const { SIDE_COUNT, CARD_H, CARD_W, CARD_SPACING } = useMemo(() => {
+    const { height, isMobile } = windowSize
+    const SIDE_COUNT   = isMobile ? 1 : 2
+    const CARD_H       = isMobile ? Math.floor(height * 0.50) : Math.floor(height * 0.58)
+    const CARD_W       = Math.floor(CARD_H * (isMobile ? 0.722 : 0.739))
+    const CARD_SPACING = Math.floor(CARD_H * (isMobile ? 0.542 : 0.50))
+    return { SIDE_COUNT, CARD_H, CARD_W, CARD_SPACING }
+  }, [windowSize])
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'ArrowLeft') goTo(activeIndex - 1)
-    else if (e.key === 'ArrowRight') goTo(activeIndex + 1)
-  }
+  // Keep a ref so drag handlers stay stable across activeIndex changes
+  const activeIndexRef = useRef(activeIndex)
+  useEffect(() => { activeIndexRef.current = activeIndex }, [activeIndex])
 
-  const handleDragEnd = (_, info) => {
-    if (info.offset.x < -60) goTo(activeIndex + 1)
-    else if (info.offset.x > 60) goTo(activeIndex - 1)
-  }
+  const goTo = useCallback((index) => {
+    if (index >= 0 && index < data.length) setActiveIndex(index)
+  }, [data.length])
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'ArrowLeft')  goTo(activeIndexRef.current - 1)
+    else if (e.key === 'ArrowRight') goTo(activeIndexRef.current + 1)
+  }, [goTo])
+
+  const handleDragEnd = useCallback((_, info) => {
+    if (info.offset.x < -60)      goTo(activeIndexRef.current + 1)
+    else if (info.offset.x > 60)  goTo(activeIndexRef.current - 1)
+  }, [goTo])
 
   return (
     <div
@@ -90,7 +109,9 @@ const Coverflow = ({ data, onImageClick }) => {
                 src={slide.src}
                 alt={slide.description}
                 style={{
-                  width: CARD_W, height: CARD_H, objectFit: 'cover', objectPosition: slide.objectPosition || 'center center', display: 'block',
+                  width: CARD_W, height: CARD_H, objectFit: 'cover',
+                  objectPosition: slide.objectPosition || 'center center',
+                  display: 'block',
                   opacity: loadedSrcs.has(slide.src) ? 1 : 0,
                   transition: 'opacity 0.4s ease',
                 }}
@@ -113,14 +134,6 @@ const Coverflow = ({ data, onImageClick }) => {
           )
         })}
       </div>
-
-      {/* Caption */}
-      {/* <p
-        className="text-[#db9bd5] text-sm tracking-wider mt-1"
-        style={{ minHeight: '1.25rem' }}
-      >
-        {data[activeIndex]?.description || data[activeIndex]?.title || ''}
-      </p> */}
 
       {/* Navigation dots */}
       <div className="flex items-center gap-2 mt-3">

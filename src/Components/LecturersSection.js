@@ -1,10 +1,147 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Lecturer from './Lecturer';
 import SectionDivider from './SectionDivider';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 import { useYear } from '../Components/providers/YearContext';
 import { lecturersByYear } from '../data/lecturersData';
+import RotatingAvatar from './RotatingAvatar';
+import LecturerModal from './LecturerModal';
+
+const CURRENT_YEAR = new Date().getFullYear();
+
+// Static constants — defined outside so Framer Motion gets stable object references
+const GHOST_GRADIENTS = [
+  'conic-gradient(from 0deg,   #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+  'conic-gradient(from 120deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+  'conic-gradient(from 240deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+  'conic-gradient(from 60deg,  #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const ghostRowVariants = {
+  hidden:  {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const ghostItemVariants = {
+  hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
+  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+};
+
+const ghostTextVariants = {
+  hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
+  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.5,  ease: [0.16, 1, 0.3, 1] } },
+};
+
+const ghostSubtextVariants = {
+  hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
+  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+};
+
+// ── Avatar-only grid for the current year ────────────────────────────────────
+const AvatarGrid = ({ data, year }) => {
+  const [selected, setSelected] = useState(null);
+
+  const all = useMemo(() => [
+    ...(data.panelisti    ?? []),
+    ...(data.radionica    ?? []),
+    ...(data.predavaci    ?? []),
+    ...(data.moderatorice ?? []),
+  ], [data]);
+
+  return (
+    <>
+      {selected && (
+        <LecturerModal
+          isOpen
+          onClose={() => setSelected(null)}
+          {...selected}
+        />
+      )}
+
+      {all.length > 0 && (
+        <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl w-full px-8 lg:px-20">
+          <RevealText>{`PRedavači ${year}`}</RevealText>
+        </h1>
+      )}
+      <div className="flex-1 flex items-center">
+        {all.length > 0 ? (
+          <div className="w-full">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-8 lg:px-20 pb-16">
+              {all.map((person, i) => (
+                <motion.div
+                  key={i}
+                  className="relative aspect-square cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.75, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, scale: 1,    filter: 'blur(0px)' }}
+                  transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setSelected(person)}
+                >
+                  <RotatingAvatar img={person.img} borderColor={person.borderColor} />
+                  <div className="absolute bottom-0 right-0 h-5 w-5 sm:h-7 sm:w-7 rounded-full bg-[#db9bd5] flex items-center justify-center shadow-lg shadow-[#db9bd5]/30 z-10">
+                    <span className="text-[#261539] font-bold leading-none text-[10px] sm:text-sm">i</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ) : (
+        /* Empty state — ghost avatars + "Uskoro" */
+        <motion.div
+          className="w-full flex flex-col items-center justify-center gap-12 pb-16"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.div
+            className="flex gap-3 md:gap-10 w-full px-6 sm:px-16 md:w-auto md:px-0"
+            variants={ghostRowVariants}
+          >
+            {GHOST_GRADIENTS.map((gradient, i) => (
+              <motion.div
+                key={i}
+                className="relative flex-1 aspect-square md:flex-none md:h-[200px] md:w-[200px] rounded-full"
+                variants={ghostItemVariants}
+                style={{ filter: 'drop-shadow(0 0 10px rgba(219,155,213,0.35))' }}
+              >
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{ background: gradient, animation: 'ring-spin 4s linear infinite', willChange: 'transform' }}
+                />
+                <div className="absolute rounded-full bg-[#261539]" style={{ inset: 5, zIndex: 1 }} />
+                <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
+                  <span className="text-2xl md:text-3xl font-thin text-[#db9bd5] opacity-60 select-none">?</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
+            variants={ghostTextVariants}
+          >
+            Uskoro
+          </motion.p>
+          <motion.p
+            className="text-lg lg:text-4xl text-[#db9bd5] tracking-wide -mt-5 text-center max-w-2xl lg:max-w-6xl px-6"
+            variants={ghostSubtextVariants}
+          >
+            PRedavači PEPKonf {year} bit će objavljeni uskoro.
+          </motion.p>
+        </motion.div>
+        )}
+      </div>
+    </>
+  );
+};
+// ─────────────────────────────────────────────────────────────────────────────
 
 const LecturersSection = () => {
   const { selectedYear } = useYear();
@@ -13,169 +150,63 @@ const LecturersSection = () => {
     panelisti: [], radionica: [], predavaci: [], moderatorice: [],
   };
 
-  const hasPanelisti = data.panelisti?.length > 0;
-  const hasRadionica = data.radionica?.length > 0;
-  const hasPredavaci = data.predavaci?.length > 0;
+  const hasPanelisti  = data.panelisti?.length > 0;
+  const hasRadionica  = data.radionica?.length > 0;
+  const hasPredavaci  = data.predavaci?.length > 0;
+  const hasContent    = hasPanelisti || hasRadionica || hasPredavaci || data.moderatorice?.length > 0;
 
-  const hasContent = hasPanelisti || hasRadionica || hasPredavaci || data.moderatorice?.length > 0;
-
-  // Checked once at mount — we don't need to respond to resize since layout
-  // doesn't meaningfully change mid-session on a conference site.
-  // On mobile: year transitions use opacity-only (no x-axis slide).
-  // Horizontal slides on mobile can cause overflow glitches and fight
-  // against the vertical scroll direction. On desktop the x-slide
-  // makes semantic sense — switching years feels like turning a page.
-  const isMobile = useMemo(
-    () => window.matchMedia('(max-width: 768px)').matches,
-    []
-  );
+  const isCurrentYear = selectedYear === CURRENT_YEAR;
+  if (!isCurrentYear && !hasContent) return null;
 
   return (
-    <>
-        <SectionDivider className='px-4' label="Event menadžment"/>
-    <section className={`flex flex-col ${!hasContent ? 'min-h-screen' : ''} pt-16 overflow-hidden`}>
-      {!hasContent ? (
-        <motion.div
-          className="flex flex-col items-center justify-center flex-1 gap-12"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-          }}
-        >
-          {/* Ghost avatar row */}
-          <motion.div
-            className="flex gap-3 md:gap-10 w-full px-6 sm:px-16 md:w-auto md:px-0"
-            variants={{
-              hidden:  {},
-              visible: { transition: { staggerChildren: 0.08 } },
-            }}
-          >
-            {[
-              'conic-gradient(from 0deg,   #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
-              'conic-gradient(from 120deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
-              'conic-gradient(from 240deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
-              'conic-gradient(from 60deg,  #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
-            ].map((gradient, i) => (
-              <motion.div
-                key={i}
-                className="relative flex-1 aspect-square md:flex-none md:h-[200px] md:w-[200px] rounded-full"
-                variants={{
-                  hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
-                  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-                }}
-                style={{ filter: 'drop-shadow(0 0 10px rgba(219,155,213,0.35))' }}
-              >
-                {/* spinning ring */}
-                <div
-                  className="absolute inset-0 rounded-full"
-                  style={{ background: gradient, animation: 'ring-spin 4s linear infinite', willChange: 'transform' }}
-                />
-                {/* cutout */}
-                <div className="absolute rounded-full bg-[#261539]" style={{ inset: 5, zIndex: 1 }} />
-                {/* question mark */}
-                <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
-                  <span className="text-2xl md:text-3xl font-thin text-[#db9bd5] opacity-60 select-none">?</span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+    <section className={`relative flex flex-col ${isCurrentYear ? 'min-h-screen' : ''} pt-16 overflow-hidden`}>
+      {isCurrentYear && <AvatarGrid data={data} year={selectedYear} />}
 
-          {/* Text */}
-          <motion.p
-            className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
-            variants={{
-              hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
-              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-            }}
-          >
-            Uskoro
-          </motion.p>
-          <motion.p
-            className="text-lg lg:text-4xl text-[#db9bd5] tracking-wide -mt-5 text-center max-w-2xl lg:max-w-6xl px-6"
-            variants={{
-              hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
-              visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
-            }}
-          >
-            PRedavači PEPKonf {selectedYear} bit će objavljeni uskoro.
-          </motion.p>
-        </motion.div>
-      ) : (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedYear}
-            // On mobile: pure fade (no x movement).
-            // On desktop: slide from right on enter, slide to left on exit.
-            // isMobile ? 0 : 60 — ternary picks the x value at runtime.
-            initial={{ opacity: 0, x: isMobile ? 0 : 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: isMobile ? 0 : -60 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full"
-          >
-
-            {hasPanelisti && (
-              <div>
-                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
-                  <RevealText>Panelisti</RevealText>
-                </h1>
-
-                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
-                  {data.panelisti.map((props, i) => (
-                    <Lecturer key={i} index={i} {...props} />
-                  ))}
-                </div>
-                {(hasRadionica || hasPredavaci) && <SectionDivider className="px-4"/>}
+      {!isCurrentYear && hasContent && (
+        <>
+          {hasPanelisti && (
+            <div>
+              <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
+                <RevealText>Panelisti</RevealText>
+              </h1>
+              <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
+                {data.panelisti.map((props, i) => (
+                  <Lecturer key={i} index={i} {...props} />
+                ))}
               </div>
-            )}
+              {(hasRadionica || hasPredavaci) && <SectionDivider className="px-4" />}
+            </div>
+          )}
 
-            {hasRadionica && (
-              <div className="pt-14">
-                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
-                  <RevealText>Radionica</RevealText>
-                </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
-                  {data.radionica.map((props, i) => (
-                    <Lecturer key={i} index={i} {...props} />
-                  ))}
-                </div>
-                {hasPredavaci && <SectionDivider className="px-4" />}
+          {hasRadionica && (
+            <div className="pt-14">
+              <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
+                <RevealText>Radionica</RevealText>
+              </h1>
+              <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
+                {data.radionica.map((props, i) => (
+                  <Lecturer key={i} index={i} {...props} />
+                ))}
               </div>
-            )}
+              {hasPredavaci && <SectionDivider className="px-4" />}
+            </div>
+          )}
 
-            {hasPredavaci && (
-              <div className="pt-14">
-                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
-                  <RevealText>Predavači</RevealText>
-                </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
-                  {data.predavaci.map((props, i) => (
-                    <Lecturer key={i} index={i} {...props} />
-                  ))}
-                </div>
+          {hasPredavaci && (
+            <div className="pt-14">
+              <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
+                <RevealText>Predavači</RevealText>
+              </h1>
+              <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
+                {data.predavaci.map((props, i) => (
+                  <Lecturer key={i} index={i} {...props} />
+                ))}
               </div>
-            )}
-
-            {/* {data.moderatorice?.length > 0 && (
-              <div className="pt-14">
-                <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl">
-                  <RevealText>Moderatorice</RevealText>
-                </h1>
-                <div className="flex flex-row flex-wrap pt-20 pb-12 gap-y-10 lg:gap-y-20">
-                  {data.moderatorice.map((props, i) => (
-                    <Lecturer key={i} index={i} {...props} />
-                  ))}
-                </div>
-              </div>
-            )} */}
-
-          </motion.div>
-        </AnimatePresence>
+            </div>
+          )}
+        </>
       )}
     </section>
-    </>
   );
 };
 
