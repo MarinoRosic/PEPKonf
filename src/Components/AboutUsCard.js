@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import aboutUsImg from "../assets/images/aboutUs.png";
+import aboutUsImg from "../assets/images/aboutUs.webp";
 import RevealText from './RevealText';
 import RotatingAvatar from './RotatingAvatar';
 

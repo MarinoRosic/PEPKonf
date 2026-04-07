@@ -1,29 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import studentskiCentarDU from "../assets/images/SCDuLogo.jpg"
-import UdrugaZaOSJ from "../assets/images/UdrugaZaOSJ.jpg"
-import fotostar from "../assets/images/fotostar.png"
-import sveucilisteDu from "../assets/images/sveucilisteDubrovnik.png"
-import lightMedija from "../assets/images/light_Media.png"
-import SZDU from "../assets/images/SZDU.png"
-import maritimo from "../assets/images/maritimo.jpg"
-import slatkoKaoCukar from "../assets/images/slatkoKaoCukar.png"
-import Medardo from "../assets/images/DubrovnikMed.png"
-import RagusaSpirits from "../assets/images/RagusaSpirits.png"
-import HoneyDU from "../assets/images/HoneyDU.png"
-import DubManuf from "../assets/images/DubrovackaManufaktura.png"
+import studentskiCentarDU from "../assets/images/SCDuLogo.webp"
+import UdrugaZaOSJ from "../assets/images/UdrugaZaOSJ.webp"
+import fotostar from "../assets/images/fotostar.webp"
+import sveucilisteDu from "../assets/images/sveucilisteDubrovnik.webp"
+import lightMedija from "../assets/images/light_Media.webp"
+import SZDU from "../assets/images/SZDU.webp"
+import maritimo from "../assets/images/maritimo.webp"
+import slatkoKaoCukar from "../assets/images/slatkoKaoCukar.webp"
+import Medardo from "../assets/images/DubrovnikMed.webp"
+import RagusaSpirits from "../assets/images/RagusaSpirits.webp"
+import HoneyDU from "../assets/images/HoneyDU.webp"
+import DubManuf from "../assets/images/DubrovackaManufaktura.webp"
+import UNIDUMediji from "../assets/images/UNIDU_Mediji_logo.webp"
 
 // All logos use object-contain so each image scales to its natural aspect ratio
 // within a fixed-height cell — nothing gets cropped or stretched.
 // Wide logos stay wide, square logos stay square; only the height is normalised.
-const Logo = ({ href, src, alt = '', tall = false }) => (
+const Logo = ({ href, src, alt = '', tall = false, xl = false }) => (
   <a href={href} target='_blank' rel='noreferrer' className='flex items-center justify-center'>
     <img
       src={src}
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`w-auto object-contain ${tall ? 'h-36' : 'h-32'}`}
+      className={`w-auto object-contain ${xl ? 'h-40' : tall ? 'h-36' : 'h-32'}`}
     />
   </a>
 )
@@ -33,11 +34,16 @@ const Partners = () => {
   return (
     <section className='relative w-full bg-white flex flex-col items-center gap-y-10 pt-10 pb-[70px]'>
 
-      {/* Main partners — taller row, more visual weight */}
+      {/* Main partners — UNIDUMediji, UdrugaZaOSJ, SZDU in first row */}
       <div className='flex flex-wrap justify-center items-center gap-x-12 gap-y-6 px-8'>
-        <Logo href='https://www.huoj.hr/'                    src={UdrugaZaOSJ}       tall />
-        <Logo href='https://www.scdu.hr/'                    src={studentskiCentarDU} tall />
-        <Logo href='https://www.instagram.com/szdu_unidu/'   src={SZDU}               tall />
+        <Logo href='https://www.unidu.hr/kom/'                       src={UNIDUMediji}  xl />
+        <Logo href='https://www.huoj.hr/'                            src={UdrugaZaOSJ}  xl />
+        <Logo href='https://www.instagram.com/szdu_unidu/'           src={SZDU}         xl />
+      </div>
+
+      {/* Studentski centar — own row, same height */}
+      <div className='flex justify-center items-center px-8'>
+        <Logo href='https://www.scdu.hr/' src={studentskiCentarDU} tall />
       </div>
 
       {/* Secondary partners */}
