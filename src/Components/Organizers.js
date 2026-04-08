@@ -1,5 +1,6 @@
 import RevealText from './RevealText';
 import OrganizerCard from "./OrganizerCard";
+import SectionDivider from "./SectionDivider";
 import LZux from "../assets/images/LZUX.webp";
 import Marija from "../assets/images/MarijaMamic.webp";
 import Anamarija from "../assets/images/AnamarijaLucic.webp";
@@ -13,15 +14,16 @@ const Organizers = () => {
     <section className='flex flex-col w-full h-full overflow-hidden'>
       <header className='pt-24 mx-auto'>
         <h1 className='text-center pb-16 text-5xl font-extrabold text-white md:text-6xl lg:text-8xl font-main'>
-          <RevealText>Organizacijski tim</RevealText>
+          <RevealText>Organizatori</RevealText>
         </h1>
       </header>
       <OrganizerCard name="Leonarda Tikvica" img={LZux}      text="Osnivačica i voditeljica projektnih aktivnosti i programa (alumna)" />
-      <OrganizerCard name="Andrea Batinić"   img={Andrea}    text="" />
+      <OrganizerCard name="Andrea Batinić"   img={Andrea}    text="" objectPosition="center 10%" />
       <OrganizerCard name="Anamarija Lučić"  img={Anamarija} text="Organizatorica i koordinatorica ponuda, nabave, cateringa i programa" />
       <OrganizerCard name="Marija Mamić"     img={Marija}    text="Organizatorica i voditeljica društvenih mreža" />
-      <OrganizerCard name="Karla Sabljić"    img={Karla}     text="" />
-      <OrganizerCard name="Doc. dr. sc. Romana John"      img={Romana}    text="" subtitle="Dekanica Fakulteta za medije i odnose s javnošću" />
+      <OrganizerCard name="Karla Sabljić"    img={Karla}     text="" noDivider />
+      <SectionDivider label="Mentorica" labelPosition="left" />
+      <OrganizerCard name="Doc. dr. sc. Romana John" img={Romana} text="" subtitle="Dekanica Fakulteta za medije i odnose s javnošću" borderColor="purple" />
     </section>
     </>
   );

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const gradientPresets = {
   pink:   'conic-gradient(from 0deg, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F, #db9bd5)',
-  purple: 'conic-gradient(from 0deg, #772F6F, #db9bd5, #ffffff, #db9bd5, #772F6F, #3d1a57, #772F6F)',
+  purple: 'conic-gradient(from 0deg, #772F6F, #772F6F, #3d1a57, #1a0829, #3d1a57, #772F6F, #772F6F)',
 };
 
 const glowPresets = {
@@ -16,7 +16,7 @@ const glowPresets = {
 // Fills its parent — size the parent from outside (w-[310px] h-[310px] etc.).
 // borderColor: 'pink' | 'purple'
 // borderThickness: px gap between ring and image (default 6)
-const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness = 6 }) => {
+const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness = 6, objectPosition = 'center' }) => {
   const [loaded, setLoaded] = useState(false)
   const gradient = gradientPresets[borderColor] ?? gradientPresets.pink;
   const glow     = glowPresets[borderColor]     ?? glowPresets.pink;
@@ -63,6 +63,7 @@ const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness =
           width: `calc(100% - ${borderThickness * 2}px)`,
           height: `calc(100% - ${borderThickness * 2}px)`,
           zIndex: 3,
+          objectPosition,
           opacity: loaded ? 1 : 0,
           transition: 'opacity 0.4s ease',
         }}

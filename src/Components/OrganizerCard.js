@@ -39,7 +39,10 @@ const textVariants = {
 };
 
 // subtitle — optional. When provided, renders a pink line below the name.
-const OrganizerCard = ({ name, img, text, subtitle }) => {
+// noDivider — optional. Suppresses the bottom SectionDivider.
+// borderColor — optional. Passed to RotatingAvatar ('pink' | 'purple' | 'gold').
+// avatarSize — optional. Tailwind size classes, overrides the default AVATAR_SIZE.
+const OrganizerCard = ({ name, img, text, subtitle, noDivider = false, borderColor = 'pink', avatarSize, objectPosition }) => {
   return (
     <>
       <motion.div
@@ -52,9 +55,9 @@ const OrganizerCard = ({ name, img, text, subtitle }) => {
         {/* Avatar — shrink-0 prevents it from squishing; resize via AVATAR_SIZE above */}
         <motion.div
           variants={imageVariants}
-          className={`shrink-0 ${AVATAR_SIZE}`}
+          className={`shrink-0 ${avatarSize ?? AVATAR_SIZE}`}
         >
-          <RotatingAvatar img={img} />
+          <RotatingAvatar img={img} borderColor={borderColor} objectPosition={objectPosition} />
         </motion.div>
 
         <div className='flex flex-col sm:gap-y-8 gap-y-2 justify-center min-w-0'>
@@ -81,7 +84,7 @@ const OrganizerCard = ({ name, img, text, subtitle }) => {
           </motion.p>
         </div>
       </motion.div>
-      <SectionDivider />
+      {!noDivider && <SectionDivider />}
     </>
   );
 };

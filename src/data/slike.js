@@ -11,7 +11,7 @@ import PEP2025_10 from '../assets/images/PEP_2025/PEPKonf2025_10.webp'
 import PEP2025_11 from '../assets/images/PEP_2025/PEPKonf2025_11.webp'
 import PEP2025_12 from '../assets/images/PEP_2025/PEPKonf2025_12.webp'
 import PEP2025_13 from '../assets/images/PEP_2025/PEPKonf2025_13.webp'
-import PEP2025_13_01 from '../assets/images/PEP_2025/PEPKonf2025_13_01.webp'
+// import PEP2025_13_01 from '../assets/images/PEP_2025/PEPKonf2025_13_01.webp'
 import PEP2025_13_02 from '../assets/images/PEP_2025/PEPKonf2025_13_02.webp'
 // import PEP2025_13_03 from '../assets/images/PEP_2025/PEPKonf2025_13_03.webp'
 import PEP2025_13_04 from '../assets/images/PEP_2025/PEPKonf2025_13_04.webp'
@@ -38,15 +38,15 @@ import PEP2024_15 from '../assets/images/PEP_2024/PEPKonf2024_15.webp'
 
 import PEP2023_01 from '../assets/images/PEP_2023/PEPKonf2023_01.webp'
 import PEP2023_02 from '../assets/images/PEP_2023/PEPKonf2023_02.webp'
-import PEP2023_03 from '../assets/images/PEP_2023/PEPKonf2023_03.webp'
+// import PEP2023_03 from '../assets/images/PEP_2023/PEPKonf2023_03.webp'
 import PEP2023_04 from '../assets/images/PEP_2023/PEPKonf2023_04.webp'
 import PEP2023_05 from '../assets/images/PEP_2023/PEPKonf2023_05.webp'
-import PEP2023_06 from '../assets/images/PEP_2023/PEPKonf2023_06.webp'
+// import PEP2023_06 from '../assets/images/PEP_2023/PEPKonf2023_06.webp'
 import PEP2023_07 from '../assets/images/PEP_2023/PEPKonf2023_07.webp'
 import PEP2023_08 from '../assets/images/PEP_2023/PEPKonf2023_08.webp'
 import PEP2023_09 from '../assets/images/PEP_2023/PEPKonf2023_09.webp'
 import PEP2023_10 from '../assets/images/PEP_2023/PEPKonf2023_10.webp'
-import PEP2023_11 from '../assets/images/PEP_2023/PEPKonf2023_11.webp'
+// import PEP2023_11 from '../assets/images/PEP_2023/PEPKonf2023_11.webp'
 import PEP2023_12 from '../assets/images/PEP_2023/PEPKonf2023_12.webp'
 import PEP2023_13 from '../assets/images/PEP_2023/PEPKonf2023_13.webp'
 import PEP2023_14 from '../assets/images/PEP_2023/PEPKonf2023_14.webp'
@@ -60,10 +60,7 @@ export const slike =
     [
         { src: PEP2025_14,    title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_13,    title: 'PEPKonf 2025', description: '' },
-        { src: PEP2025_13_01, title: 'PEPKonf 2025', description: '' },
-        { src: PEP2025_16,    title: 'PEPKonf 2025', description: '' },
-        { src: PEP2025_17,    title: 'PEPKonf 2025', description: '' },
-        { src: PEP2025_18,    title: 'PEPKonf 2025', description: '' },
+        // { src: PEP2025_13_01, title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_02,    title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_01,    title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_03,    title: 'PEPKonf 2025', description: '' },
@@ -80,31 +77,29 @@ export const slike =
         // { src: PEP2025_13_03, title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_13_04, title: 'PEPKonf 2025', description: '' },
         { src: PEP2025_15,    title: 'PEPKonf 2025', description: '' },
+        { src: PEP2025_16,    title: 'PEPKonf 2025', description: '' },
+        { src: PEP2025_17,    title: 'PEPKonf 2025', description: '' },
+        { src: PEP2025_18,    title: 'PEPKonf 2025', description: '' },
     ],
     2024:
     [
-        { src: PEP2024_13, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije zajedno s predavačima' },
-        { src: PEP2024_14, title: 'PEPKonf 2024', description: 'Svi organizatori PEP Konferencije i predavači zajedno na slici' },
-        { src: PEP2024_15, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije 2024 ispred amfiteatra u Sveučilištu u Dubrovniku' },
-        { src: PEP2024_12, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije zajedno s Kristijanom Sedakom' },
-        { src: PEP2024_02, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije 2024 na pozornici' },
-        { src: PEP2024_01, title: 'PEPKonf 2024', description: 'Moderatori PEP Konferencije 2024 na pozornici' },
         { src: PEP2024_06, title: 'PEPKonf 2024', description: 'Sudionici PEP Konferencije 2024 u amfiteatru Sveučilišta u Dubrovniku' },
         { src: PEP2024_03, title: 'PEPKonf 2024', description: 'Jadran Kapor glavni urednik Dubrovačkog vijesnika, RTL reporterka Donna Diana Prčić, dopisnica Nove TV u Dubrovniku Paula Klaić Saulačić i moderator Mislav Ćimić' },
-        { src: PEP2024_04, title: 'PEPKonf 2024', description: 'Jadran Kapor, Mislav Ćimić i Donna Diana Prčić na pozornici PEP Konferencije 2024' },
         { src: PEP2024_07, title: 'PEPKonf 2024', description: 'Jadran Kapor, Donna Diana Prčić i Paula Klaić Saulačić na pozornici na panelu' },
+        { src: PEP2024_04, title: 'PEPKonf 2024', description: 'Jadran Kapor, Mislav Ćimić i Donna Diana Prčić na pozornici PEP Konferencije 2024' },
         { src: PEP2024_08, title: 'PEPKonf 2024', description: 'Kristijan Sedak u predavaoinici, plakat s PEP KONF logom' },
         { src: PEP2024_09, title: 'PEPKonf 2024', description: 'Gloria Mage Gospić CEO Komunikativne komunikacije na PEP Konferenciji 2024' },
         // { src: PEP2024_10, title: 'PEPKonf 2024', description: 'Gloria Mage Gospić CEO Komunikativne komunikacije na PEP Konferenciji 2024 u predavaoinici s sudionicima' },
         { src: PEP2024_11, title: 'PEPKonf 2024', description: 'Iva Sentić, vlasnica Dubrovnik Event predavačica PEP Konferencije 2024' },
+        { src: PEP2024_02, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije 2024 na pozornici' },
+        { src: PEP2024_01, title: 'PEPKonf 2024', description: 'Moderatori PEP Konferencije 2024 na pozornici' },
+        { src: PEP2024_13, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije zajedno s predavačima' },
+        { src: PEP2024_14, title: 'PEPKonf 2024', description: 'Svi organizatori PEP Konferencije i predavači zajedno na slici' },
+        { src: PEP2024_15, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije 2024 ispred amfiteatra u Sveučilištu u Dubrovniku' },
+        { src: PEP2024_12, title: 'PEPKonf 2024', description: 'Organizatori PEP Konferencije zajedno s Kristijanom Sedakom' },
     ],
     2023:
     [
-        { src: PEP2023_15, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije 2023' },
-        { src: PEP2023_13, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije zajedno s predavačima Krešimirom Macanom i Lukom Šipićem' },
-        { src: PEP2023_14, title: 'PEPKonf 2023', description: 'Organizatorice PEP Konferencije zajedno s Lukom Šipićem, predavačem' },
-        { src: PEP2023_16, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije 2023 zajedno s dekanicom Fakulteta za medije i odnose s javnošću, doc. dr. sc. Romanom John' },
-        { src: PEP2023_17, title: 'PEPKonf 2023', description: 'Dekanica Romana John, Mislav Ćimić moderator i Anđela Matić predavačica zajedno na slici' },
         { src: PEP2023_07, title: 'PEPKonf 2023', description: 'Sudionici PEP Konferencije 2023 u prostoriji učionice Sveučilišta u Dubrovniku' },
         { src: PEP2023_01, title: 'PEPKonf 2023', description: 'Krešimir Macan iz Manjgure, predavač PEP Konferencije 2023', objectPosition: 'right center' },
         { src: PEP2023_02, title: 'PEPKonf 2023', description: 'Krešimir Macan iz Manjgure, predavač PEP Konferencije 2023 u sobi punoj posjetitlja', objectPosition: 'left center' },
@@ -117,5 +112,10 @@ export const slike =
         { src: PEP2023_10, title: 'PEPKonf 2023', description: 'Kiti Iveta iz PRiredba Studija, predavačica PEP Konferencije 2023' },
         // { src: PEP2023_11, title: 'PEPKonf 2023', description: 'Kiti Iveta iz PRiredba Studija, predavačica PEP Konferencije 2023, plakat s logom PEP KONF iza nje' },
         { src: PEP2023_12, title: 'PEPKonf 2023', description: 'Anđela Matić iz Event Lab-a, predavačica PEP Konferencije 2023', objectPosition: 'right center' },
+        { src: PEP2023_15, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije 2023' },
+        { src: PEP2023_13, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije zajedno s predavačima Krešimirom Macanom i Lukom Šipićem' },
+        { src: PEP2023_14, title: 'PEPKonf 2023', description: 'Organizatorice PEP Konferencije zajedno s Lukom Šipićem, predavačem' },
+        { src: PEP2023_16, title: 'PEPKonf 2023', description: 'Organizatori PEP Konferencije 2023 zajedno s dekanicom Fakulteta za medije i odnose s javnošću, doc. dr. sc. Romanom John' },
+        { src: PEP2023_17, title: 'PEPKonf 2023', description: 'Dekanica Romana John, Mislav Ćimić moderator i Anđela Matić predavačica zajedno na slici' },
     ]
 }

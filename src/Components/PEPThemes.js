@@ -3,15 +3,13 @@ import { motion, useInView } from 'framer-motion'
 import SectionDivider from './SectionDivider'
 
 const allThemes = [
-  'Odgovornost',
+  'Odgovorno komuniciranje',
   'Odnosi s javnošću',
   'Event menadžment',
   'Novinarstvo',
   'Karijerni put',
-  'Odgovorno komuniciranje',
   'Self branding',
   'Javni nastup',
-  'Influencing'
 ]
 
 const ThemeItem = ({ theme, index, isInView }) => (
