@@ -45,8 +45,8 @@ const AboutPEPSection = () => {
       <div className='flex flex-col my-auto'>
 
         {/* Headline — split into two masked lines */}
-        <div className='flex flex-col w-full px-8 pb-20 mx-auto lg:px-20'>
-          <h1 className='text-3xl font-extrabold leading-snug text-white md:text-7xl text-balance'>
+        <div className='flex flex-col w-full px-8 pb-8 md:pb-20 mx-auto lg:px-20'>
+          <h1 className='text-3xl sm:text-5xl font-extrabold leading-snug text-white md:text-7xl text-balance'>
             <MaskLine delay={0.3} isInView={isInView}>
               Prva studentska konferencija u
             </MaskLine>

@@ -24,7 +24,7 @@ const Logo = ({ href, src, alt = '', tall = false, xl = false, className = '' })
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`max-w-full object-contain ${xl ? 'h-24 sm:h-32 lg:h-40' : tall ? 'h-28 sm:h-36' : 'h-24 sm:h-32'}`}
+      className={`max-w-full object-contain ${xl ? 'h-32 sm:h-36 lg:h-40' : tall ? 'h-28 sm:h-36' : 'h-24 sm:h-32'}`}
     />
   </a>
 )
