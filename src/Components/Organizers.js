@@ -1,40 +1,34 @@
-import React from 'react'
-import OrganizerCard from "./OrganizerCard"
-import LZux from "../assets/images/LeonardaOrganizator.jpg"
-import Marija from "../assets/images/MarijaMamic.jpeg"
-import Anamarija from "../assets/images/AnamarijaLucic.jpeg"
-import { motion } from 'framer-motion'
+import RevealText from './RevealText';
+import OrganizerCard from "./OrganizerCard";
+import SectionDivider from "./SectionDivider";
+import LZux from "../assets/images/LZUX.webp";
+import Marija from "../assets/images/MarijaMamic.webp";
+import Anamarija from "../assets/images/AnamarijaLucic.webp";
+import Andrea from "../assets/images/Andrea_Batinic.webp";
+import Karla from "../assets/images/KarlaSabljic.webp";
+import Darja from "../assets/images/darja.jpg";
+import Romana from "../assets/images/Romana_John.webp";
 
 const Organizers = () => {
   return (
     <>
-        <section className='flex flex-col w-full h-full overflow-hidden'>
-            <header className='pt-32 mx-auto'>
-                <motion.h1 
-                className='pb-10 text-5xl font-extrabold text-white lg:text-8xl font-main'
-                initial={{ opacity: 0, scale: 0.6 }}
-                whileInView={{opacity:1, scale: 0.9}}
-                viewport={{once: true}}
-                transition={{
-                  duration: 0.3,
-                  ease: [0, 0.71, 0.2, 1.01],
-                  scale: {
-                    type: "spring",
-                    damping: 5,
-                    stiffness: 100,
-                    restDelta: 0.001
-                  }
-                }}
-                >
-                    Organizatori:
-                </motion.h1>
-            </header>
-            <OrganizerCard name="Leonarda Tikvica" img={LZux} text="Osnivačica i voditeljica projektnih aktivnosti i programa (alumna)"/>
-            <OrganizerCard name="Anamarija Lučić" img={Anamarija} text="Organizatorica i koordinatorica ponuda, nabave, cateringa i programa"/>
-            <OrganizerCard name="Marija Mamić" img={Marija} text="Organizatorica i voditeljica društvenih mreža"/>
-        </section>
+    <section className='flex flex-col w-full h-full overflow-hidden'>
+      <header className='pt-24 mx-auto'>
+        <h1 className='text-center pb-16 text-5xl font-extrabold text-white md:text-6xl lg:text-8xl font-main'>
+          <RevealText>PEP organizacijski tim</RevealText>
+        </h1>
+      </header>
+      <OrganizerCard name="Leonarda Tikvica" img={LZux}      text="Osnivačica i voditeljica provedbe projekta (alumna)" />
+      <OrganizerCard name="Andrea Batinić"   img={Andrea}    text="Osnivačica i voditeljica sponzorstva (alumna)" objectPosition="center 10%" />
+      <OrganizerCard name="Anamarija Lučić"  img={Anamarija} text="Organizatorica i koordinatorica projekta" />
+      <OrganizerCard name="Marija Mamić"     img={Marija}    text="Organizatorica i voditeljica društvenih mreža" />
+      <OrganizerCard name="Karla Sabljić"    img={Karla}     text="Organizatorica i koordinatorica medija"  />
+      <OrganizerCard name="Darja Miljanić"    img={Darja}    text="Članica tima za organizaciju i sponzorstvo"  noDivider/>
+      <SectionDivider label="Mentorica" labelPosition="left" />
+      <OrganizerCard name="Doc. dr. sc. Romana John" img={Romana} text="" subtitle="Dekanica Fakulteta za medije i odnose s javnošću" borderColor="purple" />
+    </section>
     </>
-  )
-}
+  );
+};
 
-export default Organizers
+export default Organizers;

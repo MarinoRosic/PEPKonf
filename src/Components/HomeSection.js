@@ -1,56 +1,96 @@
-import {React } from 'react'
-import pepLogo from "../assets/images/PEPLogo3.png"
-import { motion } from 'framer-motion'
+import pepLogo from "../assets/images/PEPLogo3.webp";
+import stoliceMob from "../assets/images/PEP-naslovna-mob.webp";
+import stoliceDesktop from "../assets/images/PEP-naslovna.webp";
+import { motion } from 'framer-motion';
+import SplitText from './SplitText';
 
 const HomeSection = () => {
   return (
-    <>
-        <section className='bg-stolice-BG-Mob lg:bg-stolice-BG h-[100vh] overflow-hidden bg-cover flex flex-col items-center gap-y-10'>
-            <motion.div 
-            className='mx-auto h-[33%] content-center'
-            initial={{ opacity: 0, scale: 0.6 }}
-            whileInView={{opacity:1, scale: 1}}
-            viewport={{once: true}}
-            transition={{
-              duration: 0.2,
-              ease: [0, 0.80, 0.2, 1.01],
-              scale: {
-                type: "spring",
-                damping: 5,
-                stiffness: 100,
-                restDelta: 0.001
-              }
-            }}
-            >
-                <img className='h-[200px] w-[200px]' src={pepLogo} alt="" />
-            </motion.div>
-            <motion.div 
-            className='h-[33%] content-center'
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            transition={{
-            ease: "linear",
-            duration: 0.5,
-            x: { duration: 0.5, type: "tween" }
-            }} 
-            >
-                <h1 className='mx-auto text-4xl font-extrabold text-center sporka md:text-7xl lg:text-8xl'>Budi i ti dio <br /> PRedobre PRiče.</h1>    
-            </motion.div>
-            <motion.div 
-            className='h-[33%] content-center'
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{
-            ease: "linear",
-            duration: 0.7,
-            x: { duration: 0.7, type: "tween" }
-            }} 
-            >
-                <p className='text-xl italic font-thin text-center text-white'>24. - 25. travnja 2025. <br /> Sveučilišni kampus u Dubrovniku</p>
-            </motion.div>
-        </section>
-    </>
-  )
-}
+    <section className='relative h-[100vh] overflow-hidden flex flex-col'>
 
-export default HomeSection
+      {/* Ken Burns — slow zoom-out from slight scale over 10s */}
+      <motion.div
+        className="absolute inset-0 -z-10"
+        initial={{ scale: 1.08 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 10, ease: 'linear' }}
+      >
+        <picture>
+          <source media="(max-width: 1023px)" srcSet={stoliceMob} />
+          <img
+            src={stoliceDesktop}
+            alt=""
+            fetchpriority="high"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
+      </motion.div>
+
+      {/* Cinematic gradient overlay — dark top + bottom, light mid */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/20 to-black/65" />
+
+      {/* Logo — top center, smaller, slides down */}
+      <motion.div
+        className='flex justify-center pt-10'
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <img className='h-[clamp(65px,_50vw,_140px)] w-[clamp(65px,_50vw,_140px)]' src={pepLogo} alt="PEP Logo" />
+      </motion.div>
+
+      {/* Main content — left-aligned editorial layout */}
+      <div className='flex flex-col justify-center flex-1 px-8 lg:px-20'>
+
+        {/* Eyebrow badge — date + location, fades up before headline */}
+        <motion.div
+          className='mb-6 inline-flex items-center gap-2.5 border border-white/30 rounded-full px-4 py-1.5 self-start backdrop-blur-sm'
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className='w-1.5 h-1.5 rounded-full bg-[#db9bd5] inline-block' />
+          <span className='text-xs font-semibold tracking-widest text-white uppercase'>
+            16. – 17. Travnja 2026. · Dubrovnik
+          </span>
+        </motion.div>
+
+        {/* Headline — SplitText kept, left-aligned, big */}
+        <h1 className='text-[clamp(1.75rem,_8.5vw,_9rem)] font-extrabold sporka leading-[0.92] tracking-tight mb-8'>
+          <SplitText delay={0.2}>Budi i ti dio</SplitText>
+          <br />
+          <SplitText delay={0.6}>PRedobre PRiče.</SplitText>
+        </h1>
+
+        {/* CTA — scrolls to contact/registration */}
+        <motion.a
+          href="#kontakt"
+          className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          Prijavi se
+        </motion.a>
+      </div>
+
+      {/* Scroll indicator — animated line pulses down from text */}
+      <motion.div
+        className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.6 }}
+      >
+        <span className='text-[10px] tracking-[0.2em] text-white/50 uppercase font-semibold'>Scroll</span>
+        <motion.div
+          className='w-px h-8 bg-white/40 origin-top'
+          animate={{ scaleY: [0, 1, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 0.4 }}
+        />
+      </motion.div>
+
+    </section>
+  );
+};
+
+export default HomeSection;

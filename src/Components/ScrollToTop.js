@@ -1,55 +1,43 @@
-import React, { useEffect, useState } from "react";
-import top from "../assets/images/white-arrow.png"
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLenis } from 'lenis/react';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const lenis = useLenis();
 
-  // Top: 0 takes us all the way back to the top of the page
-  // Behavior: smooth keeps it smooth!
+  // Use lenis.scrollTo — window.scrollTo is bypassed by Lenis
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left:0,
-      behavior: "smooth"
-    });
+    lenis?.scrollTo(0, { duration: 1.8 });
   };
 
   useEffect(() => {
-    // Button is displayed after scrolling for 800 pixels
-    const toggleVisibility = () => {
-      if (window.scrollY > 1000) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
+    const toggleVisibility = () => setIsVisible(window.scrollY > 1000);
     window.addEventListener("scroll", toggleVisibility);
-
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <div className="fixed bottom-3 right-3 z-20 cursor-pointer">
+    <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <motion.button
           onClick={scrollToTop}
-          className="fixed bg-[#772F6F] w-[55px] h-[55px] rounded right-2 bottom-11 lg:right-4"
-
-          initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            transition={{
-              ease: "circIn",
-              duration: 0.2,
-              x: { duration: 0.6, type: "tween" }
-            }} 
+          className="fixed right-2 bottom-12 z-20 w-12 h-12 rounded-full bg-[#772F6F] flex items-center justify-center cursor-pointer border border-transparent hover:border-[#db9bd5] transition-colors duration-300"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ scale: 1.12, boxShadow: '0 0 22px 6px rgba(219,155,213,0.35)' }}
+          whileTap={{ scale: 0.92 }}
+          aria-label="Scroll to top"
         >
-          <img className="w-[55px] h-[50px] -rotate-90" src={top} alt=""/>
-        </motion.div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+        </motion.button>
       )}
-    </div>
+    </AnimatePresence>
   );
-}
+};
 
 export default ScrollToTop;
