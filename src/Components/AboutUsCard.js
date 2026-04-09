@@ -37,7 +37,7 @@ const AboutUsCard = () => {
           So the caption starts appearing just as the image finishes landing. */}
       <p className='pt-8 px-8 text-xl lg:text-2xl font-bold text-center text-white lg:w-[400px] mx-auto'>
         <RevealText delay={0.3}>
-          Studenti Sveučilišta u Dubrovniku, Fakultet medija i odnosa s javnošću
+          Studenti Sveučilišta u Dubrovniku, Fakultet za medije i odnose s javnošću
         </RevealText>
       </p>
     </div>

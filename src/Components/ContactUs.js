@@ -50,7 +50,7 @@ const ContactUs = () => {
   }
 
   return (
-    <section id="kontakt" className='flex flex-col h-[780px] lg:h-full overflow-hidden pb-20 lg:pb-32'>
+    <section id="kontakt" className='flex flex-col min-h-screen overflow-hidden'>
 
       {/* Toast notification */}
       {/* DEV-ONLY toast tester — invisible in production builds */}
@@ -144,7 +144,7 @@ const ContactUs = () => {
         </h1>
       </header>
 
-      <div className='flex flex-col items-center pt-10 mx-auto gap-y-10'>
+      <div className='flex flex-col flex-1 items-center justify-evenly mx-auto w-full pb-12'>
 
         {/* Social icons — stagger in, scale on hover */}
         <motion.div
@@ -172,7 +172,7 @@ const ContactUs = () => {
           </motion.div>
         </motion.div>
 
-        <h2 className='pt-8 text-3xl text-center text-white lg:text-5xl'>
+        <h2 className='text-3xl text-center text-white lg:text-5xl'>
           <RevealText delay={0.1}>Prijava:</RevealText>
         </h2>
 
@@ -186,17 +186,17 @@ const ContactUs = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <motion.input
-              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="text" name="name" id="name" placeholder=' Ime' required
               variants={itemVariants}
             />
             <motion.input
-              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="text" name="surname" id="surname" placeholder=' Prezime' required
               variants={itemVariants}
             />
             <motion.input
-              className='italic w-[280px] sm:w-[300px] lg:w-[500px] h-12 rounded-3xl text-center'
+              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
               type="email" name="email" id="email" placeholder=' E-mail' required
               variants={itemVariants}
             />
@@ -212,7 +212,7 @@ const ContactUs = () => {
           </motion.div>
         </form>
 
-        <a href='mailto:pep.konferencija@gmail.com' className='pt-10 text-lg lg:text-3xl md:pt-0 text-white hover:text-[#db9bd5] transition-colors duration-200'>
+        <a href='mailto:pep.konferencija@gmail.com' className='text-lg lg:text-3xl text-white hover:text-[#db9bd5] transition-colors duration-200'>
           <RevealText delay={0.1}>pep.konferencija@gmail.com</RevealText>
         </a>
 
