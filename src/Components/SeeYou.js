@@ -1,4 +1,4 @@
-import stolice from "../assets/images/stoliceBG.jpg"
+import stolice from "../assets/images/stoliceBG.webp"
 import SplitText from './SplitText'
 
 const SeeYou = () => {

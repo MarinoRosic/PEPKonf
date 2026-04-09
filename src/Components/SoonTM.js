@@ -1,5 +1,5 @@
 import {React } from 'react'
-import pepLogo from "../assets/images/PEPLogo3.png"
+import pepLogo from "../assets/images/PEPLogo3.webp"
 import { motion } from 'framer-motion'
 import { FaInstagram, FaFacebook} from 'react-icons/fa'
 

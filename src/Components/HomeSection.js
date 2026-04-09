@@ -1,6 +1,6 @@
-import pepLogo from "../assets/images/PEPLogo3.png";
-import stoliceMob from "../assets/images/PEP-naslovna-mob.jpg";
-import stoliceDesktop from "../assets/images/PEP-naslovna.jpg";
+import pepLogo from "../assets/images/PEPLogo3.webp";
+import stoliceMob from "../assets/images/PEP-naslovna-mob.webp";
+import stoliceDesktop from "../assets/images/PEP-naslovna.webp";
 import { motion } from 'framer-motion';
 import SplitText from './SplitText';
 

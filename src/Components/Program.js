@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import headerImg from "../assets/images/program.png";
+import headerImg from "../assets/images/program.webp";
 import Table from "./Table";
 import RevealText from './RevealText';
 import SectionDivider from './SectionDivider';

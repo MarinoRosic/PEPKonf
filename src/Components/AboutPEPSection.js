@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import stoliceMob from "../assets/images/PEP-naslovna-mob.jpg"
-import stoliceDesktop from "../assets/images/PEP-naslovna.jpg"
+import stoliceMob from "../assets/images/PEP-naslovna-mob.webp"
+import stoliceDesktop from "../assets/images/PEP-naslovna.webp"
 
 // Wraps each line in overflow-hidden so text slides up into view
 const MaskLine = ({ children, delay, isInView, className = '' }) => (

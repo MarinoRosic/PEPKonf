@@ -1,6 +1,6 @@
 import React from 'react'
 import testSvg from "../assets/images/test.svg"
-import pepLogo from "../assets/images/PEPLogo2.png"
+import pepLogo from "../assets/images/PEPLogo2.webp"
 import { motion } from "framer-motion"
 
 const HeroSection = () => {
