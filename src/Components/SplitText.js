@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 // - Supports trigger prop for scroll-driven opacity parents.
 export default function SplitText({ children, className, delay = 0, stagger = 0.04, trigger }) {
   const containerRef = useRef(null);
-  const isInView     = useInView(containerRef, { once: true });
+  const isInView     = useInView(containerRef, { once: true, margin: '0px 0px -15% 0px' });
   const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {

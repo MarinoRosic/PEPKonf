@@ -25,7 +25,7 @@ const paraVariants = {
 const AboutUsSection = () => {
   return (
     <>
-      <SectionDivider className='px-4' label="Odgovorno komuniciranje" />
+      <SectionDivider className='px-4' label="Novinarstvo i mediji" />
       <section className='flex flex-col h-full lg:h-[980px] py-12 lg:pt-8 overflow-hidden'>
       <header className='pt-10 mx-auto'>
         <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-8xl'>
@@ -55,7 +55,7 @@ const AboutUsSection = () => {
             Početkom 2022. ekipa studenata Fakulteta za medije i odnose s javnošću Sveučilišta u Dubrovniku, odlučila je zagrebati ispod površine PR-a.
             Odlučili su otići do Zagreba s projektom "Posjet u PR agencije - PR iz prve ruke".
             <br /> Ali, to nije bilo dovoljno. Iskustvo je bilo PRedobro da bi ostalo samo uspomena.
-            I naravno, na jednoj kavi pala je ideja: "zašto ne dovesti to <u>iskustvo</u> u Dubrovnik?"
+            I naravno, na jednoj kavi pala je ideja: "Zašto ne dovesti to <u>iskustvo</u> u Dubrovnik?"
           </motion.p>
 
           <motion.p
@@ -67,7 +67,7 @@ const AboutUsSection = () => {
         </motion.div>
       </div>
     </section>
-    <SectionDivider />
+    <SectionDivider className='pt-8' label="Karijerni put" labelPosition='right'/>
     </>
   );
 };

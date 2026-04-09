@@ -53,7 +53,7 @@ const Program = () => {
 
   return (
     <>
-    <SectionDivider label="Karijerni put" labelPosition='right'/>
+    <SectionDivider label="Korporativno komuniciranje" labelPosition='right'/>
       <section className='flex flex-col w-full min-h-screen'>
         <header className='pt-16 mx-auto'>
           <h1 className='absolute z-20 text-5xl font-bold text-white md:text-6xl lg:text-8xl'>

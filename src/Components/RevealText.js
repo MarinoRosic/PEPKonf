@@ -12,7 +12,7 @@ import { motion, useInView } from 'framer-motion';
 export default function RevealText({ children, className, delay = 0, stagger = 0.09, trigger }) {
   const containerRef = useRef(null);
   // once: true → animation fires once and stays; words won't re-animate on scroll back up
-  const isInView     = useInView(containerRef, { once: true });
+  const isInView     = useInView(containerRef, { once: true, margin: '0px 0px -15% 0px' });
   const [triggered, setTriggered] = useState(false);
 
   // When a trigger MotionValue is provided, fire at 50% opacity; reset below 20%

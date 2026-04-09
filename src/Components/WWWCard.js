@@ -6,7 +6,7 @@ const WWWCard = (props) => {
   const odgovor = props.answer
   const delay = props.delay ?? 0
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
 
   return (
     <div ref={ref} className='content-center'>

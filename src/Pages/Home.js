@@ -12,7 +12,7 @@ import HomeSection from '../Components/HomeSection';
 import SeeYou from '../Components/SeeYou';
 import Partners from '../Components/Partners';
 import transition from '../Transition';
-import ComingSoon from '../Components/ComingSoon';
+// import ComingSoon from '../Components/ComingSoon';
 import { YearProvider, useYear } from '../Components/providers/YearContext';
 import YearButtons from '../Components/YearButtons';
 import Gallery from '../Components/Gallery';
@@ -50,7 +50,7 @@ const Home = () => {
         {/* ── This wrapper controls the sticky lifetime ── */}
         <div id="year-content-start" className="relative year-dependent-content">
           <YearButtons />           {/* ← sticky inside this wrapper */}
-          <SectionDivider className='px-4' label="Event menadžment" />
+          <SectionDivider className='px-4' label="Odnosi s javnošću" />
           <YearTransition>
             <Gallery />
             <LecturersSection />

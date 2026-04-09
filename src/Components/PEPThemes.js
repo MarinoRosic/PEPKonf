@@ -33,7 +33,7 @@ const ThemeItem = ({ theme, index, isInView }) => (
 
 const PEPThemes = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-10% 0px -10% 0px' })
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
 
   return (
     <>
@@ -75,7 +75,7 @@ const PEPThemes = () => {
         </div>
 
       </section>
-      <SectionDivider className="px-4 mt-8" labelPosition="right" label="Odnosi s javnošću" />
+      <SectionDivider className="px-4 mt-8" labelPosition="right" label="Odgovorno komuniciranje" />
     </>
   )
 }

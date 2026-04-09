@@ -31,7 +31,7 @@ const HomeSection = () => {
 
       {/* Logo — top center, smaller, slides down */}
       <motion.div
-        className='flex justify-center pt-10'
+        className='flex justify-center pt-8'
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -40,7 +40,7 @@ const HomeSection = () => {
       </motion.div>
 
       {/* Main content — left-aligned editorial layout */}
-      <div className='flex flex-col justify-center flex-1 px-8 lg:px-20'>
+      <div className='flex flex-col justify-center flex-1 px-8 lg:px-20 pb-16 lg:pb-0'>
 
         {/* Eyebrow badge — date + location, fades up before headline */}
         <motion.div

@@ -14,7 +14,7 @@ const Organizers = () => {
     <>
     <section className='flex flex-col w-full h-full overflow-hidden'>
       <header className='pt-24 mx-auto'>
-        <h1 className='text-center pb-16 text-5xl font-extrabold text-white md:text-6xl lg:text-8xl font-main'>
+        <h1 className='text-center pb-16 text-5xl font-extrabold text-white md:text-6xl lg:text-7xl font-main'>
           <RevealText>PEP organizacijski tim</RevealText>
         </h1>
       </header>
