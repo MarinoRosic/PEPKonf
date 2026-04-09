@@ -5,11 +5,11 @@ import SectionDivider from './SectionDivider'
 const allThemes = [
   'Odgovorno komuniciranje',
   'Odnosi s javnošću',
-  'Event menadžment',
-  'Novinarstvo',
+  'Korporativno komuniciranje',
+  'Novinarstvo i mediji',
   'Karijerni put',
-  'Self branding',
-  'Javni nastup',
+  'Poslovanje s klijentima',
+  'Poduzetništvo',
 ]
 
 const ThemeItem = ({ theme, index, isInView }) => (

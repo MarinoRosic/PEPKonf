@@ -51,7 +51,7 @@ const HomeSection = () => {
         >
           <span className='w-1.5 h-1.5 rounded-full bg-[#db9bd5] inline-block' />
           <span className='text-xs font-semibold tracking-widest text-white uppercase'>
-            16 – 17 Travnja 2026 · Dubrovnik
+            16. – 17. Travnja 2026. · Dubrovnik
           </span>
         </motion.div>
 

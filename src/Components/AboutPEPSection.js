@@ -67,7 +67,7 @@ const AboutPEPSection = () => {
         <div className='px-8 pb-5 lg:px-20'>
           <MaskLine delay={0.70} isInView={isInView}>
             <p className='text-xl font-extrabold text-white md:text-3xl'>
-              <span className='text-white'>16. i 17. TRAVNJA 2026.</span>
+              <span className='text-white'>16. i 17. <span className='roza'>TRAVNJA</span> 2026.</span>
             </p>
           </MaskLine>
         </div>

@@ -19,6 +19,11 @@ import manjgura from "../assets/images/manjguraLogo.webp"
 import prijekoPalace from "../assets/images/prijekoPalaceLogo.webp"
 import staraLoza from "../assets/images/staraLozaLogo.webp"
 import cocaCola from "../assets/images/cocaColaLogo.webp"
+import cedevita from "../assets/images/cedevitaLogo.webp"
+import loveBar from "../assets/images/loveBarLogo.webp"
+import dubPub from "../assets/images/dubPubLogo.webp"
+import letunic from "../assets/images/letunicLogo.webp"
+import libertas from "../assets/images/libertasDULogo.webp"
 
 // All logos use object-contain so each image scales to its natural aspect ratio
 // within a fixed-height cell — nothing gets cropped or stretched.
@@ -58,12 +63,13 @@ const Partners = () => {
 
       {/* ── SPONZORI ── */}
       <SectionTitle>Sponzori</SectionTitle>
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 px-8'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6 px-8'>
         <Logo href='https://manjgura.hr'                     src={manjgura}       />
         <Logo href='https://prijekopalace.com/hr'            src={prijekoPalace}  />
         <Logo href='https://staraloza.com'                   src={staraLoza}      />
         <Logo href='https://light-media.hr/'                 src={lightMedija}    />
         <Logo href='http://fotostar.hr/'                     src={fotostar}       />
+        <Logo href='https://www.cedevita.com'                src={cedevita}       />
         <Logo href='https://www.coca-cola.com/hr/hr'         src={cocaCola}       />
         <Logo href='https://maritimo-recycling.com/'         src={maritimo}       />
         <Logo href='https://www.slatkokaocukar.com/'         src={slatkoKaoCukar} />
@@ -72,6 +78,10 @@ const Partners = () => {
         <Logo href='https://www.dubrovnikmed.com/honeydu/'   src={HoneyDU}        />
         <Logo href='https://www.dubrovnikmed.com/honeydu/'   src={DubManuf}       />
         <Logo href='https://www.instagram.com/pop_up.decorations/' src={POPUPDecorations} />
+        <Logo href='https://lovebardubrovnik.com'            src={loveBar}          />
+        <Logo href='https://www.instagram.com/dubpubkviz/'   src={dubPub}           />
+        <Logo href='https://www.instagram.com/kusaonica_leatus_letunic/'                          src={letunic}          />
+        <Logo href='https://www.libertasdubrovnik.hr'        src={libertas}         />
       </div>
 
       {/* Footer bar */}
