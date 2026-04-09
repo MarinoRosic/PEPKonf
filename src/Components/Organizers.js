@@ -20,7 +20,7 @@ const Organizers = () => {
       </header>
       <OrganizerCard name="Leonarda Tikvica" img={LZux}      text="Osnivačica i voditeljica provedbe projekta (alumna)" />
       <OrganizerCard name="Andrea Batinić"   img={Andrea}    text="Osnivačica i voditeljica sponzorstva (alumna)" objectPosition="center 10%" />
-      <OrganizerCard name="Anamarija Lučić"  img={Anamarija} text="Organizatorica i koordinatorica dokumentacija" />
+      <OrganizerCard name="Anamarija Lučić"  img={Anamarija} text="Organizatorica i koordinatorica projekta" />
       <OrganizerCard name="Marija Mamić"     img={Marija}    text="Organizatorica i voditeljica društvenih mreža" />
       <OrganizerCard name="Karla Sabljić"    img={Karla}     text="Organizatorica i koordinatorica medija"  />
       <OrganizerCard name="Darja Miljanić"    img={Darja}    text="Članica tima za organizaciju i sponzorstvo"  noDivider/>

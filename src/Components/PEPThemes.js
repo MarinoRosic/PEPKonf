@@ -38,7 +38,7 @@ const PEPThemes = () => {
   return (
     <>
       <SectionDivider label="PEP 2026" labelPosition="left" className="px-4" />
-      <section ref={ref} className="min-h-screen flex flex-col justify-center py-16 font-main">
+      <section ref={ref} className="min-h-screen flex flex-col justify-start pt-24 pb-16 font-main">
 
         {/* Title */}
         <div className="px-8 lg:px-20 pb-10">

@@ -14,6 +14,7 @@ const stripBase = (i) => ({
   height: '100vh',
   background: 'linear-gradient(to bottom, #772F6F, #9b4a8a)',
   zIndex: 999,
+  pointerEvents: 'none',
 });
 
 const transition = (OgComponent) => {

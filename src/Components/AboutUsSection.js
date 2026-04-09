@@ -52,9 +52,10 @@ const AboutUsSection = () => {
             className='px-8 pt-10 text-lg text-white lg:text-2xl text-balance font-main'
             variants={paraVariants}
           >
-            Početkom 2022. ekipa studenata Odjela za komunikologiju na Sveučilištu u Dubrovniku, odlučila je zagrebati ispod površine PR-a.
-            Odlučili su otići do Zagreba s projektom "Posjet u PR agencije - PR iz prve ruke". Ali, to nije bilo dovoljno.
-            Na jednoj kavi, jedna od članica je dobila ideju - <u>donijeti iskustvo</u> u Dubrovnik.
+            Početkom 2022. ekipa studenata Fakulteta za medije i odnose s javnošću Sveučilišta u Dubrovniku, odlučila je zagrebati ispod površine PR-a.
+            Odlučili su otići do Zagreba s projektom "Posjet u PR agencije - PR iz prve ruke".
+            Ali, to nije bilo dovoljno. Iskustvo je bilo PRedobro da bi ostalo samo uspomena.
+            I naravno, na jednoj kavi pala je ideja: "zašto ne dovesti to <u>iskustvo</u> u Dubrovnik?"
           </motion.p>
 
           <motion.p
