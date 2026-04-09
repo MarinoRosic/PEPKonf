@@ -32,7 +32,6 @@ const Coverflow = ({ data, onImageClick }) => {
     return { SIDE_COUNT, CARD_H, CARD_W, CARD_SPACING }
   }, [windowSize])
 
-  // Keep a ref so drag handlers stay stable across activeIndex changes
   const activeIndexRef = useRef(activeIndex)
   useEffect(() => { activeIndexRef.current = activeIndex }, [activeIndex])
 
@@ -45,9 +44,26 @@ const Coverflow = ({ data, onImageClick }) => {
     else if (e.key === 'ArrowRight') goTo(activeIndexRef.current + 1)
   }, [goTo])
 
-  const handleDragEnd = useCallback((_, info) => {
-    if (info.offset.x < -60)      goTo(activeIndexRef.current + 1)
-    else if (info.offset.x > 60)  goTo(activeIndexRef.current - 1)
+  // Touch-based swipe — avoids pointer capture so iOS text-selection handles still work
+  const touchStartRef = useRef(null)
+  const didSwipeRef = useRef(false)
+
+  const handleTouchStart = useCallback((e) => {
+    touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+    didSwipeRef.current = false
+  }, [])
+
+  const handleTouchEnd = useCallback((e) => {
+    if (!touchStartRef.current) return
+    const dx = e.changedTouches[0].clientX - touchStartRef.current.x
+    const dy = e.changedTouches[0].clientY - touchStartRef.current.y
+    touchStartRef.current = null
+    // Only count as swipe if horizontal movement is dominant and > 50px
+    if (Math.abs(dx) > Math.abs(dy) * 1.5 && Math.abs(dx) > 50) {
+      didSwipeRef.current = true
+      if (dx < 0) goTo(activeIndexRef.current + 1)
+      else        goTo(activeIndexRef.current - 1)
+    }
   }, [goTo])
 
   return (
@@ -60,6 +76,8 @@ const Coverflow = ({ data, onImageClick }) => {
       <div
         className="relative w-full"
         style={{ height: CARD_H + 80, perspective: '1800px' }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {data.map((slide, i) => {
           const offset = i - activeIndex
@@ -79,12 +97,11 @@ const Coverflow = ({ data, onImageClick }) => {
                 z: isCenter ? 40 : -abs * 40,
               }}
               transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-              drag={isCenter ? 'x' : false}
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.15}
-              onDragEnd={handleDragEnd}
-              onClick={() => (isCenter ? onImageClick(activeIndex) : goTo(i))}
-              whileTap={isCenter ? { scale: 0.97 } : undefined}
+              onClick={() => {
+                if (didSwipeRef.current) { didSwipeRef.current = false; return }
+                isCenter ? onImageClick(activeIndex) : goTo(i)
+              }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 position: 'absolute',
                 left: '50%',

@@ -54,7 +54,7 @@ const AboutUsSection = () => {
           >
             Početkom 2022. ekipa studenata Fakulteta za medije i odnose s javnošću Sveučilišta u Dubrovniku, odlučila je zagrebati ispod površine PR-a.
             Odlučili su otići do Zagreba s projektom "Posjet u PR agencije - PR iz prve ruke".
-            Ali, to nije bilo dovoljno. Iskustvo je bilo PRedobro da bi ostalo samo uspomena.
+            <br /> Ali, to nije bilo dovoljno. Iskustvo je bilo PRedobro da bi ostalo samo uspomena.
             I naravno, na jednoj kavi pala je ideja: "zašto ne dovesti to <u>iskustvo</u> u Dubrovnik?"
           </motion.p>
 
