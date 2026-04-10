@@ -1,24 +1,16 @@
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 
-// Fires when the row container enters view, then cascades each row downward.
-// staggerChildren: 0.06 — tight stagger so the whole table builds in ~0.4s.
-// A schedule should feel snappy, not slow. This isn't decoration — it's content.
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-// Each row fades up by 16px. No blur — dense text rows look messy when blurred.
-// Small y offset (16px vs 30px on cards) because rows are compact content units,
-// not standalone visual elements.
+// Each row animates independently when it scrolls into view.
+// delay is capped at 0.32s so rows already on screen get a tight stagger
+// and rows that arrive later don't wait unnecessarily long.
 const rowVariants = {
   hidden: { opacity: 0, y: 22 },
-  visible: {
+  visible: (delay) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-  },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay },
+  }),
 };
 
 const Table = ({ datum, day }) => {
@@ -28,38 +20,42 @@ const Table = ({ datum, day }) => {
         <RevealText>{datum}</RevealText>
       </h1>
 
-      {/* Container orchestrates the row stagger.
-          amount: 0.1 — fires when just 10% of the container is visible.
-          The table can be tall (8 rows), so a low threshold ensures the animation
-          starts as soon as the user reaches the top of the table, not halfway through. */}
-      <motion.div
-        className='flex flex-col content-center px-8 pt-12 mx-auto lg:pt-12'
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
+      <div className='flex flex-col content-center px-8 pt-12 mx-auto lg:pt-12'>
         {day.map((items, index) => {
-          const { time, tema, prikazi, predavaci } = items;
+          const { time, tema, prikazi, fullName, lecturerData, moderator } = items;
+          // Cap stagger at 0.32s so rows that are already visible don't wait too long.
+          const delay = Math.min(index * 0.08, 0.32);
           return (
-            // Each row is a variant child — receives "hidden"/"visible" state
-            // propagated from the container, staggered by index * 0.06s.
             <motion.div
               className='z-50 pb-3 text-white text-base md:text-xl lg:text-3xl'
               key={index}
+              custom={delay}
               variants={rowVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0 }}
             >
-              <span>{time} - </span>
+              <span className={!prikazi ? 'roza' : ''}>{time} - </span>
               <span className='text-base md:text-lg lg:text-2xl roza'>{tema}</span>
-              {prikazi && predavaci.map((item, key) => (
-                <ul key={key} className='mx-10 my-3 text-sm text-white list-disc lg:text-lg'>
-                  <li>{item}</li>
+              {prikazi && fullName && fullName.map((name, key) => (
+                <ul key={key} className='mx-10 my-3 text-sm list-disc lg:text-lg'>
+                  <li>
+                    {name && <span className='text-[#772F6F]'>{name}</span>}
+                    {lecturerData?.[key] && (
+                      <span className='text-white'>{name ? ', ' : ''}{lecturerData[key]}</span>
+                    )}
+                  </li>
                 </ul>
               ))}
+              {moderator && (
+                <p className='mx-10 mt-1 text-xs lg:text-sm text-white/80'>
+                  {moderator}
+                </p>
+              )}
             </motion.div>
           );
         })}
-      </motion.div>
+      </div>
     </section>
   );
 };
