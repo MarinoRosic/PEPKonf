@@ -9,9 +9,10 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
   const lenis = useLenis();
 
   useEffect(() => {
+    if (!isOpen) return;
     lenis?.stop();
     return () => { lenis?.start(); };
-  }, [lenis]);
+  }, [lenis, isOpen]);
 
   return createPortal(
     <AnimatePresence>
@@ -31,10 +32,14 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
           <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center pointer-events-none">
             <motion.div
               className="relative w-full sm:max-w-md pointer-events-auto bg-[#261539] border border-[#db9bd5]/25 border-b-0 sm:border-b rounded-t-3xl sm:rounded-3xl overflow-hidden"
-              initial={{ y: '100%', opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: '100%', opacity: 0 }}
-              transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+              variants={{
+                hidden:  { y: '100%', opacity: 0 },
+                visible: { y: 0, opacity: 1,       transition: { duration: 0.42, ease: [0.16, 1, 0.3, 1] } },
+                exit:    { y: '100%', opacity: 0,   transition: { duration: 0.28, ease: [0.4, 0, 1, 1] } },
+              }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
               {/* Gradient top stripe */}
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#772F6F] via-[#db9bd5] to-[#772F6F] z-10" />

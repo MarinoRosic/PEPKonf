@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Lecturer from './Lecturer';
 import SectionDivider from './SectionDivider';
 import { motion } from 'framer-motion';
@@ -84,6 +84,8 @@ const CompanyGroup = ({ company, members, onSelect, index }) => (
 // ── Avatar-only grid for the current year ────────────────────────────────────
 const AvatarGrid = ({ data, year }) => {
   const [selected, setSelected] = useState(null);
+  const lastSelected = useRef(null);
+  if (selected) lastSelected.current = selected;
 
   const all = useMemo(() => [
     ...(data.panelisti    ?? []),
@@ -94,13 +96,11 @@ const AvatarGrid = ({ data, year }) => {
 
   return (
     <>
-      {selected && (
-        <LecturerModal
-          isOpen
-          onClose={() => setSelected(null)}
-          {...selected}
-        />
-      )}
+      <LecturerModal
+        isOpen={!!selected}
+        onClose={() => setSelected(null)}
+        {...(lastSelected.current || {})}
+      />
 
       {all.length > 0 && (
         <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl w-full px-8 lg:px-20">
