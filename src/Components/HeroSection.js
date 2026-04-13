@@ -32,7 +32,7 @@ const HeroSection = () => {
   return (
     <>
         <motion.section 
-        className='grid lg:grid-rows-3 lg:grid-cols-3 place-items-center mx-auto h-[100dvh] w-full overflow-hidden'
+        className='grid lg:grid-rows-3 lg:grid-cols-3 place-items-center mx-auto h-[100svh] w-full overflow-hidden'
         variants={container}
         initial="hidden"
         animate="show"

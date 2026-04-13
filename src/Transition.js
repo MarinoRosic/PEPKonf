@@ -11,7 +11,7 @@ const stripBase = (i) => ({
   top: 0,
   left: `${(i / STRIPS) * 100}%`,
   width: `${100 / STRIPS}%`,
-  height: '100dvh',
+  height: '100svh',
   background: 'linear-gradient(to bottom, #772F6F, #9b4a8a)',
   zIndex: 999,
   pointerEvents: 'none',

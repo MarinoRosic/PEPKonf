@@ -28,7 +28,7 @@ export default function ComingSoon() {
   }, []);
 
   return (
-    <div className="min-h-[100dvh] bg-[#261539] text-white flex flex-col items-center justify-center relative overflow-hidden px-5 sm:px-8 lg:px-12">
+    <div className="min-h-[100svh] bg-[#261539] text-white flex flex-col items-center justify-center relative overflow-hidden px-5 sm:px-8 lg:px-12">
       {/* Single centered spotlight */}
       <div
         ref={spotlightRef}
