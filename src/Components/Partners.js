@@ -23,6 +23,7 @@ import cedevita from "../assets/images/cedevitaLogo.webp"
 import loveBar from "../assets/images/loveBarLogo.webp"
 import dubPub from "../assets/images/dubPubLogo.webp"
 import letunic from "../assets/images/letunicLogo.webp"
+import miljas from "../assets/images/miljasLogo.webp"
 import libertas from "../assets/images/libertasDULogo.webp"
 
 // All logos use object-contain so each image scales to its natural aspect ratio
@@ -63,7 +64,7 @@ const Partners = () => {
 
       {/* ── SPONZORI ── */}
       <SectionTitle>Sponzori</SectionTitle>
-      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6 px-8'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6 px-8 [&>*:last-child]:col-span-full [&>*:last-child]:justify-self-center'>
         <Logo href='https://manjgura.hr'                     src={manjgura}       />
         <Logo href='https://prijekopalace.com/hr'            src={prijekoPalace}  />
         <Logo href='https://staraloza.com'                   src={staraLoza}      />
@@ -80,7 +81,8 @@ const Partners = () => {
         <Logo href='https://www.instagram.com/pop_up.decorations/' src={POPUPDecorations} />
         <Logo href='https://lovebardubrovnik.com'            src={loveBar}          />
         <Logo href='https://www.instagram.com/dubpubkviz/'   src={dubPub}           />
-        <Logo href='https://www.instagram.com/kusaonica_leatus_letunic/'                          src={letunic}          />
+        <Logo href='https://www.instagram.com/kusaonica_leatus_letunic/'  src={letunic}          />
+        <Logo href='https://www.instagram.com/milja.s_dubrovnik/'         src={miljas}           />
         <Logo href='https://www.libertasdubrovnik.hr'        src={libertas}         />
       </div>
 

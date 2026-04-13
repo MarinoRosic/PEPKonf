@@ -28,20 +28,17 @@ export const lecturersByYear = {
    2026: {  
     panelisti : [
     {
-      company: "Vrh komunikacije",
       members: [
         {img: LukaSipic2026, lecturer: "Luka Šipić", title: "Vlasnik & Izvršni direktor", bio: "Vrh komunikacije je pro-kreativna agencija specijalizirana za odnose s javnošću, strateško komuniciranje i upravljanje reputacijom. Razvijaju originalna komunikacijska rješenja za tvrtke i pojedince, s fokusom na izgradnju i dugoročno upravljanje reputacijom. Kroz rad s različitim klijentima stvaraju komunikacijske strategije koje povezuju kreativnost, iskustvo i razumijevanje medijskog prostora, s ciljem oblikovanja relevantnih i učinkovitih poruka. U svom radu ističu vrijednosti profesionalnosti, stručnog pristupa, posvećenosti detaljima i kreativnosti, koje su temelj svakog projekta koji realiziraju. Vođeni željom za izvrsnošću, biraju projekte koji ih motiviraju i u kojima stvaraju stvarnu vrijednost za klijente. Na ovogodišnjoj PEP konferenciji predstavit će se kroz format razgovora Fireside chat: PR unplugged - razgovor bez filtera, u kojem će kroz opušteni 1 na 1 razgovor približiti stvarni rad u agenciji - od svakodnevnih izazova i prilika do uloge odgovornosti u komunikaciji. ", web: "https://vrhkomunikacije.com/"},
         {img: IvanPerisic, lecturer: "Ivan Perišić", title: "Savjetnik za odnose s javnošću", bio: "Vrh komunikacije je pro-kreativna agencija specijalizirana za odnose s javnošću, strateško komuniciranje i upravljanje reputacijom. Razvijaju originalna komunikacijska rješenja za tvrtke i pojedince, s fokusom na izgradnju i dugoročno upravljanje reputacijom. Kroz rad s različitim klijentima stvaraju komunikacijske strategije koje povezuju kreativnost, iskustvo i razumijevanje medijskog prostora, s ciljem oblikovanja relevantnih i učinkovitih poruka. U svom radu ističu vrijednosti profesionalnosti, stručnog pristupa, posvećenosti detaljima i kreativnosti, koje su temelj svakog projekta koji realiziraju. Vođeni željom za izvrsnošću, biraju projekte koji ih motiviraju i u kojima stvaraju stvarnu vrijednost za klijente. Na ovogodišnjoj PEP konferenciji predstavit će se kroz format razgovora Fireside chat: PR unplugged - razgovor bez filtera, u kojem će kroz opušteni 1 na 1 razgovor približiti stvarni rad u agenciji - od svakodnevnih izazova i prilika do uloge odgovornosti u komunikaciji. ", web: "https://vrhkomunikacije.com/"},
       ]
     },
-    { company: "Maritimo Recyling",
-      members: [ 
+    { members: [
         {img: MarjanZitnik, lecturer: "Marjan Žitnik", title: "Maritimo Recycling", bio: "Marjan Žitnik je sportski ribolovac i diplomirani inženjer računarstva, dijete 90-ih i strastveni zaljubljenik u more, ribolov i tehnologiju. Godine 2018. u Dubrovniku osniva tvrtku Maritimo Fishing pod sloganom „Ribajte kao lokalci“, s ciljem približavanja autentičnog lokalnog ribolovnog iskustva i promicanja održivog ribolova. Vođen željom za očuvanjem mora, 2021. pokreće neprofitnu organizaciju Maritimo Recycling, usmjerenu na čišćenje Jadranskog mora od plastike te njezinu prenamjenu u reciklirane proizvode. Kroz ovaj projekt razvija i visokokvalitetnu, pristupačnu opremu za recikliranje, uključujući DIY strojeve, potičući održiviji pristup okolišu. Osim profesionalnog rada, Marjan je vlasnik mačka Puka, strastveni kuhar i veliki obožavatelj Linkin Park-a, Daft Punk-a i Prodigy-a."}
       ],
     }, 
     {
-      company: "Manjgura",
-      members: [ 
+      members: [
         { img: KresimirMacan, lecturer: "Krešimir Macan", title: "Vlasnik i osnivač agencije Manjgura", bio: "Krešimir Macan je istaknuti hrvatski komunikacijski stručnjak sa skoro 35 godina iskustva u kriznom komuniciranju, strateškoj komunikaciji u politici i digitalnim medijima. Vlasnik je i osnivač agencije Manjgura, jedne od prvih PR agencija u Hrvatskoj osnovane 1997., te je uspješno vodio komunikaciju za brojne domaće i strane investicije, kao i izborne kampanje na svim razinama u Hrvatskoj i regiji. Savjetovao je dvojicu hrvatskih premijera i više premijera u regiji, a hrvatska, ali i regionalna javnost, ga poznaje kao redovitog komentatora aktualnih društvenih i političkih zbivanja u vodećim hrvatskim i regionalnim medijima. A odnedavno kao i voditelja popularnog podcasta “Špica s Macanom”", web: "https://manjgura.hr"}
       ]
     }, 
@@ -69,8 +66,7 @@ export const lecturersByYear = {
       ]
     },
     {
-      company: "Dubrovnik PartneR",
-      members: [ 
+      members: [
         {img: TildaGrosselBogdanovic, lecturer: "Tilda Grossel Bogdanović", title: "Vlasnica agencije Dubrovnik PartneR", bio: "Tilda Grossel Bogdanović, rođena Dubrovkinja, po obrazovanju diplomirana ekonomistica za turizam, a po vokaciji zaljubljenica u kulturu i poduzetničku avanturu. Pod pojmom avantura Tilda sa svojim timom pokreće velik broj novih, raznolikih, kreativnih i jedinstvenih projekata koji obogaćuju kulturno-turističku ponudu Dubrovnika i otoka Lopuda te promoviraju autohtonu kulturno-povijesnu baštinu. Školovala se i radila u rodnom gradu, najprije u dubrovačkoj gradskoj upravi, na poslovima protokola, odnosa s javnošću i međunarodne suradnje. U poratnom Dubrovniku, željnom povratka turističkih aktivnosti, sudjelovala je u osmišljavanju programa i organizaciji legendarnih dočeka Nove godine 2000. i 2001. na Stradunu, koji su privukli desetke tisuća posjetitelja. Upravo tada je i prestižni BBC uvrstio Dubrovnik među deset najpoželjnijih svjetskih destinacija za doček Nove Godine. To je iskustvo snažno utjecalo na njezinu daljnju profesionalnu orijentaciju. Već 2002. godine odvažila se zakoračiti u poduzetništvo te osnovala agenciju Dubrovnik Partner, specijaliziranu za odnose s javnošću i event management. Novu životnu prekretnicu donijela joj je Covid pandemija, uslijed koje je preselila s obitelji na elafitski otok Lopud i tamo započela trolist kulturnih festivala: film, jazz i književnost, objedinjenih na kreativnoj platformi pod imenom 'Ponta Lopud' U okviru agencijskog tima, svoje profesionalno iskustvo stjecali su brojni studenti i mladi diplomanti različitih razina radnog iskustva, učeći produkcijske i organizacijske vještine. Tijekom godina broj suradnika, poslovnih partnera i klijenata s kojima je radila u raznim projektima mjeri se u stotinama." , web: "https://www.dubrovnikpr.com"}
       ]
     },
