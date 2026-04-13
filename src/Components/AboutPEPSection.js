@@ -21,7 +21,7 @@ const AboutPEPSection = () => {
   const isInView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
 
   return (
-    <section ref={ref} className='relative flex flex-col h-[100vh] font-main w-full overflow-hidden'>
+    <section ref={ref} className='relative flex flex-col h-[100dvh] font-main w-full overflow-hidden'>
 
       {/* Background: scales in + blur lifts on scroll into view */}
       <motion.div

@@ -6,7 +6,7 @@ import SplitText from './SplitText';
 
 const HomeSection = () => {
   return (
-    <section className='relative h-[100vh] overflow-hidden flex flex-col'>
+    <section className='relative h-[100dvh] overflow-hidden flex flex-col'>
 
       {/* Ken Burns — slow zoom-out from slight scale over 10s */}
       <motion.div

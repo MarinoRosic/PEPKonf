@@ -6,7 +6,7 @@ import { FaInstagram, FaFacebook} from 'react-icons/fa'
 const SoonTM = () => {
   return (
     <>
-        <section className='flex h-[100vh] flex-col overflow-hidden'>
+        <section className='flex h-[100dvh] flex-col overflow-hidden'>
         <motion.div 
             className='mx-auto h-[30%] content-center'
             initial={{ opacity: 0, scale: 0.6 }}
