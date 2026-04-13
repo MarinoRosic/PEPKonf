@@ -49,7 +49,7 @@ export const lecturersByYear = {
     },
     {
       members: [
-        { img: JerkoTrogrlic, lecturer: "Jerko Trogrlić", title: "Direktor agencije za odnose s javnošću VAJT d.o.o.", bio: "Direktor agencije za odnose s javnošću VAJT d.o.o. iz Splita. Stručnjak za odnose s javnošću s bogatim i dugogodišnjim iskustvom u strateškom i kriznom komuniciranju, političkoj komunikaciji, savjetovanju u investicijskim projektima i sportu te produkciji velikih događanja u kulturi, znanosti i glazbi. Uz prethodno iskustvo u novinarstvu, od 2008. sudjeluje u razvoju i provedbi komunikacijskih strategija u privatnom, javnom i političkom sektoru. Kao savjetnik i voditelj projekata radio je na kampanjama za lokalne, parlamentarne, europske i predsjedničke izbore u Hrvatskoj te na kampanjama u Bosni i Hercegovini, Crnoj Gori i Srbiji. Uz savjetnički posao, često je angažiran kao predavač u raznim institucijama, tvrtkama te političkim strankama u regiji. Sa svojim timom osvojio je više Grand PRix nagrada Hrvatske udruge za odnose s javnošću (HUOJ), kao i međunarodne nagrade Polaris Europskog udruženja političkih konzultanata (EAPC) te Golden World Awards for Excellence Međunarodne udruge za odnose s javnošću (IPRA). Magistar je ekonomije. Uz hrvatski govori engleski i njemački jezik te je aktivan član Hrvatske udruge za odnose s javnošću u kojoj je aktivno uključen u strukovna tijela i inicijative za unapređenje profesionalnih standarda u odnosima s javnošću."}
+        { img: JerkoTrogrlic, lecturer: "Jerko Trogrlić", title: "Direktor agencije za odnose s javnošću VAJT d.o.o.", bio: "Direktor agencije za odnose s javnošću VAJT d.o.o. iz Splita. Stručnjak za odnose s javnošću s bogatim i dugogodišnjim iskustvom u strateškom i kriznom komuniciranju, političkoj komunikaciji, savjetovanju u investicijskim projektima i sportu te produkciji velikih događanja u kulturi, znanosti i glazbi. Uz prethodno iskustvo u novinarstvu, od 2008. sudjeluje u razvoju i provedbi komunikacijskih strategija u privatnom, javnom i političkom sektoru. Kao savjetnik i voditelj projekata radio je na kampanjama za lokalne, parlamentarne, europske i predsjedničke izbore u Hrvatskoj te na kampanjama u Bosni i Hercegovini, Crnoj Gori i Srbiji. Uz savjetnički posao, često je angažiran kao predavač u raznim institucijama, tvrtkama te političkim strankama u regiji. Sa svojim timom osvojio je više Grand PRix nagrada Hrvatske udruge za odnose s javnošću (HUOJ), kao i međunarodne nagrade Polaris Europskog udruženja političkih konzultanata (EAPC) te Golden World Awards for Excellence Međunarodne udruge za odnose s javnošću (IPRA). Magistar je ekonomije. Uz hrvatski govori engleski i njemački jezik te je aktivan član Hrvatske udruge za odnose s javnošću u kojoj je aktivno uključen u strukovna tijela i inicijative za unapređenje profesionalnih standarda u odnosima s javnošću.", linkedIN: "https://www.linkedin.com/in/jerko-trogrli%C4%87-372124b7/"}
       ]
     },
     { members: [ 
@@ -78,12 +78,12 @@ export const lecturersByYear = {
     },
     {
       members: [
-        {img: undefined, lecturer: "Ana Kovačević", title: "HBC Coca Cola, Sales Team Leader" }
+        { img: IvonaAntolovic, lecturer: "Ivona Antolović", title: "Prezenca Agency", bio: "Ivona je magistra odnosa s javnošću koja je po završetku fakulteta zakoračila u poduzetničke vode i svijet digitalnog marketinga. Danas je osnivačica full-service agencije Prezenca, unutar koje nudi sveobuhvatne marketinške usluge, od strateškog brendinga i planiranja komunikacije do produkcije sadržaja i vođenja (PPC) kampanja plaćenog oglašavanja. Njezin profesionalni put obilježen je radom na raznolikim projektima u brojnim industrijama, gdje svakodnevno balansira između uloge voditeljice klijenata i kreatorice digitalnih strategija. Pod brendom “prezenca” pokrenut je i prvi Dubrovnik Marketing Meetup, projekt usmjeren na povezivanje i edukaciju lokalne marketinške zajednice. Svoje znanje i iskustvo dijeli i kao predavačica na različitim edukacijama, projektima i radionicama, nastojeći približiti stvarne procese digitalnog marketinga svima koji žele rasti u ovoj industriji.", web: "https://prezenca.hr"}
       ]
     },
     {
       members: [
-        { img: IvonaAntolovic, lecturer: "Ivona Antolović", title: "Prezenca Agency", web: "https://prezenca.hr"}
+        {img: undefined, lecturer: "Ana Kovačević", title: "HBC Coca Cola, Sales Team Leader" }
       ]
     },
     ]
