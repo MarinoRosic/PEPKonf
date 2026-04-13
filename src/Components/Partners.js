@@ -82,7 +82,7 @@ const Partners = () => {
         <Logo href='https://lovebardubrovnik.com'            src={loveBar}          />
         <Logo href='https://www.instagram.com/dubpubkviz/'   src={dubPub}           />
         <Logo href='https://www.instagram.com/kusaonica_leatus_letunic/'  src={letunic}          />
-        <Logo href='https://www.instagram.com/milja.s_dubrovnik/'         src={miljas}           />
+        <Logo href='https://visit.cavtat-konavle.com/en/rural-tourism/show/22/miljas-doo'         src={miljas}           />
         <Logo href='https://www.libertasdubrovnik.hr'        src={libertas}         />
       </div>
 
