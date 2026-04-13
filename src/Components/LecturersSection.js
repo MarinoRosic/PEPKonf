@@ -43,6 +43,44 @@ const ghostSubtextVariants = {
   visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
 };
 
+// ── Company bracket for grouped lecturers ────────────────────────────────────
+const CompanyGroup = ({ company, members, onSelect, index }) => (
+  <motion.div
+    className={`${members.length > 1 ? 'col-span-2' : ''} relative`}
+    initial={{ opacity: 0, scale: 0.75, filter: 'blur(10px)' }}
+    animate={{ opacity: 1, scale: 1,    filter: 'blur(0px)' }}
+    transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+  >
+    {/* Bracket when company provided, spacer otherwise to keep grid alignment */}
+    {company ? (
+      <div className="relative h-5 sm:h-7 border-t border-l border-r border-[#db9bd5]/30 rounded-t mx-1 sm:mx-3 mb-2">
+        <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#261539] px-2 sm:px-3 text-[9px] sm:text-[11px] text-[#db9bd5]/60 tracking-widest uppercase whitespace-nowrap">
+          {company}
+        </span>
+      </div>
+    ) : (
+      <div className="h-5 sm:h-7 mb-2" />
+    )}
+    {/* Avatars */}
+    <div className="flex gap-8 sm:gap-6 lg:gap-8">
+      {members.map((person, i) => (
+        <motion.div
+          key={i}
+          className="relative flex-1 aspect-square cursor-pointer"
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onSelect(person)}
+        >
+          <RotatingAvatar img={person.img} name={person.lecturer} borderColor={person.borderColor} />
+          <div className="absolute bottom-0 right-0 h-5 w-5 sm:h-7 sm:w-7 rounded-full bg-[#db9bd5] flex items-center justify-center shadow-lg shadow-[#db9bd5]/30 z-10">
+            <span className="text-[#261539] font-bold leading-none text-[10px] sm:text-sm">i</span>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+);
+
 // ── Avatar-only grid for the current year ────────────────────────────────────
 const AvatarGrid = ({ data, year }) => {
   const [selected, setSelected] = useState(null);
@@ -66,30 +104,36 @@ const AvatarGrid = ({ data, year }) => {
 
       {all.length > 0 && (
         <h1 className="text-5xl text-center text-white md:text-6xl lg:text-7xl w-full px-8 lg:px-20">
-          <RevealText>{`PRedavači ${year}`}</RevealText>
+          <RevealText>PRedavači</RevealText>
         </h1>
       )}
       <div className="flex-1 flex items-center">
         {all.length > 0 ? (
           <div className="w-full">
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 px-8 lg:px-20 pb-16">
-              {all.map((person, i) => (
-                <motion.div
-                  key={i}
-                  className="relative aspect-square cursor-pointer"
-                  initial={{ opacity: 0, scale: 0.75, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, scale: 1,    filter: 'blur(0px)' }}
-                  transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ scale: 1.06 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelected(person)}
-                >
-                  <RotatingAvatar img={person.img} borderColor={person.borderColor} />
-                  <div className="absolute bottom-0 right-0 h-5 w-5 sm:h-7 sm:w-7 rounded-full bg-[#db9bd5] flex items-center justify-center shadow-lg shadow-[#db9bd5]/30 z-10">
-                    <span className="text-[#261539] font-bold leading-none text-[10px] sm:text-sm">i</span>
+            <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 gap-8 sm:gap-6 lg:gap-8 px-8 lg:px-20 pt-8 lg:pt-16 pb-16 lg:pb-28 [&>*:last-child]:col-start-2 sm:[&>*:last-child]:col-start-auto">
+              {all.map((item, i) =>
+                item.members ? (
+                  <CompanyGroup key={i} {...item} onSelect={setSelected} index={i} />
+                ) : (
+                  <div key={i} className="flex flex-col">
+                    <div className="h-5 sm:h-7 mb-2" />
+                    <motion.div
+                      className="relative aspect-square cursor-pointer"
+                      initial={{ opacity: 0, scale: 0.75, filter: 'blur(10px)' }}
+                      animate={{ opacity: 1, scale: 1,    filter: 'blur(0px)' }}
+                      transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ scale: 1.06 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelected(item)}
+                    >
+                      <RotatingAvatar img={item.img} name={item.lecturer} borderColor={item.borderColor} />
+                      <div className="absolute bottom-0 right-0 h-5 w-5 sm:h-7 sm:w-7 rounded-full bg-[#db9bd5] flex items-center justify-center shadow-lg shadow-[#db9bd5]/30 z-10">
+                        <span className="text-[#261539] font-bold leading-none text-[10px] sm:text-sm">i</span>
+                      </div>
+                    </motion.div>
                   </div>
-                </motion.div>
-              ))}
+                )
+              )}
             </div>
           </div>
         ) : (

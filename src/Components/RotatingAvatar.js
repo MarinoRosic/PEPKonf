@@ -16,10 +16,18 @@ const glowPresets = {
 // Fills its parent — size the parent from outside (w-[310px] h-[310px] etc.).
 // borderColor: 'pink' | 'purple'
 // borderThickness: px gap between ring and image (default 6)
-const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness = 6, objectPosition = 'center' }) => {
+const getInitials = (name = '') => {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '?';
+  if (parts.length === 1) return parts[0][0].toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
+const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', borderThickness = 6, objectPosition = 'center' }) => {
   const [loaded, setLoaded] = useState(false)
   const gradient = gradientPresets[borderColor] ?? gradientPresets.pink;
   const glow     = glowPresets[borderColor]     ?? glowPresets.pink;
+  const hasImage = !!img;
 
   return (
     <div
@@ -46,28 +54,46 @@ const RotatingAvatar = ({ img, alt = '', borderColor = 'pink', borderThickness =
         className="absolute rounded-full"
         style={{ inset: borderThickness, background: '#261539', zIndex: 1 }}
       />
-      {/* shimmer — visible until image loads */}
-      {!loaded && (
-        <div className="img-shimmer absolute rounded-full" style={{ inset: borderThickness, zIndex: 2 }} />
+
+      {hasImage ? (
+        <>
+          {/* shimmer — visible until image loads */}
+          {!loaded && (
+            <div className="img-shimmer absolute rounded-full" style={{ inset: borderThickness, zIndex: 2 }} />
+          )}
+          {/* image */}
+          <img
+            className="object-cover absolute rounded-full"
+            src={img}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setLoaded(true)}
+            style={{
+              inset: borderThickness,
+              width: `calc(100% - ${borderThickness * 2}px)`,
+              height: `calc(100% - ${borderThickness * 2}px)`,
+              zIndex: 3,
+              objectPosition,
+              opacity: loaded ? 1 : 0,
+              transition: 'opacity 0.4s ease',
+            }}
+          />
+        </>
+      ) : (
+        /* initials fallback */
+        <div
+          className="absolute rounded-full flex items-center justify-center"
+          style={{ inset: borderThickness, zIndex: 2 }}
+        >
+          <span
+            className="font-semibold tracking-wide select-none leading-none"
+            style={{ color: '#db9bd5'}}
+          >
+            {getInitials(name)}
+          </span>
+        </div>
       )}
-      {/* image */}
-      <img
-        className="object-cover absolute rounded-full"
-        src={img}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        onLoad={() => setLoaded(true)}
-        style={{
-          inset: borderThickness,
-          width: `calc(100% - ${borderThickness * 2}px)`,
-          height: `calc(100% - ${borderThickness * 2}px)`,
-          zIndex: 3,
-          objectPosition,
-          opacity: loaded ? 1 : 0,
-          transition: 'opacity 0.4s ease',
-        }}
-      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Marija from "../assets/images/MarijaMamic.webp";
 import Anamarija from "../assets/images/AnamarijaLucic.webp";
 import Andrea from "../assets/images/Andrea_Batinic.webp";
 import Karla from "../assets/images/KarlaSabljic.webp";
-import Darja from "../assets/images/darja.jpg";
+import Darja from "../assets/images/darja.webp";
 import Romana from "../assets/images/Romana_John.webp";
 
 const Organizers = () => {

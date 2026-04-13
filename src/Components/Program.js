@@ -34,12 +34,12 @@ const Program = () => {
         'Reporter, urednik i voditelj - RTL | alumni Fakulteta za medije i odnose s javnošću UNIDU',
       ],
       moderator: 'Moderatorica: Dora Vulić, studentica 2. godine preddipomskog studija MIKD'},
-    { time: '10:50h - 11:30h', tema: 'Iza digitalnih kampanja: strategija, praksa i odgovornost', prikazi: true,
+    { time: '10:50h - 11:30h', tema: 'PANEL - Od fakulteta do karijere', prikazi: true,
       fullName: [
-        'Ivana Bilić',
+        'Ivana Bilić · Monika Lulić · Ivona Antolović',
       ],
       lecturerData: [
-        "Viši specijalist za digitalni marketing u Atlantic Grupi (Cedevita) | predavačica na Algebra Bernays",
+        "alumne Fakulteta za medije i odnose s javnošću",
       ]
     },
     { time: '11:30h - 11:45h', tema: 'kava pauza' },
@@ -61,7 +61,7 @@ const Program = () => {
        moderator: 'Moderatorica: Chiara Agreš, studentica 1. godine preddiplomskog studija MIKD'
     },
     { time: '13:30h - 14:15h', tema: 'CATERING'},
-    { time: '14:15h - 14:55h', tema: 'Bez filtera: što znači preuzeti odgovornost za svoj put', prikazi: true,
+    { time: '14:15h - 14:55h', tema: 'Bez filtera: „Što znači preuzeti odgovornost za svoj put”', prikazi: true,
       fullName: ['Tina Šmanjak'],
       lecturerData: ['poduzetnica Fitzone.hr i Bossy | alumna Fakulteta za medije i odnose s javnošću UNIDU'] },
     { time: '14:55h - 15:55h', tema: 'Iz Dubrovnika do velikih priča i projekata: PR iz prve ruke', prikazi: true,
