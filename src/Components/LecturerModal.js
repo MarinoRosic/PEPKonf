@@ -73,7 +73,9 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
                     readOnly
                     rows={10}
                     value={bio}
+                    data-lenis-prevent
                     onWheel={e => e.stopPropagation()}
+                    onTouchMove={e => e.stopPropagation()}
                     className="mt-6 w-full bg-transparent text-sm text-white text-justify leading-relaxed resize-none outline-none border-none overflow-y-scroll pr-3 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#772F6F] [&::-webkit-scrollbar-thumb]:rounded-full"
                   />
                 )}
