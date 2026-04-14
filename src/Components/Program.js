@@ -36,11 +36,12 @@ const Program = () => {
       moderator: 'Moderatorica: Dora Vulić, studentica 2. godine preddipomskog studija MIKD'},
     { time: '10:50h - 11:30h', tema: 'PANEL - Od fakulteta do karijere', prikazi: true,
       fullName: [
-        'Ivana Bilić · Monika Lulić · Ivona Antolović',
+        'Ana Kovačević · Monika Lulić · Ivona Antolović',
       ],
       lecturerData: [
         "alumne Fakulteta za medije i odnose s javnošću",
-      ]
+      ],
+      moderator: 'Moderatorica: Sara Bagić, 3. godina preddiplomskog studija MIKD'
     },
     { time: '11:30h - 11:45h', tema: 'kava pauza' },
     { time: '11:50h - 12:50h', tema: 'Odgovornost u PR-u: izazovi agencijskog rada', prikazi: true,
