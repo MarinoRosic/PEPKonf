@@ -24,6 +24,7 @@ import ValentinaMezdic from "../assets/images/Valentina Mezdić.webp"
 import Andrijana from "../assets/images/Andrijana Biskup.webp"
 import MonikaLulic from "../assets/images/Monika Lulić-2.webp"
 import IvonaAntolovic from "../assets/images/Ivona Antolovic-2.webp"
+import AnaKovacevic from "../assets/images/A.K. photo-2.webp"
 
 export const lecturersByYear = {
    2026: {  
@@ -83,7 +84,7 @@ export const lecturersByYear = {
     },
     {
       members: [
-        {img: undefined, lecturer: "Ana Kovačević", title: "HBC Coca Cola, Sales Team Leader", linkedIN: "https://www.linkedin.com/in/ana-kovacevic-2860a52b6/" }
+        {img: AnaKovacevic, lecturer: "Ana Kovačević", title: "HBC Coca Cola, Sales Team Leader", bio: "Dolazak u Dubrovnik bio je spontana, ali ključna odluka – želja da se okuša samostalno dovela ju je na Sveučilište u Dubrovniku, smjer Mediji i odnosi s javnostima. Tijekom studija radila je različite poslove (prodavačica, konobarica, hostesa, agencija Dubrovnik Partner), a upravo joj je iskustvo rada u ugostiteljstvu otvorilo vrata u Coca-Coli. Kroz osam godina u Coca-Cola HBC prošla je sedam pozicija – od marketinga za Dubrovačko-neretvansku županiju do vodećih regionalnih i međunarodnih uloga, uključujući rad u Sloveniji. Danas vodi prodajni tim i surađuje s ključnim partnerima u HoReCa sektoru, upravljajući velikim projektima i događanjima. Naglašava važnost “learning on the job” pristupa, koji čini većinu znanja, te ističe kako su organizacija, pregovaranje i prilagodljivost ključne vještine u dinamičnom poslovnom okruženju. Coca-Cola, kako ističe, nije tipična korporacija – fokus je na ljudima, pozitivnom mindsetu i kontinuiranom razvoju kroz edukacije, projekte i jedinstvena iskustva.", linkedIN: "https://www.linkedin.com/in/ana-kovacevic-2860a52b6/" }
       ]
     },
     ]
