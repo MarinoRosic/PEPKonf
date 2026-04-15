@@ -20,11 +20,10 @@ const cardVariants = {
 };
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 0.82, filter: 'blur(12px)' },
+  hidden: { opacity: 0, scale: 0.82 },
   visible: {
     opacity: 1,
     scale: 1,
-    filter: 'blur(0px)',
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
@@ -56,6 +55,7 @@ const OrganizerCard = ({ name, img, text, subtitle, noDivider = false, borderCol
         <motion.div
           variants={imageVariants}
           className={`shrink-0 ${avatarSize ?? AVATAR_SIZE}`}
+          style={{ willChange: 'transform, opacity' }}
         >
           <RotatingAvatar img={img} borderColor={borderColor} objectPosition={objectPosition} />
         </motion.div>

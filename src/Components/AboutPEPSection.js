@@ -23,11 +23,12 @@ const AboutPEPSection = () => {
   return (
     <section ref={ref} className='relative flex flex-col h-[100svh] font-main w-full overflow-hidden'>
 
-      {/* Background: scales in + blur lifts on scroll into view */}
+      {/* Background: scales in + fades up on scroll into view */}
       <motion.div
         className="absolute inset-0 -z-10"
-        initial={{ scale: 1.08, filter: 'blur(8px)' }}
-        animate={isInView ? { scale: 1, filter: 'blur(0px)' } : {}}
+        initial={{ scale: 1.08, opacity: 0.6 }}
+        animate={isInView ? { scale: 1, opacity: 1 } : {}}
+        style={{ willChange: 'transform, opacity' }}
         transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <picture>

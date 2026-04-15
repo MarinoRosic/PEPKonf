@@ -88,11 +88,12 @@ const AvatarGrid = ({ data, year }) => {
                   <div className="w-full h-3 sm:h-4 border-t border-l border-r border-[#db9bd5]/30 rounded-t mb-1.5" />
                   <motion.div
                     className="relative aspect-square cursor-pointer w-full"
-                    initial={{ opacity: 0, scale: 0.75, filter: 'blur(10px)' }}
-                    animate={{ opacity: 1, scale: 1,    filter: 'blur(0px)' }}
+                    initial={{ opacity: 0, scale: 0.75 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
+                    style={{ willChange: 'transform, opacity' }}
                     onClick={() => setSelected(person)}
                   >
                     <RotatingAvatar img={person.img} name={person.lecturer} borderColor={person.borderColor} />

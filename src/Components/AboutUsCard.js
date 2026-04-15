@@ -3,15 +3,14 @@ import aboutUsImg from "../assets/images/aboutUs.webp";
 import RevealText from './RevealText';
 import RotatingAvatar from './RotatingAvatar';
 
-// Scale up from 85% + blur sharpening + fade.
+// Scale up from 85% + fade.
 // Works particularly well on circles — feels like the portrait is materializing into focus.
 // 0.85 is subtle enough not to look like a "pop", but noticeable enough to feel intentional.
 const imageVariants = {
-  hidden: { opacity: 0, scale: 0.82, filter: 'blur(12px)' },
+  hidden: { opacity: 0, scale: 0.82 },
   visible: {
     opacity: 1,
     scale: 1,
-    filter: 'blur(0px)',
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
@@ -24,9 +23,8 @@ const AboutUsCard = () => {
         variants={imageVariants}
         initial="hidden"
         whileInView="visible"
-        // amount: 0.3 — waits until 30% of the circle is visible.
-        // A circle is tall; without this it could fire before the user even sees it.
         viewport={{ once: true, amount: 0.3 }}
+        style={{ willChange: 'transform, opacity' }}
       >
         <RotatingAvatar img={aboutUsImg} borderColor="purple" />
       </motion.div>

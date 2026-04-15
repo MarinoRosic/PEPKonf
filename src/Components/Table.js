@@ -14,6 +14,14 @@ const rowVariants = {
   }),
 };
 
+const bgSweepVariants = {
+  hidden: { scaleX: 0 },
+  visible: (delay) => ({
+    scaleX: 1,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: delay + 0.08 },
+  }),
+};
+
 const Table = ({ datum, day }) => {
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: '0px 0px -5% 0px' });
@@ -48,30 +56,37 @@ const Table = ({ datum, day }) => {
           return (
             <motion.div
               key={index}
-              className='border-l-2 border-[#772F6F]/60 bg-white/[0.04] rounded-r-md px-4 py-3 text-white text-base md:text-xl lg:text-3xl'
+              className='relative overflow-hidden border-l-2 border-[#772F6F]/60 rounded-r-md px-4 py-3 text-white text-base md:text-xl lg:text-3xl'
               custom={delay}
               variants={rowVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0 }}
             >
-              <span className={!prikazi ? 'roza' : ''}>{time} - </span>
-              <span className='text-base md:text-lg lg:text-2xl roza'>{tema}</span>
-              {prikazi && fullName && fullName.map((name, key) => (
-                <ul key={key} className='mx-10 my-3 text-sm list-disc lg:text-lg'>
-                  <li>
-                    {name && <span className='text-[#772F6F]'>{name}</span>}
-                    {lecturerData?.[key] && (
-                      <span className='text-white'>{name ? ', ' : ''}{lecturerData[key]}</span>
-                    )}
-                  </li>
-                </ul>
-              ))}
-              {moderator && (
-                <p className='mx-10 mt-1 text-xs lg:text-sm text-white/80'>
-                  {moderator}
-                </p>
-              )}
+              <motion.div
+                className='absolute inset-0 bg-white/[0.04] rounded-r-md'
+                variants={bgSweepVariants}
+                style={{ originX: 0 }}
+              />
+              <div className='relative'>
+                <span className={!prikazi ? 'roza' : ''}>{time} - </span>
+                <span className='text-base md:text-lg lg:text-2xl roza'>{tema}</span>
+                {prikazi && fullName && fullName.map((name, key) => (
+                  <ul key={key} className='mx-10 my-3 text-sm list-disc lg:text-lg'>
+                    <li>
+                      {name && <span className='text-[#772F6F]'>{name}</span>}
+                      {lecturerData?.[key] && (
+                        <span className='text-white'>{name ? ', ' : ''}{lecturerData[key]}</span>
+                      )}
+                    </li>
+                  </ul>
+                ))}
+                {moderator && (
+                  <p className='mx-10 mt-1 text-xs lg:text-sm text-white/80'>
+                    {moderator}
+                  </p>
+                )}
+              </div>
             </motion.div>
           );
         })}

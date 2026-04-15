@@ -6,11 +6,10 @@ import RotatingAvatar from './RotatingAvatar';
 import LecturerModal from './LecturerModal';
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 40 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
       duration: 0.55,
       delay: i * 0.08,
@@ -66,6 +65,7 @@ const Lecturer = ({ img, borderColor, lecturer, title, bio, linkedIN, web, index
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
+        style={{ willChange: 'transform, opacity' }}
       >
       {/* Mobile: row (avatar left, text right). sm+: column (stacked). */}
       <div className="flex flex-row sm:flex-col items-center px-4 sm:px-0">
