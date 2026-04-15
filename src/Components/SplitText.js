@@ -2,9 +2,9 @@ import { useRef, useState, useEffect, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 // Splits text into individual characters, each animating in with a stagger.
-// - Repeats every time the element enters view (not just once).
+// - Animates once when the element enters view (once: true).
 // - Supports trigger prop for scroll-driven opacity parents.
-export default function SplitText({ children, className, delay = 0, stagger = 0.04, trigger }) {
+export default function SplitText({ children, className, delay = 0, stagger = 0.04, trigger, inView: inViewProp }) {
   const containerRef = useRef(null);
   const isInView     = useInView(containerRef, { once: true, margin: '0px 0px -15% 0px' });
   const [triggered, setTriggered] = useState(false);
@@ -17,7 +17,9 @@ export default function SplitText({ children, className, delay = 0, stagger = 0.
     });
   }, [trigger]);
 
-  const shouldAnimate = trigger ? triggered : isInView;
+  // If parent passes inView directly, use that — avoids double-observer race conditions
+  // (e.g. SectionDivider has its own observer; SplitText's stricter margin would desync)
+  const shouldAnimate = inViewProp !== undefined ? inViewProp : (trigger ? triggered : isInView);
 
   // useMemo: only re-split the string when children changes.
   // For a long string like "Budi i ti dio PRedobre PRiče." this runs once, not on every render.

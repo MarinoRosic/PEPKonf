@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 
 // Conic gradient rotates via transform: rotate() — compositor-only, no repaints.
@@ -26,13 +26,33 @@ const getInitials = (name = '') => {
 
 const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', borderThickness = 6, objectPosition = 'center' }) => {
   const reduceMotion = useReducedMotion();
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState(null);
+  const containerRef = useRef(null);
   const gradient = gradientPresets[borderColor] ?? gradientPresets.pink;
   const glow     = glowPresets[borderColor]     ?? glowPresets.pink;
   const hasImage = !!img;
 
+  useEffect(() => {
+    if (!img) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setImgSrc(img);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [img]);
+
   return (
     <div
+      ref={containerRef}
       className="relative w-full h-full rounded-full"
       style={{ filter: glow }}
     >
@@ -66,9 +86,8 @@ const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', border
           {/* image */}
           <img
             className="object-cover absolute rounded-full"
-            src={img}
+            src={imgSrc}
             alt={alt}
-            loading="lazy"
             decoding="async"
             onLoad={() => setLoaded(true)}
             style={{

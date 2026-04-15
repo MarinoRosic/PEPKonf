@@ -40,7 +40,7 @@ const SectionDivider = ({ label, labelPosition = 'left', className = '' }) => {
       />
 
       <span className="text-[#db9bd5] text-[10px] tracking-[0.35em] uppercase font-medium whitespace-nowrap shrink-0">
-        <SplitText stagger={0.04}>{label}</SplitText>
+        <SplitText stagger={0.04} inView={isInView}>{label}</SplitText>
       </span>
 
       {/* Right line — grows outward from label (originX: 0 = left edge, adjacent to label) */}

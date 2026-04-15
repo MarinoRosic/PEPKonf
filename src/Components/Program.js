@@ -46,7 +46,7 @@ const Program = () => {
       moderator: 'Moderatorica: Sara Bagić, 3. godina preddiplomskog studija MIKD'
     },
     { time: '11:30h - 11:45h', tema: 'kava pauza' },
-    { time: '11:50h - 12:50h', tema: 'Odgovornost u PR-u: izazovi agencijskog rada', prikazi: true,
+    { time: '11:50h - 12:50h', tema: '3 x PR agencije - Odgovornost u PR-u: izazovi agencijskog rada', prikazi: true,
       fullName: [
         'Krešimir Macan',
         'Valentina Mezdić',
