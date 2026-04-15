@@ -33,7 +33,7 @@ const Table = ({ datum, day }) => {
           className='flex-1 h-px bg-gradient-to-r from-transparent to-[#db9bd5]/50'
           style={{ originX: 1 }}
           initial={{ scaleX: 0, opacity: 0 }}
-          animate={headerInView ? { scaleX: 1, opacity: 1 } : {}}
+          animate={headerInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         />
         <h1 className='text-[#772F6F] text-3xl md:text-4xl lg:text-6xl font-extrabold shrink-0'>
@@ -43,7 +43,7 @@ const Table = ({ datum, day }) => {
           className='flex-1 h-px bg-gradient-to-l from-transparent to-[#db9bd5]/50'
           style={{ originX: 0 }}
           initial={{ scaleX: 0, opacity: 0 }}
-          animate={headerInView ? { scaleX: 1, opacity: 1 } : {}}
+          animate={headerInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         />
       </div>

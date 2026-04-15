@@ -34,7 +34,7 @@ const AboutUsCard = () => {
           ~90% complete at 0.4s even though the full duration is 0.7s.
           So the caption starts appearing just as the image finishes landing. */}
       <p className='pt-8 px-8 text-xl lg:text-2xl font-bold text-center text-white lg:w-[400px] mx-auto'>
-        <RevealText delay={0.3}>
+        <RevealText>
           Studenti Sveučilišta u Dubrovniku, Fakultet za medije i odnose s javnošću
         </RevealText>
       </p>

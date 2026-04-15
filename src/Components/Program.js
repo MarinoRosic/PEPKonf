@@ -22,7 +22,7 @@ const Program = () => {
     { time: '18:20h', tema: '1 na 1: Eko je novi trend / „Otpad kao resurs: komunikacija održivosti u praksi”', prikazi: true,
       fullName: ['Marjan Žitnik'],
       lecturerData: ['Maritimo Recycling'],
-      moderator: 'Moderatorica: Anamarija Lučić, studentica 2. godine DS OSJ' },
+      moderator: 'Moderatorica: Anamarija Lučić, studentica 2. godine diplomskog studija OSJ' },
     { time: '20:15h', tema: 'KRAJ - Networking i druženje - LOVE BAR' },
   ];
 
@@ -35,7 +35,7 @@ const Program = () => {
       lecturerData: [
         'Reporter, urednik i voditelj - RTL | alumni Fakulteta za medije i odnose s javnošću UNIDU',
       ],
-      moderator: 'Moderatorica: Dora Vulić, studentica 2. godine preddipomskog studija MIKD'},
+      moderator: 'Moderatorica: Dora Vulić, studentica 2. godine prijediplomskog studija MIKD'},
     { time: '10:50h - 11:30h', tema: 'PANEL - Od fakulteta do karijere', prikazi: true,
       fullName: [
         'Ana Kovačević · Monika Lulić · Ivona Antolović',
@@ -43,7 +43,7 @@ const Program = () => {
       lecturerData: [
         "alumne Fakulteta za medije i odnose s javnošću UNIDU",
       ],
-      moderator: 'Moderatorica: Sara Bagić, 3. godina preddiplomskog studija MIKD'
+      moderator: 'Moderatorica: Sara Bagić, 3. godina prijediplomskog studija MIKD'
     },
     { time: '11:30h - 11:45h', tema: 'kava pauza' },
     { time: '11:50h - 12:50h', tema: '3 x PR agencije - Odgovornost u PR-u: izazovi agencijskog rada', prikazi: true,
@@ -57,11 +57,11 @@ const Program = () => {
         'voditeljica poslovanja s klijentima u CTA komunikacijama',
         'direktor agencije za odnose s javnošću VAJT d.o.o.',
       ],
-      moderator: 'Moderatorica: Karla Sabljić, studentica 1. godine DS OSJ'},
+      moderator: 'Moderatorica: Karla Sabljić, studentica 1. godine diplomskog studija OSJ'},
     { time: '12:50h - 13:30h', tema: '1 na 1: Komunikacija u službi javnosti: izazovi i odgovornosti', prikazi: true,
       fullName: ['Andrijana Biskup'],
       lecturerData: ['glasnogovornica Policijske uprave DNŽ'],
-       moderator: 'Moderatorica: Chiara Agreš, studentica 1. godine preddiplomskog studija MIKD'
+       moderator: 'Moderatorica: Chiara Agreš, studentica 1. godine prijediplomskog studija MIKD'
     },
     { time: '13:30h - 14:15h', tema: 'CATERING'},
     { time: '14:15h - 14:55h', tema: 'Bez filtera: „Što znači preuzeti odgovornost za svoj put”', prikazi: true,
@@ -70,7 +70,7 @@ const Program = () => {
     { time: '14:55h - 15:55h', tema: 'Iz Dubrovnika do velikih priča i projekata: PR iz prve ruke', prikazi: true,
       fullName: ['Krešimir Macan', 'Tilda Bogdanović'],
       lecturerData: ['vlasnik i osnivač agencije Manjgura', 'vlasnica agencije Dubrovnik PartneR'],
-      moderator: 'Moderatorica: Anamarija Lučić, studentica 2. godine DS OSJ'
+      moderator: 'Moderatorica: Anamarija Lučić, studentica 2. godine diplomskog studija OSJ'
     },
     { time: '16:00h', tema: 'KRAJ' },
   ];
