@@ -69,7 +69,7 @@ const Program = () => {
       lecturerData: ['poduzetnica Fitzone.hr i Bossy | alumna Fakulteta za medije i odnose s javnošću UNIDU'] },
     { time: '14:55h - 15:55h', tema: 'Iz Dubrovnika do velikih priča i projekata: PR iz prve ruke', prikazi: true,
       fullName: ['Krešimir Macan', 'Tilda Bogdanović'],
-      lecturerData: ['vlasnik i osnivač agencije Manjgura', 'vlasnica agencija Dubrovnik PartneR'],
+      lecturerData: ['vlasnik i osnivač agencije Manjgura', 'vlasnica agencije Dubrovnik PartneR'],
       moderator: 'Moderatorica: Anamarija Lučić, studentica 2. godine DS OSJ'
     },
     { time: '16:00h', tema: 'KRAJ' },

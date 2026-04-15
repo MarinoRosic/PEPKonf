@@ -28,13 +28,13 @@ const AboutUsSection = () => {
       <SectionDivider className='px-4' label="Novinarstvo i mediji" />
       <section className='flex flex-col py-12 lg:py-20 overflow-hidden min-h-svh justify-center'>
         <div className='max-w-6xl mx-auto w-full px-4'>
-          <header className='pt-10 text-center'>
+          <header className='pt-4 pb-2 text-center'>
             <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-8xl'>
               <RevealText>O nama</RevealText>
             </h1>
           </header>
 
-          <div className='flex flex-col lg:flex-row mt-8 lg:mt-4 lg:items-end'>
+          <div className='flex flex-col lg:flex-row mt-8 lg:mt-4 lg:items-stretch'>
             <div className='mx-auto sm:pt-10 lg:w-[40%] lg:-mt-10'>
               <AboutUsCard />
             </div>
@@ -43,7 +43,7 @@ const AboutUsSection = () => {
                 then staggerChildren cascades the two paragraphs with a 0.15s gap.
                 amount: 0.2 — fires when 20% of the text block is visible. */}
             <motion.div
-              className='mx-auto lg:w-[60%]'
+              className='mx-auto lg:w-[60%] lg:flex lg:flex-col lg:justify-between'
               variants={textContainerVariants}
               initial="hidden"
               whileInView="visible"
