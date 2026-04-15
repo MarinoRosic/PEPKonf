@@ -41,7 +41,7 @@ const Program = () => {
         'Ana Kovačević · Monika Lulić · Ivona Antolović',
       ],
       lecturerData: [
-        "alumne Fakulteta za medije i odnose s javnošću",
+        "alumne Fakulteta za medije i odnose s javnošću UNIDU",
       ],
       moderator: 'Moderatorica: Sara Bagić, 3. godina preddiplomskog studija MIKD'
     },
