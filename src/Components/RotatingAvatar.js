@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 // Conic gradient rotates via transform: rotate() — compositor-only, no repaints.
 // Previously used filter: drop-shadow animation which triggered a repaint every frame.
@@ -24,6 +25,7 @@ const getInitials = (name = '') => {
 };
 
 const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', borderThickness = 6, objectPosition = 'center' }) => {
+  const reduceMotion = useReducedMotion();
   const [loaded, setLoaded] = useState(false)
   const gradient = gradientPresets[borderColor] ?? gradientPresets.pink;
   const glow     = glowPresets[borderColor]     ?? glowPresets.pink;
@@ -45,8 +47,8 @@ const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', border
         className="absolute inset-0 rounded-full"
         style={{
           background: gradient,
-          animation: 'ring-spin 4s linear infinite',
-          willChange: 'transform',
+          animation: reduceMotion ? 'none' : 'ring-spin 4s linear infinite',
+          willChange: reduceMotion ? 'auto' : 'transform',
         }}
       />
       {/* dark cutout — controls border thickness */}

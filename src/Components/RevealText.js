@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 // Splits text into words, each sliding up from a hidden overflow mask.
 //
@@ -10,6 +11,7 @@ import { motion, useInView } from 'framer-motion';
 // so the reveal fires when the text is actually visible, not just in the DOM:
 //   <RevealText trigger={someOpacityMotionValue}>Hello world</RevealText>
 export default function RevealText({ children, className, delay = 0, stagger = 0.09, trigger }) {
+  const reduceMotion = useReducedMotion();
   const containerRef = useRef(null);
   // once: true → animation fires once and stays; words won't re-animate on scroll back up
   const isInView     = useInView(containerRef, { once: true, margin: '0px 0px -15% 0px' });
@@ -32,6 +34,11 @@ export default function RevealText({ children, className, delay = 0, stagger = 0
     () => (typeof children === 'string' ? children.split(' ') : []),
     [children]
   );
+
+  // On weak devices just render plain text — no animation overhead at all
+  if (reduceMotion) {
+    return <span ref={containerRef} className={className}>{children}</span>;
+  }
 
   return (
     <span ref={containerRef} className={className}>

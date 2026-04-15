@@ -7,6 +7,7 @@ import { useYear } from '../Components/providers/YearContext';
 import { lecturersByYear } from '../data/lecturersData';
 import RotatingAvatar from './RotatingAvatar';
 import LecturerModal from './LecturerModal';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -46,9 +47,21 @@ const ghostSubtextVariants = {
 
 // ── Avatar-only grid for the current year ────────────────────────────────────
 const AvatarGrid = ({ data, year }) => {
+  const reduceMotion = useReducedMotion();
   const [selected, setSelected] = useState(null);
   const lastSelected = useRef(null);
   if (selected) lastSelected.current = selected;
+
+  // On weak devices drop blur — it's the most expensive filter operation
+  const ghostItem = reduceMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
+    : ghostItemVariants;
+  const ghostText = reduceMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
+    : ghostTextVariants;
+  const ghostSubtext = reduceMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
+    : ghostSubtextVariants;
 
   const allGroups = useMemo(() => [
     ...(data.panelisti    ?? []),
@@ -88,12 +101,12 @@ const AvatarGrid = ({ data, year }) => {
                   <div className="w-full h-3 sm:h-4 border-t border-l border-r border-[#db9bd5]/30 rounded-t mb-1.5" />
                   <motion.div
                     className="relative aspect-square cursor-pointer w-full"
-                    initial={{ opacity: 0, scale: 0.75 }}
+                    initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.75 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
-                    style={{ willChange: 'transform, opacity' }}
+                    style={{ willChange: reduceMotion ? 'auto' : 'transform, opacity' }}
                     onClick={() => setSelected(person)}
                   >
                     <RotatingAvatar img={person.img} name={person.lecturer} borderColor={person.borderColor} />
@@ -121,12 +134,12 @@ const AvatarGrid = ({ data, year }) => {
               <motion.div
                 key={i}
                 className="relative flex-1 aspect-square md:flex-none md:h-[200px] md:w-[200px] rounded-full"
-                variants={ghostItemVariants}
+                variants={ghostItem}
                 style={{ filter: 'drop-shadow(0 0 10px rgba(219,155,213,0.35))' }}
               >
                 <div
                   className="absolute inset-0 rounded-full"
-                  style={{ background: gradient, animation: 'ring-spin 4s linear infinite', willChange: 'transform' }}
+                  style={{ background: gradient, animation: reduceMotion ? 'none' : 'ring-spin 4s linear infinite', willChange: reduceMotion ? 'auto' : 'transform' }}
                 />
                 <div className="absolute rounded-full bg-[#261539]" style={{ inset: 5, zIndex: 1 }} />
                 <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
@@ -138,13 +151,13 @@ const AvatarGrid = ({ data, year }) => {
 
           <motion.p
             className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
-            variants={ghostTextVariants}
+            variants={ghostText}
           >
             Uskoro
           </motion.p>
           <motion.p
             className="text-lg lg:text-4xl text-[#db9bd5] tracking-wide -mt-5 text-center max-w-2xl lg:max-w-6xl px-6"
-            variants={ghostSubtextVariants}
+            variants={ghostSubtext}
           >
             PRedavači PEPKonf {year} bit će objavljeni uskoro.
           </motion.p>

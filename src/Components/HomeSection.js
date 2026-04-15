@@ -3,17 +3,20 @@ import stoliceMob from "../assets/images/PEP-naslovna-mob.webp";
 import stoliceDesktop from "../assets/images/PEP-naslovna.webp";
 import { motion } from 'framer-motion';
 import SplitText from './SplitText';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const HomeSection = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className='relative h-[100svh] overflow-hidden flex flex-col'>
 
-      {/* Ken Burns — slow zoom-out from slight scale over 10s */}
+      {/* Ken Burns — slow zoom-out from slight scale over 10s; skipped on weak devices */}
       <motion.div
         className="absolute inset-0 -z-10"
-        initial={{ scale: 1.08 }}
+        initial={{ scale: reduceMotion ? 1 : 1.08 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: 'linear' }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 10, ease: 'linear' }}
       >
         <picture>
           <source media="(max-width: 1023px)" srcSet={stoliceMob} />
@@ -74,20 +77,22 @@ const HomeSection = () => {
         </motion.a>
       </div>
 
-      {/* Scroll indicator — animated line pulses down from text */}
-      <motion.div
-        className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.6 }}
-      >
-        <span className='text-[10px] tracking-[0.2em] text-white/50 uppercase font-semibold'>Scroll</span>
+      {/* Scroll indicator — purely decorative, hidden on reduced-motion devices */}
+      {!reduceMotion && (
         <motion.div
-          className='w-px h-8 bg-white/40 origin-top'
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 0.4 }}
-        />
-      </motion.div>
+          className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6, duration: 0.6 }}
+        >
+          <span className='text-[10px] tracking-[0.2em] text-white/50 uppercase font-semibold'>Scroll</span>
+          <motion.div
+            className='w-px h-8 bg-white/40 origin-top'
+            animate={{ scaleY: [0, 1, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 0.4 }}
+          />
+        </motion.div>
+      )}
 
     </section>
   );

@@ -3,11 +3,13 @@ import headerImg from "../assets/images/program.webp";
 import Table from "./Table";
 import RevealText from './RevealText';
 import SectionDivider from './SectionDivider';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 // Flip to true once the program is ready to show.
 const SHOW_PROGRAM = true;
 
 const Program = () => {
+  const reduceMotion = useReducedMotion();
   const day1 = [
     { time: '16:30h', tema: 'Okupljanje' },
     { time: '17:00h', tema: 'OTVARANJE KONFERENCIJE', prikazi: true,
@@ -103,19 +105,19 @@ const Program = () => {
           >
             <motion.p
               className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
-              variants={{
-                hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
-                visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-              }}
+              variants={reduceMotion
+                ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
+                : { hidden: { opacity: 0, y: 18, filter: 'blur(8px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } } }
+              }
             >
               Uskoro
             </motion.p>
             <motion.p
               className="text-xl lg:text-5xl text-[#db9bd5] tracking-wide text-center max-w-2xl lg:max-w-6xl px-6"
-              variants={{
-                hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
-                visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-              }}
+              variants={reduceMotion
+                ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
+                : { hidden: { opacity: 0, y: 12, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }
+              }
             >
               PRogram će biti objavljen uskoro.
             </motion.p>
@@ -130,8 +132,8 @@ const Program = () => {
                 <motion.span
                   key={i}
                   className="h-2 w-2 rounded-full bg-[#db9bd5]"
-                  animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.3, 0.8] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.22, ease: 'easeInOut' }}
+                  animate={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: [0.2, 1, 0.2], scale: [0.8, 1.3, 0.8] }}
+                  transition={reduceMotion ? {} : { duration: 1.5, repeat: Infinity, delay: i * 0.22, ease: 'easeInOut' }}
                 />
               ))}
             </motion.div>

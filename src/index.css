@@ -78,3 +78,22 @@ body {
   background-size: 200% 100%;
   animation: shimmer 1.6s ease-in-out infinite;
 }
+
+/*
+  CSS-layer reduced-motion support.
+  Handles any animation/transition that lives purely in CSS (keyframes, Tailwind
+  animate-* classes, scroll-behavior) — independent of the JS useReducedMotion hook.
+  The JS hook covers the same prefers-reduced-motion signal plus hardware detection;
+  both layers are needed because CSS animations aren't accessible from JS.
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Kill the shimmer placeholder — show a solid colour instead */
+  .img-shimmer {
+    animation: none;
+    background: #3d1a57;
+  }
+}
