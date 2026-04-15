@@ -83,9 +83,15 @@ const Program = () => {
           <h1 className='absolute z-20 text-5xl font-bold text-white md:text-6xl lg:text-8xl'>
             <RevealText>PRogram</RevealText>
           </h1>
-          <div className='pt-12 lg:pt-20'>
+          <motion.div
+            className='pt-12 lg:pt-20'
+            initial={{ opacity: 0, scale: 0.88, y: 16 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          >
             <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" loading="lazy" decoding="async" />
-          </div>
+          </motion.div>
         </header>
         {SHOW_PROGRAM ? (
           <>

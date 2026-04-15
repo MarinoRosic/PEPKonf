@@ -26,7 +26,7 @@ const AboutUsSection = () => {
   return (
     <>
       <SectionDivider className='px-4' label="Novinarstvo i mediji" />
-      <section className='flex flex-col py-12 lg:py-20 overflow-hidden'>
+      <section className='flex flex-col py-12 lg:py-20 overflow-hidden min-h-svh justify-center'>
         <div className='max-w-6xl mx-auto w-full px-4'>
           <header className='pt-10 text-center'>
             <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-8xl'>
@@ -34,8 +34,8 @@ const AboutUsSection = () => {
             </h1>
           </header>
 
-          <div className='flex flex-col lg:flex-row mt-8 lg:mt-4'>
-            <div className='mx-auto my-auto sm:pt-10 lg:w-[40%]'>
+          <div className='flex flex-col lg:flex-row mt-8 lg:mt-4 lg:items-end'>
+            <div className='mx-auto sm:pt-10 lg:w-[40%] lg:-mt-10'>
               <AboutUsCard />
             </div>
 
@@ -43,14 +43,14 @@ const AboutUsSection = () => {
                 then staggerChildren cascades the two paragraphs with a 0.15s gap.
                 amount: 0.2 — fires when 20% of the text block is visible. */}
             <motion.div
-              className='mx-auto my-auto lg:w-[60%]'
+              className='mx-auto lg:w-[60%]'
               variants={textContainerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
               <motion.p
-                className='px-8 pt-10 text-lg text-white lg:text-2xl text-balance font-main'
+                className='px-8 pt-10 text-lg text-white lg:text-2xl text-justify font-main'
                 variants={paraVariants}
               >
                 Početkom 2022. ekipa studenata Fakulteta za medije i odnose s javnošću Sveučilišta u Dubrovniku, odlučila je zagrebati ispod površine PR-a.
@@ -60,7 +60,7 @@ const AboutUsSection = () => {
               </motion.p>
 
               <motion.p
-                className='px-8 pt-8 text-lg text-white lg:text-2xl text-balance font-main'
+                className='px-8 pt-8 text-lg text-white lg:text-2xl text-justify font-main'
                 variants={paraVariants}
               >
                 I eto ih danas, s <span className='span'>PEP Konferencijom</span>, gdje ludilo i hrabrost rastu iz godine u godinu. Ideja koja je prerasla iz šalice kave sada osvaja Dubrovnik!

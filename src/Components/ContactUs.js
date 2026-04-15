@@ -212,7 +212,7 @@ const ContactUs = () => {
         </form>
 
         <a href='mailto:pep.konferencija@gmail.com' className='text-lg lg:text-3xl text-white hover:text-[#db9bd5] transition-colors duration-200'>
-          <RevealText delay={0.1}>pep.konferencija@gmail.com</RevealText>
+          <RevealText>pep.konferencija@gmail.com</RevealText>
         </a>
 
       </div>
