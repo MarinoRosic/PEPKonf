@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import RevealText from './RevealText';
 
 // Each row animates independently when it scrolls into view.
@@ -14,21 +15,40 @@ const rowVariants = {
 };
 
 const Table = ({ datum, day }) => {
+  const headerRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: '0px 0px -5% 0px' });
+
   return (
     <section className='flex flex-col w-full mb-20'>
-      <h1 className='text-[#772F6F] text-3xl md:text-4xl lg:text-6xl mx-auto pt-16 lg:pt-20 lg:pb-5 font-extrabold'>
-        <RevealText>{datum}</RevealText>
-      </h1>
+      <div ref={headerRef} className='flex items-center gap-4 w-full max-w-5xl mx-auto px-8 pt-16 lg:pt-20 lg:pb-5'>
+        <motion.div
+          className='flex-1 h-px bg-gradient-to-r from-transparent to-[#db9bd5]/50'
+          style={{ originX: 1 }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={headerInView ? { scaleX: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        />
+        <h1 className='text-[#772F6F] text-3xl md:text-4xl lg:text-6xl font-extrabold shrink-0'>
+          <RevealText>{datum}</RevealText>
+        </h1>
+        <motion.div
+          className='flex-1 h-px bg-gradient-to-l from-transparent to-[#db9bd5]/50'
+          style={{ originX: 0 }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={headerInView ? { scaleX: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        />
+      </div>
 
-      <div className='flex flex-col content-center px-8 pt-12 mx-auto lg:pt-12'>
+      <div className='flex flex-col gap-2 w-full max-w-5xl px-8 pt-12 mx-auto lg:pt-12'>
         {day.map((items, index) => {
           const { time, tema, prikazi, fullName, lecturerData, moderator } = items;
           // Cap stagger at 0.32s so rows that are already visible don't wait too long.
           const delay = Math.min(index * 0.08, 0.32);
           return (
             <motion.div
-              className='z-50 pb-3 text-white text-base md:text-xl lg:text-3xl'
               key={index}
+              className='border-l-2 border-[#772F6F]/60 bg-white/[0.04] rounded-r-md px-4 py-3 text-white text-base md:text-xl lg:text-3xl'
               custom={delay}
               variants={rowVariants}
               initial="hidden"

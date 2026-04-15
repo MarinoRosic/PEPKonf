@@ -12,7 +12,7 @@ const Program = () => {
     { time: '16:30h', tema: 'Okupljanje' },
     { time: '17:00h', tema: 'OTVARANJE KONFERENCIJE', prikazi: true,
       fullName: [''],
-      lecturerData: ['uvodni govor - Sveučilište, Fakultet, HUOJ'] },
+      lecturerData: ['uvodni govor - Sveučilište u Dubrovniku | Fakultet za medije i odnose s javnošću | Hrvatska udruga za odnose s javnošću'] },
     { time: '17:15h', tema: '1 na 1: Fireside chat: PR unplugged - razgovor bez filtera', prikazi: true,
       fullName: ['Luka Šipić | Ivan Perišić'],
       lecturerData: ['PRo-kreativna agencija Vrh Komunikacije'],

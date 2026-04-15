@@ -17,7 +17,7 @@ const ThemeItem = ({ theme, index, isInView }) => (
     initial={{ y: 24, opacity: 0 }}
     animate={isInView ? { y: 0, opacity: 1 } : {}}
     transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.45 + index * 0.09 }}
-    className={`flex items-baseline gap-4 py-6 ${index === 0 ? 'border border-white/20' : 'border-t border-white/10'}`}
+    className={`flex items-center gap-4 py-6 ${index === 0 ? 'border border-white/20' : 'border-t border-white/10'}`}
   >
     <span
       className="text-xs font-bold shrink-0 select-none tabular-nums tracking-widest"
