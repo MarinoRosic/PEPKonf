@@ -103,7 +103,7 @@ const AvatarGrid = ({ data, year }) => {
                     className="relative aspect-square cursor-pointer w-full"
                     initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.75 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: reduceMotion ? 0 : i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.35, delay: reduceMotion ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
                     style={{ willChange: reduceMotion ? 'auto' : 'transform, opacity' }}

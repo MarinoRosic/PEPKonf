@@ -1,12 +1,14 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 const YearContext = createContext(undefined);
 
 export function YearProvider({ children }) {
   const [selectedYear, setSelectedYear] = useState(2026); // default year – change if needed
 
+  const ctx = useMemo(() => ({ selectedYear, setSelectedYear }), [selectedYear]);
+
   return (
-    <YearContext.Provider value={{ selectedYear, setSelectedYear }}>
+    <YearContext.Provider value={ctx}>
       {children}
     </YearContext.Provider>
   );
