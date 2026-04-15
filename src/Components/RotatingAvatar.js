@@ -56,12 +56,6 @@ const RotatingAvatar = ({ img, name = '', alt = '', borderColor = 'pink', border
       className="relative w-full h-full rounded-full"
       style={{ filter: glow }}
     >
-      <style>{`
-        @keyframes ring-spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-
       {/* rotating conic gradient ring — bright comet sweeps around */}
       <div
         className="absolute inset-0 rounded-full"

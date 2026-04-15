@@ -4,9 +4,11 @@ import stoliceDesktop from "../assets/images/PEP-naslovna.webp";
 import { motion } from 'framer-motion';
 import SplitText from './SplitText';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { useLenis } from 'lenis/react';
 
 const HomeSection = () => {
   const reduceMotion = useReducedMotion();
+  const lenis = useLenis();
 
   return (
     <section className='relative h-[100svh] overflow-hidden flex flex-col'>
@@ -68,6 +70,7 @@ const HomeSection = () => {
         {/* CTA — scrolls to contact/registration */}
         <motion.a
           href="#kontakt"
+          onClick={e => { e.preventDefault(); lenis?.scrollTo('#kontakt'); }}
           className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

@@ -15,7 +15,13 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth removed — Lenis handles smooth scrolling via rAF.
+     Having both active causes them to fight each other, producing scroll jank. */
+  scroll-behavior: auto;
+}
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
 }
 
 body {
@@ -87,10 +93,6 @@ body {
   both layers are needed because CSS animations aren't accessible from JS.
 */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   /* Kill the shimmer placeholder — show a solid colour instead */
   .img-shimmer {
     animation: none;
