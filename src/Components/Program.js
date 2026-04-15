@@ -58,7 +58,7 @@ const Program = () => {
         'direktor agencije za odnose s javnošću VAJT d.o.o.',
       ],
       moderator: 'Moderatorica: Karla Sabljić, studentica 1. godine DS OSJ'},
-    { time: '12:50h - 13:30h', tema: '1 na 1: Komunikacija u javnom sektoru: odgovornost i praksa', prikazi: true,
+    { time: '12:50h - 13:30h', tema: '1 na 1: Komunikacija u službi javnosti: izazovi i odgovornosti', prikazi: true,
       fullName: ['Andrijana Biskup'],
       lecturerData: ['glasnogovornica Policijske uprave DNŽ'],
        moderator: 'Moderatorica: Chiara Agreš, studentica 1. godine preddiplomskog studija MIKD'
