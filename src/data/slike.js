@@ -1,3 +1,23 @@
+import PEP2026_01    from '../assets/images/PEP_2026/PEPKonf2026_01.webp'
+import PEP2026_02    from '../assets/images/PEP_2026/PEPKonf2026_02.webp'
+import PEP2026_03    from '../assets/images/PEP_2026/PEPKonf2026_03.webp'
+import PEP2026_04    from '../assets/images/PEP_2026/PEPKonf2026_04.webp'
+import PEP2026_05    from '../assets/images/PEP_2026/PEPKonf2026_05.webp'
+import PEP2026_06    from '../assets/images/PEP_2026/PEPKonf2026_06.webp'
+import PEP2026_07    from '../assets/images/PEP_2026/PEPKonf2026_07.webp'
+import PEP2026_08    from '../assets/images/PEP_2026/PEPKonf2026_08.webp'
+import PEP2026_09    from '../assets/images/PEP_2026/PEPKonf2026_09.webp'
+import PEP2026_10    from '../assets/images/PEP_2026/PEPKonf2026_10.webp'
+import PEP2026_11    from '../assets/images/PEP_2026/PEPKonf2026_11.webp'
+import PEP2026_11_01 from '../assets/images/PEP_2026/PEPKonf2026_11_01.webp'
+import PEP2026_11_02 from '../assets/images/PEP_2026/PEPKonf2026_11_02.webp'
+import PEP2026_12    from '../assets/images/PEP_2026/PEPKonf2026_12.webp'
+import PEP2026_13    from '../assets/images/PEP_2026/PEPKonf2026_13.webp'
+import PEP2026_14    from '../assets/images/PEP_2026/PEPKonf2026_14.webp'
+import PEP2026_15    from '../assets/images/PEP_2026/PEPKonf2026_15.webp'
+import PEP2026_16    from '../assets/images/PEP_2026/PEPKonf2026_16.webp'
+import PEP2026_17    from '../assets/images/PEP_2026/PEPKonf2026_17.webp'
+
 import PEP2025_01 from '../assets/images/PEP_2025/PEPKonf2025_01.webp'
 import PEP2025_02 from '../assets/images/PEP_2025/PEPKonf2025_02.webp'
 import PEP2025_03 from '../assets/images/PEP_2025/PEPKonf2025_03.webp'
@@ -56,6 +76,28 @@ import PEP2023_17 from '../assets/images/PEP_2023/PEPKonf2023_17.webp'
 
 export const slike =
 {
+    2026:
+    [
+        { src: PEP2026_01,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_02,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_03,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_04,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_05,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_06,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_07,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_08,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_09,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_10,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_11,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_11_01, title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_11_02, title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_12,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_13,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_14,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_17,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_15,    title: 'PEPKonf 2026', description: '' },
+        { src: PEP2026_16,    title: 'PEPKonf 2026', description: '' },
+    ],
     2025:
     [
         { src: PEP2025_14,    title: 'PEPKonf 2025', description: '' },
