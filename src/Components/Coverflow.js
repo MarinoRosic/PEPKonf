@@ -35,6 +35,18 @@ const Coverflow = ({ data, onImageClick }) => {
   const activeIndexRef = useRef(activeIndex)
   useEffect(() => { activeIndexRef.current = activeIndex }, [activeIndex])
 
+  const preloadCacheRef = useRef({})
+  useEffect(() => {
+    [activeIndex + SIDE_COUNT + 1, activeIndex - SIDE_COUNT - 1].forEach((i) => {
+      if (i < 0 || i >= data.length) return
+      const src = data[i].src
+      if (preloadCacheRef.current[src]) return
+      const img = new Image()
+      img.src = src
+      preloadCacheRef.current[src] = img
+    })
+  }, [activeIndex, data, SIDE_COUNT])
+
   const goTo = useCallback((index) => {
     if (index >= 0 && index < data.length) setActiveIndex(index)
   }, [data.length])
@@ -132,7 +144,7 @@ const Coverflow = ({ data, onImageClick }) => {
                   opacity: loadedSrcs.has(slide.src) ? 1 : 0,
                   transition: 'opacity 0.4s ease',
                 }}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 draggable={false}
                 onLoad={() => setLoadedSrcs(prev => new Set(prev).add(slide.src))}

@@ -1,9 +1,9 @@
 import PEP2026_01    from '../assets/images/PEP_2026/PEPKonf2026_01.webp'
 import PEP2026_02    from '../assets/images/PEP_2026/PEPKonf2026_02.webp'
 import PEP2026_03    from '../assets/images/PEP_2026/PEPKonf2026_03.webp'
-import PEP2026_04    from '../assets/images/PEP_2026/PEPKonf2026_04.webp'
-import PEP2026_05    from '../assets/images/PEP_2026/PEPKonf2026_05.webp'
-import PEP2026_06    from '../assets/images/PEP_2026/PEPKonf2026_06.webp'
+// import PEP2026_04    from '../assets/images/PEP_2026/PEPKonf2026_04.webp'
+// import PEP2026_05    from '../assets/images/PEP_2026/PEPKonf2026_05.webp'
+// import PEP2026_06    from '../assets/images/PEP_2026/PEPKonf2026_06.webp'
 import PEP2026_07    from '../assets/images/PEP_2026/PEPKonf2026_07.webp'
 import PEP2026_08    from '../assets/images/PEP_2026/PEPKonf2026_08.webp'
 import PEP2026_09    from '../assets/images/PEP_2026/PEPKonf2026_09.webp'
@@ -81,9 +81,9 @@ export const slike =
         { src: PEP2026_01,    title: 'PEPKonf 2026', description: '' },
         { src: PEP2026_02,    title: 'PEPKonf 2026', description: '' },
         { src: PEP2026_03,    title: 'PEPKonf 2026', description: '' },
-        { src: PEP2026_04,    title: 'PEPKonf 2026', description: '' },
-        { src: PEP2026_05,    title: 'PEPKonf 2026', description: '' },
-        { src: PEP2026_06,    title: 'PEPKonf 2026', description: '' },
+        // { src: PEP2026_04,    title: 'PEPKonf 2026', description: '' },
+        // { src: PEP2026_05,    title: 'PEPKonf 2026', description: '' },
+        // { src: PEP2026_06,    title: 'PEPKonf 2026', description: '' },
         { src: PEP2026_07,    title: 'PEPKonf 2026', description: '' },
         { src: PEP2026_08,    title: 'PEPKonf 2026', description: '' },
         { src: PEP2026_09,    title: 'PEPKonf 2026', description: '' },
