@@ -5,8 +5,11 @@ import RevealText from './RevealText';
 import SectionDivider from './SectionDivider';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 
-// Flip to true once the program is ready to show.
-const SHOW_PROGRAM = true;
+// Flip to false to hide the entire program section (e.g. after the event).
+const SHOW_PROGRAM = false;
+
+// Flip to true once the program is ready to show (vs. the "Uskoro" placeholder).
+const SHOW_SOON = false;
 
 const Program = () => {
   const reduceMotion = useReducedMotion();
@@ -75,6 +78,8 @@ const Program = () => {
     { time: '16:00h', tema: 'KRAJ' },
   ];
 
+  if (!SHOW_PROGRAM) return null;
+
   return (
     <>
     <SectionDivider label="Korporativno komuniciranje" labelPosition='right'/>
@@ -93,7 +98,7 @@ const Program = () => {
             <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" loading="lazy" decoding="async" />
           </motion.div>
         </header>
-        {SHOW_PROGRAM ? (
+        {SHOW_SOON ? (
           <>
             <Table datum="16.4. Četvrtak" day={day1} />
             <Table datum="17.4. Petak"   day={day2} />
