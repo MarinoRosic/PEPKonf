@@ -5,6 +5,15 @@ import { motion } from 'framer-motion';
 import SplitText from './SplitText';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { useLenis } from 'lenis/react';
+import { SHOW_REGISTRATION } from './ContactUs';
+import { SHOW_EMBARGO } from './EmbargoSection';
+
+// Off-season there's nothing to sign up for, so the button points at the teaser instead.
+const heroCta = SHOW_REGISTRATION
+  ? { label: 'Prijavi se', target: '#kontakt' }
+  : SHOW_EMBARGO
+    ? { label: 'Što se PRiča?', target: '#embargo' }
+    : null;
 
 const HomeSection = () => {
   const reduceMotion = useReducedMotion();
@@ -67,17 +76,19 @@ const HomeSection = () => {
           <SplitText delay={0.6}>PRedobre PRiče.</SplitText>
         </h1>
 
-        {/* CTA — scrolls to contact/registration */}
-        <motion.a
-          href="#kontakt"
-          onClick={e => { e.preventDefault(); lenis?.scrollTo('#kontakt'); }}
-          className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          Prijavi se
-        </motion.a>
+        {/* CTA — scrolls to registration, or to the teaser while registration is closed */}
+        {heroCta && (
+          <motion.a
+            href={heroCta.target}
+            onClick={e => { e.preventDefault(); lenis?.scrollTo(heroCta.target); }}
+            className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {heroCta.label}
+          </motion.a>
+        )}
       </div>
 
       {/* Scroll indicator — purely decorative, hidden on reduced-motion devices */}

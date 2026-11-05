@@ -26,6 +26,9 @@ import MonikaLulic from "../assets/images/Monika Lulić-2.webp"
 import IvonaAntolovic from "../assets/images/Ivona Antolovic-2.webp"
 import AnaKovacevic from "../assets/images/A.K. photo-2.webp"
 
+// Flip to false to hide the entire lecturers section (e.g. in the off-season).
+export const SHOW_LECTURERS = false;
+
 export const lecturersByYear = {
    2026: {  
     panelisti : [

@@ -3,13 +3,11 @@ import Lecturer from './Lecturer';
 import SectionDivider from './SectionDivider';
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
-import { useYear } from '../Components/providers/YearContext';
-import { lecturersByYear } from '../data/lecturersData';
+import { CURRENT_YEAR, useYear } from '../Components/providers/YearContext';
+import { SHOW_LECTURERS, lecturersByYear } from '../data/lecturersData';
 import RotatingAvatar from './RotatingAvatar';
 import LecturerModal from './LecturerModal';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-
-const CURRENT_YEAR = new Date().getFullYear();
 
 // Static constants — defined outside so Framer Motion gets stable object references
 const GHOST_GRADIENTS = [
@@ -171,6 +169,8 @@ const AvatarGrid = ({ data, year }) => {
 
 const LecturersSection = () => {
   const { selectedYear } = useYear();
+
+  if (!SHOW_LECTURERS) return null;
 
   const data = lecturersByYear[selectedYear] || {
     panelisti: [], radionica: [], predavaci: [], moderatorice: [],

@@ -5,6 +5,10 @@ import emailjs from "@emailjs/browser"
 import SplitText from './SplitText'
 import RevealText from './RevealText'
 
+// Flip to true once registration opens. While it's false the form is hidden and the
+// hero button points at the teaser instead of here.
+export const SHOW_REGISTRATION = false
+
 // Orchestrates icon pair stagger
 const iconsVariants = {
   hidden: {},
@@ -49,7 +53,7 @@ const ContactUs = () => {
   }
 
   return (
-    <section id="kontakt" className='flex flex-col min-h-screen overflow-hidden'>
+    <section id="kontakt" className={`flex flex-col overflow-hidden ${SHOW_REGISTRATION ? 'min-h-screen' : ''}`}>
 
       {/* Toast notification */}
       {/* DEV-ONLY toast tester — invisible in production builds */}
@@ -143,7 +147,7 @@ const ContactUs = () => {
         </h1>
       </header>
 
-      <div className='flex flex-col flex-1 items-center justify-evenly mx-auto w-full pb-12'>
+      <div className={`flex flex-col flex-1 items-center justify-evenly mx-auto w-full pb-12 ${SHOW_REGISTRATION ? '' : 'pt-10 gap-y-10'}`}>
 
         {/* Social icons — stagger in, scale on hover */}
         <motion.div
@@ -171,45 +175,49 @@ const ContactUs = () => {
           </motion.div>
         </motion.div>
 
-        <h2 className='text-3xl text-center text-white lg:text-5xl'>
-          <RevealText delay={0.1}>Prijava:</RevealText>
-        </h2>
+        {SHOW_REGISTRATION && (
+          <>
+            <h2 className='text-3xl text-center text-white lg:text-5xl'>
+              <RevealText delay={0.1}>Prijava:</RevealText>
+            </h2>
 
-        {/* Form fields — each input rises in one after the other */}
-        <form onSubmit={sendEmail}>
-          <motion.div
-            className='flex flex-col items-center lg:gap-x-4 gap-y-4'
-            variants={formVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <motion.input
-              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
-              type="text" name="name" id="name" placeholder=' Ime' required
-              variants={itemVariants}
-            />
-            <motion.input
-              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
-              type="text" name="surname" id="surname" placeholder=' Prezime' required
-              variants={itemVariants}
-            />
-            <motion.input
-              className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
-              type="email" name="email" id="email" placeholder=' E-mail' required
-              variants={itemVariants}
-            />
-            <motion.button
-              className='tracking-widest h-12 rounded-full w-[200px] bg-[#772F6F] px-[42px] text-white font-semibold outline-none content-center'
-              type="submit"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, boxShadow: '0 0 22px 6px rgba(119,47,111,0.55)' }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Dolazim!
-            </motion.button>
-          </motion.div>
-        </form>
+            {/* Form fields — each input rises in one after the other */}
+            <form onSubmit={sendEmail}>
+              <motion.div
+                className='flex flex-col items-center lg:gap-x-4 gap-y-4'
+                variants={formVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.input
+                  className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
+                  type="text" name="name" id="name" placeholder=' Ime' required
+                  variants={itemVariants}
+                />
+                <motion.input
+                  className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
+                  type="text" name="surname" id="surname" placeholder=' Prezime' required
+                  variants={itemVariants}
+                />
+                <motion.input
+                  className='italic w-[320px] sm:w-[360px] lg:w-[500px] h-12 rounded-3xl text-center'
+                  type="email" name="email" id="email" placeholder=' E-mail' required
+                  variants={itemVariants}
+                />
+                <motion.button
+                  className='tracking-widest h-12 rounded-full w-[200px] bg-[#772F6F] px-[42px] text-white font-semibold outline-none content-center'
+                  type="submit"
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 22px 6px rgba(119,47,111,0.55)' }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Dolazim!
+                </motion.button>
+              </motion.div>
+            </form>
+          </>
+        )}
 
         <a href='mailto:pep.konferencija@gmail.com' className='text-lg lg:text-3xl text-white hover:text-[#db9bd5] transition-colors duration-200'>
           <RevealText>pep.konferencija@gmail.com</RevealText>

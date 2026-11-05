@@ -3,6 +3,7 @@ import AboutPEPSection from '../Components/AboutPEPSection';
 import AboutUsSection from '../Components/AboutUsSection';
 import ContactUs from '../Components/ContactUs';
 import LecturersSection from '../Components/LecturersSection';
+import EmbargoSection from '../Components/EmbargoSection';
 import Program from '../Components/Program';
 import WWWSection from '../Components/WWWSection';
 import PEPThemes from '../Components/PEPThemes';
@@ -58,6 +59,7 @@ const Home = () => {
           </YearTransition>
         </div>
         {/* Everything after is NOT year-dependent → bar should no longer stick here */}
+        <EmbargoSection />
         <Program />
         <AboutUsSection />
         <Organizers />

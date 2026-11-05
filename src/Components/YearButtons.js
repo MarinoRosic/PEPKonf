@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
-import { useYear } from '../Components/providers/YearContext'
+import { YEARS, useYear } from '../Components/providers/YearContext'
 import { useLenis } from 'lenis/react'
-
-const YEARS = [2026, 2025, 2024, 2023]
 
 export default function YearButtons() {
   const { selectedYear, setSelectedYear } = useYear()
@@ -44,8 +42,8 @@ export default function YearButtons() {
               key={year}
               onClick={() => handleYearClick(year)}
               className={`
-                relative px-5 py-2 sm:px-7 sm:py-2.5 rounded-full overflow-hidden
-                text-sm sm:text-base font-semibold tracking-wide
+                relative px-2.5 min-[390px]:px-3.5 py-2 sm:px-7 sm:py-2.5 rounded-full overflow-hidden
+                text-xs min-[390px]:text-sm sm:text-base font-semibold tracking-wide
                 transition-colors duration-200 outline-none
                 ${isActive ? 'text-[#261539]' : 'text-white/50 hover:text-white/80'}
               `}
