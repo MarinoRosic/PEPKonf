@@ -61,8 +61,13 @@ const NextEditionContent = () => {
     progress.set(1);
     setDone(true);
     // Moving the page under a finger can make phones jump, so that one case waits for the lift.
-    if (lenis?.isTouching) window.addEventListener('touchend', releasePin, { once: true });
-    else releasePin();
+    if (lenis?.isTouching) {
+      window.addEventListener('touchend', releasePin, { once: true });
+      return;
+    }
+    releasePin();
+    // Hold the page still while the sentence appears. Its onAnimationComplete lets go again.
+    lenis?.stop();
   });
 
   // The 6 and the 7 are stacked in a one-digit window, so sliding up by half swaps them.
@@ -101,7 +106,8 @@ const NextEditionContent = () => {
               className="pb-[0.15em] text-2xl leading-tight text-center text-white md:text-4xl lg:text-5xl"
               initial={false}
               animate={{ y: reduceMotion || done ? 0 : '105%' }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              onAnimationComplete={() => lenis?.start()}
             >
               PRiča se nastavlja.
             </motion.p>

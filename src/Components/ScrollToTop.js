@@ -8,6 +8,8 @@ const ScrollToTop = () => {
 
   // Use lenis.scrollTo — window.scrollTo is bypassed by Lenis
   const scrollToTop = () => {
+    // NextEdition holds the page still for a moment, and Lenis ignores scrollTo while it does.
+    lenis?.start();
     lenis?.scrollTo(0, { duration: 1.35 });
   };
 
