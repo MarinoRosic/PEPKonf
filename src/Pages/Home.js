@@ -3,7 +3,7 @@ import AboutPEPSection from '../Components/AboutPEPSection';
 import AboutUsSection from '../Components/AboutUsSection';
 import ContactUs from '../Components/ContactUs';
 import LecturersSection from '../Components/LecturersSection';
-import EmbargoSection from '../Components/EmbargoSection';
+import NextEdition from '../Components/NextEdition';
 import Program from '../Components/Program';
 import WWWSection from '../Components/WWWSection';
 import PEPThemes from '../Components/PEPThemes';
@@ -31,7 +31,7 @@ const YearTransition = ({ children }) => {
         animate={{ opacity: 1, y: 0,  scale: 1    }}
         exit={{    opacity: 0, y: -40, scale: 0.98 }}
         style={{ willChange: 'transform, opacity' }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>
@@ -59,7 +59,7 @@ const Home = () => {
           </YearTransition>
         </div>
         {/* Everything after is NOT year-dependent → bar should no longer stick here */}
-        <EmbargoSection />
+        <NextEdition />
         <Program />
         <AboutUsSection />
         <Organizers />

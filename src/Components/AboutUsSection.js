@@ -4,10 +4,10 @@ import RevealText from './RevealText';
 import SectionDivider from './SectionDivider';
 
 // Orchestrates the two paragraphs — fires once in view, then staggers children.
-// staggerChildren: 0.15 means paragraph 2 starts 0.15s after paragraph 1.
+// staggerChildren: 0.11 means paragraph 2 starts 0.11s after paragraph 1.
 const textContainerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.11 } },
 };
 
 // Each paragraph fades up by 24px.
@@ -18,7 +18,7 @@ const paraVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -40,7 +40,7 @@ const AboutUsSection = () => {
             </div>
 
             {/* Text container — whileInView fires when this block enters the viewport,
-                then staggerChildren cascades the two paragraphs with a 0.15s gap.
+                then staggerChildren cascades the two paragraphs with a 0.11s gap.
                 amount: 0.2 — fires when 20% of the text block is visible. */}
             <motion.div
               className='mx-auto lg:w-[60%] lg:flex lg:flex-col lg:justify-between'

@@ -6,14 +6,6 @@ import SplitText from './SplitText';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { useLenis } from 'lenis/react';
 import { SHOW_REGISTRATION } from './ContactUs';
-import { SHOW_EMBARGO } from './EmbargoSection';
-
-// Off-season there's nothing to sign up for, so the button points at the teaser instead.
-const heroCta = SHOW_REGISTRATION
-  ? { label: 'Prijavi se', target: '#kontakt' }
-  : SHOW_EMBARGO
-    ? { label: 'Što se PRiča?', target: '#embargo' }
-    : null;
 
 const HomeSection = () => {
   const reduceMotion = useReducedMotion();
@@ -48,7 +40,7 @@ const HomeSection = () => {
         className='flex justify-center pt-8'
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
         <img className='h-[clamp(65px,_50vw,_140px)] w-[clamp(65px,_50vw,_140px)]' src={pepLogo} alt="PEP Logo" />
       </motion.div>
@@ -61,7 +53,7 @@ const HomeSection = () => {
           className='mb-6 inline-flex items-center gap-2.5 border border-white/30 rounded-full px-4 py-1.5 self-start backdrop-blur-sm'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className='w-1.5 h-1.5 rounded-full bg-[#db9bd5] inline-block' />
           <span className='text-xs font-semibold tracking-widest text-white uppercase'>
@@ -71,22 +63,22 @@ const HomeSection = () => {
 
         {/* Headline — SplitText kept, left-aligned, big */}
         <h1 className='text-[clamp(1.75rem,_8.5vw,_9rem)] font-extrabold sporka leading-[0.92] tracking-tight mb-8'>
-          <SplitText delay={0.2}>Budi i ti dio</SplitText>
+          <SplitText delay={0.15}>Budi i ti dio</SplitText>
           <br />
-          <SplitText delay={0.6}>PRedobre PRiče.</SplitText>
+          <SplitText delay={0.45}>PRedobre PRiče.</SplitText>
         </h1>
 
-        {/* CTA — scrolls to registration, or to the teaser while registration is closed */}
-        {heroCta && (
+        {/* CTA — scrolls to registration; hidden while registration is closed */}
+        {SHOW_REGISTRATION && (
           <motion.a
-            href={heroCta.target}
-            onClick={e => { e.preventDefault(); lenis?.scrollTo(heroCta.target); }}
+            href="#kontakt"
+            onClick={e => { e.preventDefault(); lenis?.scrollTo('#kontakt'); }}
             className='inline-flex items-center gap-3 px-8 py-3.5 bg-[#772f6f] text-white font-bold tracking-widest rounded-full text-sm uppercase self-start hover:bg-[#db9bd5] transition-colors duration-300'
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            {heroCta.label}
+            Prijavi se
           </motion.a>
         )}
       </div>
@@ -97,7 +89,7 @@ const HomeSection = () => {
           className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.6 }}
+          transition={{ delay: 1.2, duration: 0.45 }}
         >
           <span className='text-[10px] tracking-[0.2em] text-white/50 uppercase font-semibold'>Scroll</span>
           <motion.div

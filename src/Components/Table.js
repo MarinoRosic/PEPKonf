@@ -10,7 +10,7 @@ const rowVariants = {
   visible: (delay) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1], delay },
   }),
 };
 
@@ -18,7 +18,7 @@ const bgSweepVariants = {
   hidden: { scaleX: 0 },
   visible: (delay) => ({
     scaleX: 1,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: delay + 0.08 },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: delay + 0.06 },
   }),
 };
 
@@ -34,7 +34,7 @@ const Table = ({ datum, day }) => {
           style={{ originX: 1 }}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={headerInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         />
         <h1 className='text-[#772F6F] text-3xl md:text-4xl lg:text-6xl font-extrabold shrink-0'>
           <RevealText>{datum}</RevealText>
@@ -44,7 +44,7 @@ const Table = ({ datum, day }) => {
           style={{ originX: 0 }}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={headerInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         />
       </div>
 
@@ -52,7 +52,7 @@ const Table = ({ datum, day }) => {
         {day.map((items, index) => {
           const { time, tema, prikazi, fullName, lecturerData, moderator } = items;
           // Cap stagger at 0.32s so rows that are already visible don't wait too long.
-          const delay = Math.min(index * 0.08, 0.32);
+          const delay = Math.min(index * 0.06, 0.32);
           return (
             <motion.div
               key={index}

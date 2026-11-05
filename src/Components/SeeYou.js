@@ -9,7 +9,7 @@ const SeeYou = () => {
       </div>
       <div className='absolute flex items-center'>
         <h1 className='text-5xl text-white md:text-7xl lg:text-8xl xl:text-9xl'>
-          <SplitText delay={0.2} stagger={0.07}>Vidimo se!</SplitText>
+          <SplitText delay={0.15} stagger={0.05}>Vidimo se!</SplitText>
         </h1>
       </div>
     </section>

@@ -24,7 +24,7 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
             onClick={onClose}
           />
 
@@ -34,8 +34,8 @@ const LecturerModal = ({ isOpen, onClose, img, borderColor, lecturer, title, bio
               className="relative w-full sm:max-w-md pointer-events-auto bg-[#261539] border border-[#db9bd5]/25 border-b-0 sm:border-b rounded-t-3xl sm:rounded-3xl overflow-hidden"
               variants={{
                 hidden:  { y: '100%', opacity: 0 },
-                visible: { y: 0, opacity: 1,       transition: { duration: 0.42, ease: [0.16, 1, 0.3, 1] } },
-                exit:    { y: '100%', opacity: 0,   transition: { duration: 0.28, ease: [0.4, 0, 1, 1] } },
+                visible: { y: 0, opacity: 1,       transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } },
+                exit:    { y: '100%', opacity: 0,   transition: { duration: 0.2, ease: [0.4, 0, 1, 1] } },
               }}
               initial="hidden"
               animate="visible"

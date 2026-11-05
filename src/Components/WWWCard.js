@@ -17,7 +17,7 @@ const WWWCard = (props) => {
           className='text-[#772F6F] text-3xl md:text-4xl lg:text-5xl font-extrabold'
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: delay }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: delay }}
         >
           {pitanje}
         </motion.h1>
@@ -31,7 +31,7 @@ const WWWCard = (props) => {
           }}
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.4, ease: 'easeInOut', delay: delay + 0.35 }}
+          transition={{ duration: 0.3, ease: 'easeInOut', delay: delay + 0.25 }}
         />
       </div>
 
@@ -40,7 +40,7 @@ const WWWCard = (props) => {
         className='text-white text-lg md:text-2xl lg:text-3xl font-extrabold overflow-hidden'
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.4, ease: 'easeOut', delay: delay + 0.7 }}
+        transition={{ duration: 0.3, ease: 'easeOut', delay: delay + 0.5 }}
       >
         {odgovor}
       </motion.p>

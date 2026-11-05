@@ -5,20 +5,20 @@ import emailjs from "@emailjs/browser"
 import SplitText from './SplitText'
 import RevealText from './RevealText'
 
-// Flip to true once registration opens. While it's false the form is hidden and the
-// hero button points at the teaser instead of here.
+// Flip to true once registration opens. While it's false the form and the hero's
+// "Prijavi se" button are hidden.
 export const SHOW_REGISTRATION = false
 
 // Orchestrates icon pair stagger
 const iconsVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.08 } },
 }
 
 // Orchestrates form fields stagger
 const formVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.08 } },
 }
 
 // Shared fade+rise — same visual language as Lecturer / OrganizerCard
@@ -27,7 +27,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 }
 
@@ -92,7 +92,7 @@ const ContactUs = () => {
               initial={{ opacity: 0, y: -48, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -48, scale: 0.9 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Gradient top accent line — same motif as WWWCard underline */}
               <div
@@ -143,7 +143,7 @@ const ContactUs = () => {
       </AnimatePresence>
       <header className='mx-auto pt-14 lg:pt-16'>
         <h1 className='text-5xl font-extrabold text-white md:text-6xl lg:text-7xl'>
-          <SplitText stagger={0.06}>Kontakt</SplitText>
+          <SplitText stagger={0.05}>Kontakt</SplitText>
         </h1>
       </header>
 
@@ -178,7 +178,7 @@ const ContactUs = () => {
         {SHOW_REGISTRATION && (
           <>
             <h2 className='text-3xl text-center text-white lg:text-5xl'>
-              <RevealText delay={0.1}>Prijava:</RevealText>
+              <RevealText delay={0.08}>Prijava:</RevealText>
             </h2>
 
             {/* Form fields — each input rises in one after the other */}

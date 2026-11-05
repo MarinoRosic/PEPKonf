@@ -13,8 +13,8 @@ const cardVariants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.15,
+      delayChildren: 0.08,
+      staggerChildren: 0.11,
     },
   },
 };
@@ -24,7 +24,7 @@ const imageVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -33,7 +33,7 @@ const textVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -62,7 +62,7 @@ const OrganizerCard = ({ name, img, text, subtitle, noDivider = false, borderCol
 
         <div className='flex flex-col sm:gap-y-8 gap-y-2 justify-center min-w-0'>
           <h2 className='pb-2 text-2xl sm:text-3xl lg:text-4xl text-white span'>
-            <RevealText delay={0.2}>{name}</RevealText>
+            <RevealText delay={0.15}>{name}</RevealText>
           </h2>
 
           {/* Dean subtitle — only renders when the subtitle prop is passed */}

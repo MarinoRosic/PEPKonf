@@ -9,7 +9,7 @@ const MaskLine = ({ children, delay, isInView, className = '' }) => (
     <motion.div
       initial={{ y: '105%' }}
       animate={isInView ? { y: 0 } : {}}
-      transition={{ duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94], delay }}
+      transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94], delay }}
     >
       {children}
     </motion.div>
@@ -29,7 +29,7 @@ const AboutPEPSection = () => {
         initial={{ scale: 1.08, opacity: 0.6 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
         style={{ willChange: 'transform, opacity' }}
-        transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 1.05, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <picture>
           <source media="(max-width: 1023px)" srcSet={stoliceMob} />
@@ -48,17 +48,17 @@ const AboutPEPSection = () => {
         {/* Headline — split into two masked lines */}
         <div className='flex flex-col w-full px-8 pb-8 md:pb-20 mx-auto lg:px-20'>
           <h1 className='text-3xl sm:text-5xl font-extrabold leading-snug text-white md:text-7xl text-balance'>
-            <MaskLine delay={0.3} isInView={isInView}>
+            <MaskLine delay={0.25} isInView={isInView}>
               Prva studentska konferencija u
             </MaskLine>
-            <MaskLine delay={0.44} isInView={isInView}>
+            <MaskLine delay={0.35} isInView={isInView}>
               <u className='roza'><span className='roza'>Dubrovniku</span></u> koja okuplja medijske i komunikacijske profesionalce.
             </MaskLine>
           </h1>
         </div>
 
         <div className='px-8 pb-5 lg:px-20'>
-          <MaskLine delay={0.58} isInView={isInView}>
+          <MaskLine delay={0.45} isInView={isInView}>
             <p className='text-xl font-semibold text-white md:text-3xl'>
               <span className='text-white'> PR | novinarstvo | iskustvo | PRiče</span>
             </p>
@@ -66,7 +66,7 @@ const AboutPEPSection = () => {
         </div>
 
         <div className='px-8 pb-5 lg:px-20'>
-          <MaskLine delay={0.70} isInView={isInView}>
+          <MaskLine delay={0.5} isInView={isInView}>
             <p className='text-xl font-extrabold text-white md:text-3xl'>
               <span className='text-white'>Vidimo se u 2027.!</span>
             </p>
@@ -74,7 +74,7 @@ const AboutPEPSection = () => {
         </div>
 
         <div className='px-8 pb-5 lg:px-20'>
-          <MaskLine delay={0.82} isInView={isInView}>
+          <MaskLine delay={0.6} isInView={isInView}>
             <p className='text-xl font-extrabold text-white md:text-3xl'>
               <span className='text-white'>Sveučilišni kampus, ulica branitelja Dubrovnika 41, Dubrovnik</span>
             </p>

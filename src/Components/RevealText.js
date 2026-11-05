@@ -10,7 +10,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 // Inside a scroll-driven opacity parent — pass the parent's opacity MotionValue
 // so the reveal fires when the text is actually visible, not just in the DOM:
 //   <RevealText trigger={someOpacityMotionValue}>Hello world</RevealText>
-export default function RevealText({ children, className, delay = 0, stagger = 0.09, trigger }) {
+export default function RevealText({ children, className, delay = 0, stagger = 0.07, trigger }) {
   const reduceMotion = useReducedMotion();
   const containerRef = useRef(null);
   // once: true → animation fires once and stays; words won't re-animate on scroll back up
@@ -57,7 +57,7 @@ export default function RevealText({ children, className, delay = 0, stagger = 0
             initial={{ y: '110%' }}
             animate={shouldAnimate ? { y: 0 } : { y: '110%' }}
             transition={{
-              duration: 0.6,
+              duration: 0.45,
               // delay + i * stagger: each word starts slightly after the previous
               // e.g. word 0 at 0s, word 1 at 0.1s, word 2 at 0.2s (with default stagger=0.1)
               delay: delay + i * stagger,

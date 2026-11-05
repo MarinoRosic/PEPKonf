@@ -8,7 +8,7 @@ const ScrollToTop = () => {
 
   // Use lenis.scrollTo — window.scrollTo is bypassed by Lenis
   const scrollToTop = () => {
-    lenis?.scrollTo(0, { duration: 1.8 });
+    lenis?.scrollTo(0, { duration: 1.35 });
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
-          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ scale: 1.12, boxShadow: '0 0 22px 6px rgba(219,155,213,0.35)' }}
           whileTap={{ scale: 0.92 }}
           aria-label="Scroll to top"

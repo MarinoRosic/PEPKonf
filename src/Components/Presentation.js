@@ -13,14 +13,14 @@ const sentences = [...new Set(lines.map(l => l.sentence))]
 const lastSentence = sentences[sentences.length - 1]
 const penultimate = sentences[sentences.length - 2]
 const getDelay = (sentence) =>
-  sentence === lastSentence ? penultimate * 0.15 + 0.9 : sentence * 0.15
+  sentence === lastSentence ? penultimate * 0.11 + 0.7 : sentence * 0.11
 
 const MaskLine = ({ children, delay, isInView }) => (
   <div className="overflow-hidden">
     <motion.div
       initial={{ y: '105%' }}
       animate={isInView ? { y: 0 } : {}}
-      transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay }}
     >
       {children}
     </motion.div>

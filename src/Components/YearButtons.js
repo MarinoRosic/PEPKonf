@@ -12,7 +12,7 @@ export default function YearButtons() {
       const startElement = document.getElementById('year-content-start')
       if (!startElement) return
       if (lenis) {
-        lenis.scrollTo(startElement, { duration: 1.2 })
+        lenis.scrollTo(startElement, { duration: 0.9 })
       } else {
         startElement.scrollIntoView({ behavior: 'smooth' })
       }

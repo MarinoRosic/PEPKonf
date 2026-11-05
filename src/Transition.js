@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const STRIPS = 5;
-const DURATION = 0.55;
-const STAGGER = 0.06;
+const DURATION = 0.4;
+const STAGGER = 0.05;
 
 const ease = [0.22, 1, 0.36, 1];
 

@@ -93,7 +93,7 @@ const Program = () => {
             initial={{ opacity: 0, scale: 0.88, y: 16 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           >
             <img className="rotate-180 w-[240px] lg:w-[480px]" src={headerImg} alt="" loading="lazy" decoding="async" />
           </motion.div>
@@ -111,14 +111,14 @@ const Program = () => {
             viewport={{ once: true, amount: 0.3 }}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.2, delayChildren: 0.15 } },
+              visible: { transition: { staggerChildren: 0.15, delayChildren: 0.11 } },
             }}
           >
             <motion.p
               className="text-3xl lg:text-5xl font-thin text-white tracking-widest uppercase"
               variants={reduceMotion
                 ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
-                : { hidden: { opacity: 0, y: 18, filter: 'blur(8px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } } }
+                : { hidden: { opacity: 0, y: 18, filter: 'blur(8px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }
               }
             >
               Uskoro
@@ -127,7 +127,7 @@ const Program = () => {
               className="text-xl lg:text-5xl text-[#db9bd5] tracking-wide text-center max-w-2xl lg:max-w-6xl px-6"
               variants={reduceMotion
                 ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.3 } } }
-                : { hidden: { opacity: 0, y: 12, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }
+                : { hidden: { opacity: 0, y: 12, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } } }
               }
             >
               PRogram će biti objavljen uskoro.
@@ -136,7 +136,7 @@ const Program = () => {
               className="flex gap-3 pt-2"
               variants={{
                 hidden:  { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.5 } },
+                visible: { opacity: 1, transition: { duration: 0.4 } },
               }}
             >
               {[0, 1, 2].map(i => (

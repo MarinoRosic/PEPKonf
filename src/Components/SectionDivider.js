@@ -12,7 +12,7 @@ const SectionDivider = ({ label, labelPosition = 'left', className = '' }) => {
   const rightFlex = labelPosition === 'left' ? longSide  : shortSide
 
   // Lines start expanding roughly halfway through the label stagger
-  const lineDelay = label ? (label.length * 0.04) * 0.6 : 0
+  const lineDelay = label ? (label.length * 0.03) * 0.6 : 0
 
   if (!label) {
     return (
@@ -22,7 +22,7 @@ const SectionDivider = ({ label, labelPosition = 'left', className = '' }) => {
           style={{ originX: 0.5 }}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={isInView ? { scaleX: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
     )
@@ -36,11 +36,11 @@ const SectionDivider = ({ label, labelPosition = 'left', className = '' }) => {
         style={{ originX: 1 }}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: lineDelay }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: lineDelay }}
       />
 
       <span className="text-[#db9bd5] text-[10px] tracking-[0.35em] uppercase font-medium whitespace-nowrap shrink-0">
-        <SplitText stagger={0.04} inView={isInView}>{label}</SplitText>
+        <SplitText stagger={0.03} inView={isInView}>{label}</SplitText>
       </span>
 
       {/* Right line — grows outward from label (originX: 0 = left edge, adjacent to label) */}
@@ -49,7 +49,7 @@ const SectionDivider = ({ label, labelPosition = 'left', className = '' }) => {
         style={{ originX: 0 }}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: lineDelay }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: lineDelay }}
       />
     </div>
   )

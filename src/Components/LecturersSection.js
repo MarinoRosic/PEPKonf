@@ -19,27 +19,27 @@ const GHOST_GRADIENTS = [
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 };
 
 const ghostRowVariants = {
   hidden:  {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.06 } },
 };
 
 const ghostItemVariants = {
   hidden:  { opacity: 0, scale: 0.7, filter: 'blur(10px)' },
-  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, scale: 1,   filter: 'blur(0px)', transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
 };
 
 const ghostTextVariants = {
   hidden:  { opacity: 0, y: 18, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.5,  ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.4,  ease: [0.16, 1, 0.3, 1] } },
 };
 
 const ghostSubtextVariants = {
   hidden:  { opacity: 0, y: 12, filter: 'blur(6px)' },
-  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } },
 };
 
 
@@ -101,7 +101,7 @@ const AvatarGrid = ({ data, year }) => {
                     className="relative aspect-square cursor-pointer w-full"
                     initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.75 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.35, delay: reduceMotion ? 0 : i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.25, delay: reduceMotion ? 0 : i * 0.03, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
                     style={{ willChange: reduceMotion ? 'auto' : 'transform, opacity' }}
