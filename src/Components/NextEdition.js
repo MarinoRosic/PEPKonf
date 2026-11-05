@@ -7,8 +7,12 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 // Flip to false to hide the entire section (e.g. once lecturers and the program are back on).
 const SHOW_NEXT_EDITION = true;
 
-// The part of the pinned scroll where the 6 rolls into the 7.
-const ROLL_RANGE = [0.1, 0.95];
+// The 6 starts rolling into the 7 when the top of the section is this far down the screen.
+const ROLL_START = 0.45;
+// How far through the scroll the 7 counts as landed: just before the end of the pin.
+const LAND_AT = 0.97;
+// The digits dissolve as they leave the line instead of being cut off, so both show mid-roll.
+const DIGIT_MASK = 'linear-gradient(to bottom, transparent 10%, black 25%, black 80%, transparent 97%)';
 const STOP_TUCK = '-0.2em';
 const RECENTER = '0.1em';
 
@@ -17,7 +21,7 @@ const NextEditionContent = () => {
   const lenis = useLenis();
   const sectionRef = useRef(null);
   const [done, setDone] = useState(false);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: [`start ${ROLL_START}`, 'end end'] });
 
   // Removes the pinned scroll distance for good, and takes the same distance off the scroll
   // position so nothing on screen moves.
@@ -52,7 +56,7 @@ const NextEditionContent = () => {
   const progress = useMotionValue(0);
   useMotionValueEvent(scrollYProgress, 'change', (value) => {
     if (reduceMotion || progress.get() === 1) return;
-    if (value < ROLL_RANGE[1]) {
+    if (value < LAND_AT) {
       progress.set(value);
       return;
     }
@@ -70,17 +74,18 @@ const NextEditionContent = () => {
     lenis?.stop();
   });
 
-  // The 6 and the 7 are stacked in a one-digit window, so sliding up by half swaps them.
-  const rollY = useTransform(progress, ROLL_RANGE, ['0%', '-50%'], { ease: easeInOut });
-  // A 7 is narrower than a 6, so the full stop tucks in and the number re-centres as it rolls.
-  const stopX = useTransform(progress, ROLL_RANGE, ['0em', STOP_TUCK], { ease: easeInOut });
-  const numberX = useTransform(progress, ROLL_RANGE, ['0em', RECENTER], { ease: easeInOut });
+  // The 6 and the 7 are stacked, so sliding the stack up by half swaps them.
+  const rollY = useTransform(progress, [0, 1], ['0%', '-50%'], { ease: easeInOut });
+  // A 7 is narrower than a 6, so the full stop tucks in and the number re-centres. This waits
+  // until the top bar of the 7 has risen past the full stop, so the two never touch.
+  const stopX = useTransform(progress, [0.6, 1], ['0em', STOP_TUCK], { ease: easeInOut });
+  const numberX = useTransform(progress, [0.6, 1], ['0em', RECENTER], { ease: easeInOut });
 
   return (
     <>
       <SectionDivider className="px-4" label="Korporativno komuniciranje" labelPosition="right" />
       {/* The extra height is the scroll distance the number stays pinned for on the first pass */}
-      <section ref={sectionRef} className={`relative ${reduceMotion ? '' : 'h-[160svh]'}`}>
+      <section ref={sectionRef} className={`relative ${reduceMotion ? '' : 'h-[130svh]'}`}>
         <div className={`flex flex-col items-center justify-center overflow-hidden h-[100svh] gap-y-6 ${reduceMotion ? '' : 'sticky top-0'}`}>
           <motion.h2
             aria-label="2027."
@@ -88,8 +93,11 @@ const NextEditionContent = () => {
             style={{ fontSize: 'min(30vw, 60svh)', x: reduceMotion ? RECENTER : numberX }}
           >
             <span aria-hidden="true">202</span>
-            {/* Clipped to the height of the digits, so the roll starts and ends level with the 202 */}
-            <span aria-hidden="true" className="h-[1em]" style={{ clipPath: 'inset(0.13em 0 0.05em 0)' }}>
+            {/* The padding gives the soft edges room outside the line, and the margin cancels it out */}
+            <span
+              aria-hidden="true"
+              style={{ height: '1.4em', margin: '-0.2em 0', padding: '0.2em 0', maskImage: DIGIT_MASK, WebkitMaskImage: DIGIT_MASK }}
+            >
               <motion.span
                 className="flex flex-col"
                 style={{ y: reduceMotion ? '-50%' : rollY, willChange: reduceMotion ? 'auto' : 'transform' }}
